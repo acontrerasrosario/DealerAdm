@@ -10,25 +10,21 @@ using System.Windows.Forms;
 
 namespace DealerADMProject
 {
-    public partial class Inicio : Form
+    public partial class Cotizacion : Form
     {
-        public Inicio()
+        public Cotizacion()
         {
             InitializeComponent();
         }
 
-
-        private void btnCerrar_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            Close();
+
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Menu M = new Menu();
-            M.Show();
-        }
 
+        }
     }
 }
