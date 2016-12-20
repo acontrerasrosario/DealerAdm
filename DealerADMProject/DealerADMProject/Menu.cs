@@ -36,7 +36,7 @@ namespace DealerADMProject
 
         private void btnCotizacion_Click(object sender, EventArgs e)
         {
-            Hide();
+            //Hide();
             Cotizacion c = new Cotizacion();
             c.Show();
         }

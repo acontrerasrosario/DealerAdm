@@ -16,7 +16,7 @@ namespace DealerADMProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio());
+            Application.Run(new Menu());
         }
     }
 }
