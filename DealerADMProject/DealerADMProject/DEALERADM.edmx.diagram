@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9212ea3649744c38524896dc2f82f98" Name="Diagram1">
+        <EntityTypeShape EntityType="DealerADMModel.Categoria" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Cliente" Width="1.5" PointX="3" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Empleado" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Factura" Width="1.5" PointX="7.5" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Pago" Width="1.5" PointX="9.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Vehiculo" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Venta" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.Detalle_Factura" Width="1.5" PointX="5.25" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DealerADMModel.database_firewall_rules" Width="1.5" PointX="7.75" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="DealerADMModel.FK_Vehiculos_Categorias" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Facturas_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Venta_Clientes" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Facturas_Empleados" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Facturas_Venta" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Pago_Facturas" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Detalle_Factura_Vehiculos" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Detalle_Factura_Vehiculos1" ManuallyRouted="false" />
+        <AssociationConnector Association="DealerADMModel.FK_Venta_Vehiculos" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

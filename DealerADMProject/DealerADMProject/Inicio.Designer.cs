@@ -61,7 +61,7 @@
             // UserN
             // 
             this.UserN.AutoSize = true;
-            this.UserN.Location = new System.Drawing.Point(194, 63);
+            this.UserN.Location = new System.Drawing.Point(198, 70);
             this.UserN.Name = "UserN";
             this.UserN.Size = new System.Drawing.Size(98, 13);
             this.UserN.TabIndex = 3;
