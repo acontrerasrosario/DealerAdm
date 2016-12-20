@@ -13,10 +13,10 @@ namespace DealerADMProject
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class DPDEALEREntities : DbContext
+    public partial class DealerADMEntities : DbContext
     {
-        public DPDEALEREntities()
-            : base("name=DPDEALEREntities")
+        public DealerADMEntities()
+            : base("name=DealerADMEntities")
         {
         }
     
@@ -27,11 +27,12 @@ namespace DealerADMProject
     
         public virtual DbSet<Categoria> Categorias { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Empleado> Empleadoes { get; set; }
+        public virtual DbSet<Empleado> Empleados { get; set; }
         public virtual DbSet<Factura> Facturas { get; set; }
         public virtual DbSet<Pago> Pagoes { get; set; }
-        public virtual DbSet<Vehiculo> Vehiculoes { get; set; }
+        public virtual DbSet<Vehiculo> Vehiculos { get; set; }
         public virtual DbSet<Venta> Ventas { get; set; }
         public virtual DbSet<Detalle_Factura> Detalle_Facturas { get; set; }
+        public virtual DbSet<database_firewall_rules> database_firewall_rules { get; set; }
     }
 }

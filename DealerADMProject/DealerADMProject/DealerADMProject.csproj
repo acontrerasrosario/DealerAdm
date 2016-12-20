@@ -33,23 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
@@ -58,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categoria.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Cliente.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Cotizacion.cs">
       <SubType>Form</SubType>
@@ -69,29 +58,32 @@
     <Compile Include="Cotizacion.Designer.cs">
       <DependentUpon>Cotizacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="DEALERADM.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DEALERADM.Context.tt</DependentUpon>
+    <Compile Include="database_firewall_rules.cs">
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
-    <Compile Include="DEALERADM.cs">
+    <Compile Include="DealerADM.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DEALERADM.Designer.cs">
+    <Compile Include="DealerADM.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DEALERADM.edmx</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DealerADM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DealerADM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Detalle_Factura.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Empleado.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Factura.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
@@ -106,15 +98,15 @@
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Pago.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vehiculo.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <Compile Include="Venta.cs">
-      <DependentUpon>DEALERADM.tt</DependentUpon>
+      <DependentUpon>DealerADM.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Cotizacion.resx">
       <DependentUpon>Cotizacion.cs</DependentUpon>
@@ -134,12 +126,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="DEALERADM.edmx">
+    <EntityDeploy Include="DealerADM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DEALERADM.Designer.cs</LastGenOutput>
+      <LastGenOutput>DealerADM.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="DEALERADM.edmx.diagram">
-      <DependentUpon>DEALERADM.edmx</DependentUpon>
+    <None Include="DealerADM.edmx.diagram">
+      <DependentUpon>DealerADM.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -156,19 +148,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DEALERADM.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DEALERADM.edmx</DependentUpon>
-      <LastGenOutput>DEALERADM.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DEALERADM.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DEALERADM.edmx</DependentUpon>
-      <LastGenOutput>DEALERADM.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="DealerADM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DealerADM.edmx</DependentUpon>
+      <LastGenOutput>DealerADM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DealerADM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DealerADM.edmx</DependentUpon>
+      <LastGenOutput>DealerADM.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

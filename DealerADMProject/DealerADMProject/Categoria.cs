@@ -17,13 +17,14 @@ namespace DealerADMProject
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Categoria()
         {
-            this.Vehiculoes = new HashSet<Vehiculo>();
+            this.Vehiculos = new HashSet<Vehiculo>();
         }
     
         public int Id { get; set; }
-        public string descripcion { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Vehiculo> Vehiculoes { get; set; }
+        public virtual ICollection<Vehiculo> Vehiculos { get; set; }
     }
 }

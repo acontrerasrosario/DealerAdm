@@ -15,10 +15,10 @@ namespace DealerADMProject
     public partial class Pago
     {
         public int ID { get; set; }
-        public string statusPago { get; set; }
-        public Nullable<System.DateTime> Fecharealizada { get; set; }
-        public string CantidadPagada { get; set; }
         public int FacturaID { get; set; }
+        public string Status { get; set; }
+        public System.DateTime Fecha { get; set; }
+        public decimal TotalPagado { get; set; }
     
         public virtual Factura Factura { get; set; }
     }

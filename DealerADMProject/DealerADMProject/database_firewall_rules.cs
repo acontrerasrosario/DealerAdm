@@ -12,15 +12,13 @@ namespace DealerADMProject
     using System;
     using System.Collections.Generic;
     
-    public partial class Detalle_Factura
+    public partial class database_firewall_rules
     {
-        public int FacturaID { get; set; }
-        public int VehiculoID { get; set; }
-        public short Cantidad { get; set; }
-        public float Descuento { get; set; }
-        public decimal Precio { get; set; }
-    
-        public virtual Vehiculo Vehiculo { get; set; }
-        public virtual Vehiculo Vehiculo1 { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public string start_ip_address { get; set; }
+        public string end_ip_address { get; set; }
+        public System.DateTime create_date { get; set; }
+        public System.DateTime modify_date { get; set; }
     }
 }
