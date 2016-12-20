@@ -21,13 +21,16 @@ namespace DealerADMProject
         }
     
         public int ID { get; set; }
-        public Nullable<int> VentaID { get; set; }
-        public Nullable<int> ClienteID { get; set; }
-        public Nullable<int> EmpleadoID { get; set; }
+        public int VentaID { get; set; }
+        public int ClienteID { get; set; }
+        public int EmpleadoID { get; set; }
         public string RNC { get; set; }
-        public Nullable<System.DateTime> FechaVencimiento { get; set; }
-        public string Total { get; set; }
+        public System.DateTime FechaVencimiento { get; set; }
+        public decimal Total { get; set; }
     
+        public virtual Cliente Cliente { get; set; }
+        public virtual Empleado Empleado { get; set; }
+        public virtual Venta Venta { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pago> Pagoes { get; set; }
     }

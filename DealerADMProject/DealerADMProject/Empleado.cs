@@ -14,11 +14,20 @@ namespace DealerADMProject
     
     public partial class Empleado
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Empleado()
+        {
+            this.Facturas = new HashSet<Factura>();
+        }
+    
         public int ID { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-        public string email { get; set; }
-        public string cedula { get; set; }
-        public string telefono { get; set; }
+        public string Email { get; set; }
+        public string Cedula { get; set; }
+        public string Telefono { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Factura> Facturas { get; set; }
     }
 }
