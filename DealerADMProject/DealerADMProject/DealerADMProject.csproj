@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectDB.cs" />
     <Compile Include="Cotizacion.cs">
       <SubType>Form</SubType>
     </Compile>
