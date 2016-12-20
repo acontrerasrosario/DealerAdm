@@ -52,33 +52,7 @@
     <Compile Include="Cotizacion.Designer.cs">
       <DependentUpon>Cotizacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="database_firewall_rules.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DealerADM.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DealerADM.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DealerADM.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DealerADM.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DealerADM.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Detalle_Factura.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Factura.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,17 +65,8 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Pago.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Vehiculo.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Venta.cs">
-      <DependentUpon>DealerADM.tt</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Cotizacion.resx">
       <DependentUpon>Cotizacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,13 +85,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="DealerADM.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DealerADM.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DealerADM.edmx.diagram">
-      <DependentUpon>DealerADM.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -143,18 +101,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DealerADM.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DealerADM.edmx</DependentUpon>
-      <LastGenOutput>DealerADM.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DealerADM.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DealerADM.edmx</DependentUpon>
-      <LastGenOutput>DealerADM.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
