@@ -13,40 +13,38 @@ namespace DealerADMProject
 {
     public partial class Cotizacion : Form
     {
+
+        private DataTable dt = new DataTable();
         public Cotizacion()
         {
-            fillComboBox();
+            
             InitializeComponent();
+            fillComboBox();
         }
 
         public void fillComboBox()
         {
-
-            try
+            DataTable dt = new DataTable();
+            SqlConnection conString = new SqlConnection(DatabaseConnection.conndb);
+            using (conString)
             {
-                SqlConnection conn = new SqlConnection(DatabaseConnection.conndb);
-                string marcaQuery = "SELECT Nombre FROM Categorias";
-                SqlCommand sc = new SqlCommand(marcaQuery, conn);
-                conn.Open();
-                SqlDataReader reader;
-                reader = sc.ExecuteReader();
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Marcas", typeof(string));
-                dt.Load(reader);
+                conString.Open();
+                SqlCommand cmd = new SqlCommand("SELECT * FROM CATEGORIAS", conString);
 
+                using(SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    da.Fill(dt);
+                    cmd.ExecuteNonQuery();
+                }
                 
-                comboBoxMarca.DisplayMember = "Marca";
-                comboBoxMarca.DataSource = dt;
 
-                conn.Close();
             }
-            catch(Exception ex)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                MessageBox.Show("Error Ocurred Filling Comobox");
+                comboBoxMarca.Items.Add(dt.Rows[i]["Nombre"]);
             }
-           
 
-        
+
             
         }
 
