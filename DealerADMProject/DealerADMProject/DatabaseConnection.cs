@@ -8,7 +8,7 @@ namespace DealerADMProject
 {
     class DatabaseConnection
     {
-
+        // KLK
         public static string conndb = "Data Source=DESKTOP-MOF5D9E;Initial Catalog = DealerADM; Integrated Security = True";
     }
 }
