@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnFactura = new System.Windows.Forms.Button();
             this.btnCotizacion = new System.Windows.Forms.Button();
             this.btnDealer = new System.Windows.Forms.Button();
             this.TxtFactura = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // btnFactura
             // 
-            this.button1.Location = new System.Drawing.Point(12, 62);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 31);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Facturacion";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.MouseHover += new System.EventHandler(this.btnFactura_Hover);
+            this.btnFactura.Location = new System.Drawing.Point(12, 62);
+            this.btnFactura.Name = "btnFactura";
+            this.btnFactura.Size = new System.Drawing.Size(129, 31);
+            this.btnFactura.TabIndex = 0;
+            this.btnFactura.Text = "Factura";
+            this.btnFactura.UseVisualStyleBackColor = true;
+            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
+            this.btnFactura.MouseHover += new System.EventHandler(this.btnFactura_Hover);
             // 
             // btnCotizacion
             // 
@@ -64,6 +65,7 @@
             this.btnDealer.TabIndex = 2;
             this.btnDealer.Text = "Dealer";
             this.btnDealer.UseVisualStyleBackColor = true;
+            this.btnDealer.Click += new System.EventHandler(this.btnVehiculos_Click);
             this.btnDealer.MouseHover += new System.EventHandler(this.btnDealer_Hover);
             // 
             // TxtFactura
@@ -94,7 +96,7 @@
             this.Controls.Add(this.TxtFactura);
             this.Controls.Add(this.btnDealer);
             this.Controls.Add(this.btnCotizacion);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnFactura);
             this.Name = "Menu";
             this.Text = "Menu";
             this.ResumeLayout(false);
@@ -104,7 +106,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnFactura;
         private System.Windows.Forms.Button btnCotizacion;
         private System.Windows.Forms.Button btnDealer;
         private System.Windows.Forms.RichTextBox TxtFactura;

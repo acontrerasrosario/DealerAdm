@@ -17,11 +17,8 @@ namespace DealerADMProject
             InitializeComponent();
         }
 
-        //private void TxtFactura_Load(object sender , EventArgs e)
-        //{
-        //    this.Show();
-        //}
-
+        
+        //Hover Events
         private void btnFactura_Hover(object sender , EventArgs e)
         {
             TxtFactura.Visible = true;
@@ -34,17 +31,34 @@ namespace DealerADMProject
             TxtFactura.Text = "Cotizacion de valor de venta del vehiculo";
         }
 
-        private void btnCotizacion_Click(object sender, EventArgs e)
-        {
-            //Hide();
-            Cotizacion c = new Cotizacion();
-            c.Show();
-        }
 
         private void btnDealer_Hover(object sender, EventArgs e)
         {
             TxtFactura.Visible = true;
             TxtFactura.Text = "Sistema de administracion y consulta de vehiculos para venta";
         }
+
+        //Click Events
+        private void btnFactura_Click(object sender, EventArgs e)
+        {
+            Factura f = new Factura();
+            f.Show();
+        }
+
+        private void btnCotizacion_Click(object sender, EventArgs e)
+        {
+            
+            Cotizacion c = new Cotizacion();
+            c.Show();
+        }
+
+        private void btnVehiculos_Click(object sender, EventArgs e)
+        {
+            
+            Vehiculos v = new Vehiculos();
+            v.ShowDialog();
+        }
+
+        
     }
 }

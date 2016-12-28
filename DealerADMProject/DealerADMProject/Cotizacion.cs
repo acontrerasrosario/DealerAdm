@@ -37,7 +37,7 @@ namespace DealerADMProject
                     cmd.ExecuteNonQuery();
                 }
                 
-
+                
             }
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -114,11 +114,6 @@ namespace DealerADMProject
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Cotizacion_Load(object sender, EventArgs e)
         {
 
         }

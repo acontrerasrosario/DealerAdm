@@ -250,7 +250,6 @@
             this.Controls.Add(this.comboBoxMarca);
             this.Name = "Cotizacion";
             this.Text = "Cotizacion";
-            this.Load += new System.EventHandler(this.Cotizacion_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
