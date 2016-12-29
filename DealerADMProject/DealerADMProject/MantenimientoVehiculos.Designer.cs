@@ -65,7 +65,7 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbRegistro = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.tbxCampo = new System.Windows.Forms.TextBox();
             this.rbModelo = new System.Windows.Forms.RadioButton();
             this.rbMarca = new System.Windows.Forms.RadioButton();
@@ -442,7 +442,7 @@
             // 
             this.gbRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbRegistro.Controls.Add(this.button1);
+            this.gbRegistro.Controls.Add(this.btnUpdate);
             this.gbRegistro.Controls.Add(this.tbxCampo);
             this.gbRegistro.Controls.Add(this.rbModelo);
             this.gbRegistro.Controls.Add(this.rbMarca);
@@ -455,14 +455,14 @@
             this.gbRegistro.TabStop = false;
             this.gbRegistro.Text = "Bucar por :";
             // 
-            // button1
+            // btnUpdate
             // 
-            this.button1.Location = new System.Drawing.Point(616, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(76, 20);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnUpdate.Location = new System.Drawing.Point(616, 51);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(76, 20);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // tbxCampo
             // 
@@ -564,7 +564,7 @@
         private System.Windows.Forms.GroupBox gbOpciones;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox gbRegistro;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbxCampo;
         private System.Windows.Forms.RadioButton rbModelo;
         private System.Windows.Forms.RadioButton rbMarca;

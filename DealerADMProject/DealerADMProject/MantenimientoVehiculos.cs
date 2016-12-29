@@ -153,26 +153,30 @@ namespace DealerADMProject
 
 
 
-        //TAB VEHICULOS REGISTRADOS [Imcompleto
+        /*
+         * TODO 
+         * VEHICULOS REGISTRADOS [Imcompleto]
+         * Completar cuando se busca por marca o modelo
+         */
         private void tbxCampo_TextChanged(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
             string Query;
             if (rbChasis.Checked == true)
             {
-                Query = "SELECT * From Vehiculos WHERE Chasis=" + tbxCampo.Text;
+                Query = "SELECT * From Vehiculos WHERE Chasis= " +"'"+tbxCampo.Text + "'";
                 dgvVeh.DataSource = Con.SELECT(Query);
             }
-            //else if (rbMarca.Checked == true)
-            //{
-            //    Query = "SELECT * From Vehiculos WHERE =" + "'" + tbxCampo.Text + "'";
-            //    dgvVeh.DataSource = Con.SELECT(Query);
-            //}
-            //else if (rbModelo.Checked == true)
-            //{
-            //    Query = "SELECT * From Vehiculos WHERE =" + "'" + tbxCampo.Text + "'";
-            //    dgvVeh.DataSource = Con.SELECT(Query);
-            //}
+            else if (rbMarca.Checked == true)
+            {
+                Query = "SELECT * From Vehiculos ve join Marcas ma ON(ve.MarcaID=ma.MarcaID) WHERE ma.Nombre =" + "'" + tbxCampo.Text + "'";
+                dgvVeh.DataSource = Con.SELECT(Query);
+            }
+            else if (rbModelo.Checked == true)
+            {
+                Query = "SELECT * From Vehiculos ve join Modelos mo ON(ve.ModeloID=mo.ModeloID) WHERE mo.Nombre =" + "'" + tbxCampo.Text + "'";
+                dgvVeh.DataSource = Con.SELECT(Query);
+            }
             else
             {
                 MessageBox.Show("Porfavor, seleccione un campo");
