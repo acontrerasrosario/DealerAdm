@@ -31,16 +31,16 @@
             this.panelHead = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblCedula = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblCliente = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.btnAñadir = new System.Windows.Forms.Button();
-            this.lblTelf = new System.Windows.Forms.Label();
-            this.lblDirc = new System.Windows.Forms.Label();
-            this.mtbTelf = new System.Windows.Forms.MaskedTextBox();
             this.txbDir = new System.Windows.Forms.TextBox();
+            this.mtbTelf = new System.Windows.Forms.MaskedTextBox();
+            this.lblDirc = new System.Windows.Forms.Label();
+            this.lblTelf = new System.Windows.Forms.Label();
+            this.btnAñadir = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblCliente = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblCedula = new System.Windows.Forms.Label();
             this.panelHead.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -88,76 +88,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Cliente";
             // 
-            // lblCedula
+            // txbDir
             // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Location = new System.Drawing.Point(6, 36);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(46, 13);
-            this.lblCedula.TabIndex = 0;
-            this.lblCedula.Text = "Cedula";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(65, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(171, 34);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 2;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // lblCliente
-            // 
-            this.lblCliente.AutoSize = true;
-            this.lblCliente.Location = new System.Drawing.Point(6, 70);
-            this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(46, 13);
-            this.lblCliente.TabIndex = 3;
-            this.lblCliente.Text = "Cliente";
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.Silver;
-            this.textBox2.Location = new System.Drawing.Point(65, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 4;
-            // 
-            // btnAñadir
-            // 
-            this.btnAñadir.Location = new System.Drawing.Point(257, 34);
-            this.btnAñadir.Name = "btnAñadir";
-            this.btnAñadir.Size = new System.Drawing.Size(75, 23);
-            this.btnAñadir.TabIndex = 5;
-            this.btnAñadir.Text = "Añadir";
-            this.btnAñadir.UseVisualStyleBackColor = true;
-            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
-            // 
-            // lblTelf
-            // 
-            this.lblTelf.AutoSize = true;
-            this.lblTelf.Location = new System.Drawing.Point(6, 107);
-            this.lblTelf.Name = "lblTelf";
-            this.lblTelf.Size = new System.Drawing.Size(57, 13);
-            this.lblTelf.TabIndex = 6;
-            this.lblTelf.Text = "Telefono";
-            // 
-            // lblDirc
-            // 
-            this.lblDirc.AutoSize = true;
-            this.lblDirc.Location = new System.Drawing.Point(6, 144);
-            this.lblDirc.Name = "lblDirc";
-            this.lblDirc.Size = new System.Drawing.Size(61, 13);
-            this.lblDirc.TabIndex = 7;
-            this.lblDirc.Text = "Direccion";
+            this.txbDir.BackColor = System.Drawing.Color.Silver;
+            this.txbDir.Location = new System.Drawing.Point(65, 144);
+            this.txbDir.Name = "txbDir";
+            this.txbDir.ReadOnly = true;
+            this.txbDir.Size = new System.Drawing.Size(164, 20);
+            this.txbDir.TabIndex = 9;
             // 
             // mtbTelf
             // 
@@ -169,14 +107,77 @@
             this.mtbTelf.Size = new System.Drawing.Size(100, 20);
             this.mtbTelf.TabIndex = 8;
             // 
-            // txbDir
+            // lblDirc
             // 
-            this.txbDir.BackColor = System.Drawing.Color.Silver;
-            this.txbDir.Location = new System.Drawing.Point(65, 144);
-            this.txbDir.Name = "txbDir";
-            this.txbDir.ReadOnly = true;
-            this.txbDir.Size = new System.Drawing.Size(164, 20);
-            this.txbDir.TabIndex = 9;
+            this.lblDirc.AutoSize = true;
+            this.lblDirc.Location = new System.Drawing.Point(6, 144);
+            this.lblDirc.Name = "lblDirc";
+            this.lblDirc.Size = new System.Drawing.Size(61, 13);
+            this.lblDirc.TabIndex = 7;
+            this.lblDirc.Text = "Direccion";
+            // 
+            // lblTelf
+            // 
+            this.lblTelf.AutoSize = true;
+            this.lblTelf.Location = new System.Drawing.Point(6, 107);
+            this.lblTelf.Name = "lblTelf";
+            this.lblTelf.Size = new System.Drawing.Size(57, 13);
+            this.lblTelf.TabIndex = 6;
+            this.lblTelf.Text = "Telefono";
+            // 
+            // btnAñadir
+            // 
+            this.btnAñadir.Location = new System.Drawing.Point(257, 34);
+            this.btnAñadir.Name = "btnAñadir";
+            this.btnAñadir.Size = new System.Drawing.Size(75, 23);
+            this.btnAñadir.TabIndex = 5;
+            this.btnAñadir.Text = "Añadir";
+            this.btnAñadir.UseVisualStyleBackColor = true;
+            this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.Silver;
+            this.textBox2.Location = new System.Drawing.Point(65, 70);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(175, 20);
+            this.textBox2.TabIndex = 4;
+            // 
+            // lblCliente
+            // 
+            this.lblCliente.AutoSize = true;
+            this.lblCliente.Location = new System.Drawing.Point(6, 70);
+            this.lblCliente.Name = "lblCliente";
+            this.lblCliente.Size = new System.Drawing.Size(46, 13);
+            this.lblCliente.TabIndex = 3;
+            this.lblCliente.Text = "Cliente";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(171, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(65, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 1;
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Location = new System.Drawing.Point(6, 36);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(46, 13);
+            this.lblCedula.TabIndex = 0;
+            this.lblCedula.Text = "Cedula";
             // 
             // Factura
             // 

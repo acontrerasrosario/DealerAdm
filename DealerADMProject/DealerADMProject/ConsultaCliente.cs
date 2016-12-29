@@ -26,7 +26,10 @@ namespace DealerADMProject
                 conString.Open();
 
                 string Query = @"INSERT INTO Clientes(Cedula, Nombre, Apellido, Email, Telefono, Provincia, Calle, Direccion, Comentario) 
-                                Values ('" + tbxCedula.Text + "','" + tbxNombre.Text + "','" + tbxApellido.Text + "','" + tbxEmail.Text + "','" + mtbxTelfono.Text + "','" + tbxProvincia.Text + "','" + tbxCalle.Text + "','" + tbxDireccion.Text + "','" + rtbComentario.Text + "')";
+                                Values ('" + tbxCedula.Text + "','" + tbxNombre.Text + "','" + tbxApellido.Text 
+                                + "','" + tbxEmail.Text + "','" + mtbxTelfono.Text + "','" + tbxProvincia.Text 
+                                + "','" + tbxCalle.Text + "','" + tbxDireccion.Text + "','" 
+                                + rtbComentario.Text + "')";
 
                 SqlCommand cmd = new SqlCommand(Query, conString);
 

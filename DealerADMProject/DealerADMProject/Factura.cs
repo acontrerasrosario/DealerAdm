@@ -22,5 +22,10 @@ namespace DealerADMProject
             ConsultaCliente C = new ConsultaCliente();
             C.ShowDialog();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
