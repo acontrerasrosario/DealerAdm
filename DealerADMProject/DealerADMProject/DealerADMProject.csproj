@@ -79,6 +79,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidarCategoria.cs" />
+    <Compile Include="ValidarMarca.cs" />
+    <Compile Include="ValidarModelo.cs" />
     <Compile Include="Vehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
