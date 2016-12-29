@@ -19,7 +19,7 @@ namespace DealerADMProject
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
-            ConsultaCliente C = new ConsultaCliente();
+            MantenimientoCliente C = new MantenimientoCliente();
             C.ShowDialog();
         }
 

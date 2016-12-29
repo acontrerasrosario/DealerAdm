@@ -55,7 +55,7 @@ namespace DealerADMProject
         private void btnVehiculos_Click(object sender, EventArgs e)
         {
             
-            Vehiculos v = new Vehiculos();
+            MantenimientoVehiculos v = new MantenimientoVehiculos();
             v.ShowDialog();
         }
 

@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsultaCliente.cs">
+    <Compile Include="MantenimientoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ConsultaCliente.Designer.cs">
-      <DependentUpon>ConsultaCliente.cs</DependentUpon>
+    <Compile Include="MantenimientoCliente.Designer.cs">
+      <DependentUpon>MantenimientoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Cotizacion.cs">
       <SubType>Form</SubType>
@@ -79,17 +79,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidarCategoria.cs" />
-    <Compile Include="ValidarMarca.cs" />
-    <Compile Include="ValidarModelo.cs" />
-    <Compile Include="Vehiculos.cs">
+    <Compile Include="SQLCRUD.cs" />
+    <Compile Include="MantenimientoVehiculos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vehiculos.Designer.cs">
-      <DependentUpon>Vehiculos.cs</DependentUpon>
+    <Compile Include="MantenimientoVehiculos.Designer.cs">
+      <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConsultaCliente.resx">
-      <DependentUpon>ConsultaCliente.cs</DependentUpon>
+    <EmbeddedResource Include="MantenimientoCliente.resx">
+      <DependentUpon>MantenimientoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cotizacion.resx">
       <DependentUpon>Cotizacion.cs</DependentUpon>
@@ -112,8 +110,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vehiculos.resx">
-      <DependentUpon>Vehiculos.cs</DependentUpon>
+    <EmbeddedResource Include="MantenimientoVehiculos.resx">
+      <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
