@@ -16,7 +16,7 @@ namespace DealerADMProject
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MantenimientoVehiculos());
+            Application.Run(new Menu());
         }
     }
 }

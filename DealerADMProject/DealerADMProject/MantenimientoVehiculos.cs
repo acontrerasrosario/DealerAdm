@@ -117,8 +117,8 @@ namespace DealerADMProject
         private void btnGuardar_Click(object sender, EventArgs e)
         {
                      
-            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido, Detalles,FechaRegistro,FechaAquisicion) 
-                     Values ('" + tbxChasis.Text + "','" + cmbCategoria.SelectedValue + "','" + cmbMarca.SelectedValue + "','" + cmbModelo.SelectedValue + "','" + tbxColor.Text + "','" + cmbPuertas.SelectedValue + "','" + cmbCilindros.SelectedValue + "','" + tbxKm.Text + "','" + tbxPrecioAdq.Text + "','" + rtbxDetalles.Text + "','" + DateTime.Today.ToString("MM-dd-yyyy") + "','" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") + "')";
+            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido, Detalles,AñoRegistro,FechaAquisicion) 
+                     Values ('" + tbxChasis.Text + "','" + cmbCategoria.SelectedValue + "','" + cmbMarca.SelectedValue + "','" + cmbModelo.SelectedValue + "','" + cmbColor.Text + "','" + cmbPuertas.SelectedValue + "','" + cmbCilindros.SelectedValue + "','" + tbxKm.Text + "','" + tbxPrecioAdq.Text + "','" + rtbxDetalles.Text + "','" + cmbAños.Text + "','" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") + "')";
 
             if (Con.INSERT(Query))
             {
@@ -147,12 +147,10 @@ namespace DealerADMProject
         // Limpia los valores del formulario de Vehiculos
         public void Clean_Fields()
         {
-            this.tbxChasis.Text = this.tbxAño.Text = this.tbxColor.Text = this.tbxKm.Text = this.tbxPrecioAdq.Text =this.rtbxDetalles.Text= "";
-            this.cmbMarca.SelectedValue = this.cmbModelo.SelectedValue = this.cmbCategoria.SelectedValue = 0;
+            this.tbxChasis.Text = this.tbxKm.Text = this.tbxPrecioAdq.Text =this.rtbxDetalles.Text= "";
+            this.cmbMarca.SelectedValue = this.cmbAños.SelectedValue = this.cmbColor.SelectedValue = this.cmbModelo.SelectedValue = this.cmbCategoria.SelectedValue = 0;
         }
-
-
-
+  
         /*
          * TODO 
          * VEHICULOS REGISTRADOS [Imcompleto]
@@ -184,6 +182,6 @@ namespace DealerADMProject
 
         }
 
-
+     
     }
 }
