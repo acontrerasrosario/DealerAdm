@@ -18,47 +18,29 @@ namespace DealerADMProject
         }
 
         
-        //Hover Events
-        private void btnFactura_Hover(object sender , EventArgs e)
-        {
-            TxtFactura.Visible = true;
-            TxtFactura.Text = "Facturacion de vehiculos para venta";
-        }
-
-        private void btnCotizacion_Hover(object sender, EventArgs e)
-        {
-            TxtFactura.Visible = true;
-            TxtFactura.Text = "Cotizacion de valor de venta del vehiculo";
-        }
-
-
-        private void btnDealer_Hover(object sender, EventArgs e)
-        {
-            TxtFactura.Visible = true;
-            TxtFactura.Text = "Sistema de administracion y consulta de vehiculos para venta";
-        }
-
         //Click Events
-        private void btnFactura_Click(object sender, EventArgs e)
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Factura f = new Factura();
-            f.Show();
+            MantenimientoCliente Mc = new MantenimientoCliente();
+            Mc.ShowDialog();
         }
 
-        private void btnCotizacion_Click(object sender, EventArgs e)
+        private void vehiculosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-            Cotizacion c = new Cotizacion();
-            c.Show();
-        }
-
-        private void btnVehiculos_Click(object sender, EventArgs e)
-        {
-            
             MantenimientoVehiculos v = new MantenimientoVehiculos();
             v.ShowDialog();
         }
 
-        
+        private void cotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cotizacion c = new Cotizacion();
+            c.Show();
+        }
+
+        private void facturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Factura f = new Factura();
+            f.Show();
+        }
     }
 }

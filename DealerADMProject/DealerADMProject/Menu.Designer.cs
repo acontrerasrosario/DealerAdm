@@ -28,88 +28,104 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnFactura = new System.Windows.Forms.Button();
-            this.btnCotizacion = new System.Windows.Forms.Button();
-            this.btnDealer = new System.Windows.Forms.Button();
-            this.TxtFactura = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.msPrincipal = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiculosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cotizacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.msPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnFactura
+            // msPrincipal
             // 
-            this.btnFactura.Location = new System.Drawing.Point(12, 62);
-            this.btnFactura.Name = "btnFactura";
-            this.btnFactura.Size = new System.Drawing.Size(129, 31);
-            this.btnFactura.TabIndex = 0;
-            this.btnFactura.Text = "Factura";
-            this.btnFactura.UseVisualStyleBackColor = true;
-            this.btnFactura.Click += new System.EventHandler(this.btnFactura_Click);
-            this.btnFactura.MouseHover += new System.EventHandler(this.btnFactura_Hover);
+            this.msPrincipal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.msPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.reportesToolStripMenuItem,
+            this.facturaToolStripMenuItem,
+            this.cotizacionesToolStripMenuItem,
+            this.utilidadesToolStripMenuItem});
+            this.msPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.msPrincipal.Name = "msPrincipal";
+            this.msPrincipal.Size = new System.Drawing.Size(745, 29);
+            this.msPrincipal.TabIndex = 5;
+            this.msPrincipal.Text = "Menu";
             // 
-            // btnCotizacion
+            // toolStripMenuItem1
             // 
-            this.btnCotizacion.Location = new System.Drawing.Point(12, 126);
-            this.btnCotizacion.Name = "btnCotizacion";
-            this.btnCotizacion.Size = new System.Drawing.Size(129, 31);
-            this.btnCotizacion.TabIndex = 1;
-            this.btnCotizacion.Text = "Cotizacion";
-            this.btnCotizacion.UseVisualStyleBackColor = true;
-            this.btnCotizacion.Click += new System.EventHandler(this.btnCotizacion_Click);
-            this.btnCotizacion.MouseHover += new System.EventHandler(this.btnCotizacion_Hover);
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.vehiculosToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(135, 25);
+            this.toolStripMenuItem1.Text = "Mantenimientos";
             // 
-            // btnDealer
+            // clientesToolStripMenuItem
             // 
-            this.btnDealer.Location = new System.Drawing.Point(12, 190);
-            this.btnDealer.Name = "btnDealer";
-            this.btnDealer.Size = new System.Drawing.Size(129, 31);
-            this.btnDealer.TabIndex = 2;
-            this.btnDealer.Text = "Dealer";
-            this.btnDealer.UseVisualStyleBackColor = true;
-            this.btnDealer.Click += new System.EventHandler(this.btnVehiculos_Click);
-            this.btnDealer.MouseHover += new System.EventHandler(this.btnDealer_Hover);
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
-            // TxtFactura
+            // vehiculosToolStripMenuItem
             // 
-            this.TxtFactura.Location = new System.Drawing.Point(452, 62);
-            this.TxtFactura.Name = "TxtFactura";
-            this.TxtFactura.ReadOnly = true;
-            this.TxtFactura.Size = new System.Drawing.Size(168, 167);
-            this.TxtFactura.TabIndex = 3;
-            this.TxtFactura.Text = "Facturacion de Vehiculos para venta";
-            this.TxtFactura.Visible = false;
+            this.vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
+            this.vehiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.vehiculosToolStripMenuItem.Text = "Vehiculos";
+            this.vehiculosToolStripMenuItem.Click += new System.EventHandler(this.vehiculosToolStripMenuItem_Click);
             // 
-            // label1
+            // reportesToolStripMenuItem
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(449, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Descripción";
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // facturaToolStripMenuItem
+            // 
+            this.facturaToolStripMenuItem.Name = "facturaToolStripMenuItem";
+            this.facturaToolStripMenuItem.Size = new System.Drawing.Size(73, 25);
+            this.facturaToolStripMenuItem.Text = "Factura";
+            this.facturaToolStripMenuItem.Click += new System.EventHandler(this.facturaToolStripMenuItem_Click);
+            // 
+            // cotizacionesToolStripMenuItem
+            // 
+            this.cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
+            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(109, 25);
+            this.cotizacionesToolStripMenuItem.Text = "Cotizaciones";
+            this.cotizacionesToolStripMenuItem.Click += new System.EventHandler(this.cotizacionesToolStripMenuItem_Click);
+            // 
+            // utilidadesToolStripMenuItem
+            // 
+            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
+            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(91, 25);
+            this.utilidadesToolStripMenuItem.Text = "Utilidades";
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 305);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TxtFactura);
-            this.Controls.Add(this.btnDealer);
-            this.Controls.Add(this.btnCotizacion);
-            this.Controls.Add(this.btnFactura);
+            this.Controls.Add(this.msPrincipal);
             this.Name = "Menu";
             this.Text = "Menu";
+            this.msPrincipal.ResumeLayout(false);
+            this.msPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnFactura;
-        private System.Windows.Forms.Button btnCotizacion;
-        private System.Windows.Forms.Button btnDealer;
-        private System.Windows.Forms.RichTextBox TxtFactura;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip msPrincipal;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehiculosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cotizacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilidadesToolStripMenuItem;
     }
 }
