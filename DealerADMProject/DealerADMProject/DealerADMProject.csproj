@@ -86,6 +86,7 @@
     <Compile Include="MantenimientoVehiculos.Designer.cs">
       <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </Compile>
+    <Compile Include="ValidarVenta.cs" />
     <EmbeddedResource Include="MantenimientoCliente.resx">
       <DependentUpon>MantenimientoCliente.cs</DependentUpon>
     </EmbeddedResource>

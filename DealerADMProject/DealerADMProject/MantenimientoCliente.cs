@@ -104,5 +104,17 @@ namespace DealerADMProject
             }
             
         }
+
+        private void tbxCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8; // el 8 es el backspace
+
+        }
+
+        private void mtbxTelfono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8; // el 8 es el backspace
+
+        }
     }
 }

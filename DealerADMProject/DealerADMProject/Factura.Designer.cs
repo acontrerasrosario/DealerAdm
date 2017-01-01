@@ -36,13 +36,52 @@
             this.lblDirc = new System.Windows.Forms.Label();
             this.lblTelf = new System.Windows.Forms.Label();
             this.btnAñadir = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbClienteName = new System.Windows.Forms.TextBox();
             this.lblCliente = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbCedula = new System.Windows.Forms.TextBox();
             this.lblCedula = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbxPrecio = new System.Windows.Forms.TextBox();
+            this.tbxColor = new System.Windows.Forms.TextBox();
+            this.tbxCat = new System.Windows.Forms.TextBox();
+            this.tbxAño = new System.Windows.Forms.TextBox();
+            this.tbxModelo = new System.Windows.Forms.TextBox();
+            this.tbxMarca = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.tbxChasis = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblColor = new System.Windows.Forms.Label();
+            this.lblCategoria = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblModelo = new System.Windows.Forms.Label();
+            this.lblMarca = new System.Windows.Forms.Label();
+            this.lblChasis = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.tbxDetalleVenta = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CantidadCompra = new System.Windows.Forms.NumericUpDown();
+            this.label6 = new System.Windows.Forms.Label();
+            this.FechaVencimiento = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbxRNC = new System.Windows.Forms.TextBox();
+            this.tbxTotal = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.CantDiscount = new System.Windows.Forms.NumericUpDown();
             this.panelHead.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadCompra)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CantDiscount)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHead
@@ -75,10 +114,10 @@
             this.groupBox1.Controls.Add(this.lblDirc);
             this.groupBox1.Controls.Add(this.lblTelf);
             this.groupBox1.Controls.Add(this.btnAñadir);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.tbClienteName);
             this.groupBox1.Controls.Add(this.lblCliente);
             this.groupBox1.Controls.Add(this.btnBuscar);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbCedula);
             this.groupBox1.Controls.Add(this.lblCedula);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 100);
@@ -94,7 +133,7 @@
             this.txbDir.Location = new System.Drawing.Point(65, 144);
             this.txbDir.Name = "txbDir";
             this.txbDir.ReadOnly = true;
-            this.txbDir.Size = new System.Drawing.Size(164, 20);
+            this.txbDir.Size = new System.Drawing.Size(257, 20);
             this.txbDir.TabIndex = 9;
             // 
             // mtbTelf
@@ -135,14 +174,14 @@
             this.btnAñadir.UseVisualStyleBackColor = true;
             this.btnAñadir.Click += new System.EventHandler(this.btnAñadir_Click);
             // 
-            // textBox2
+            // tbClienteName
             // 
-            this.textBox2.BackColor = System.Drawing.Color.Silver;
-            this.textBox2.Location = new System.Drawing.Point(65, 70);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 4;
+            this.tbClienteName.BackColor = System.Drawing.Color.Silver;
+            this.tbClienteName.Location = new System.Drawing.Point(65, 70);
+            this.tbClienteName.Name = "tbClienteName";
+            this.tbClienteName.ReadOnly = true;
+            this.tbClienteName.Size = new System.Drawing.Size(175, 20);
+            this.tbClienteName.TabIndex = 4;
             // 
             // lblCliente
             // 
@@ -163,12 +202,12 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // textBox1
+            // tbCedula
             // 
-            this.textBox1.Location = new System.Drawing.Point(65, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 1;
+            this.tbCedula.Location = new System.Drawing.Point(65, 37);
+            this.tbCedula.Name = "tbCedula";
+            this.tbCedula.Size = new System.Drawing.Size(100, 20);
+            this.tbCedula.TabIndex = 1;
             // 
             // lblCedula
             // 
@@ -179,11 +218,350 @@
             this.lblCedula.TabIndex = 0;
             this.lblCedula.Text = "Cedula";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tbxPrecio);
+            this.groupBox2.Controls.Add(this.tbxColor);
+            this.groupBox2.Controls.Add(this.tbxCat);
+            this.groupBox2.Controls.Add(this.tbxAño);
+            this.groupBox2.Controls.Add(this.tbxModelo);
+            this.groupBox2.Controls.Add(this.tbxMarca);
+            this.groupBox2.Controls.Add(this.btnSearch);
+            this.groupBox2.Controls.Add(this.tbxChasis);
+            this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.lblColor);
+            this.groupBox2.Controls.Add(this.lblCategoria);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.lblModelo);
+            this.groupBox2.Controls.Add(this.lblMarca);
+            this.groupBox2.Controls.Add(this.lblChasis);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(403, 100);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(372, 184);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Datos Vehiculo";
+            // 
+            // tbxPrecio
+            // 
+            this.tbxPrecio.BackColor = System.Drawing.Color.Silver;
+            this.tbxPrecio.Location = new System.Drawing.Point(262, 144);
+            this.tbxPrecio.Name = "tbxPrecio";
+            this.tbxPrecio.ReadOnly = true;
+            this.tbxPrecio.Size = new System.Drawing.Size(100, 20);
+            this.tbxPrecio.TabIndex = 15;
+            // 
+            // tbxColor
+            // 
+            this.tbxColor.BackColor = System.Drawing.Color.Silver;
+            this.tbxColor.Location = new System.Drawing.Point(262, 107);
+            this.tbxColor.Name = "tbxColor";
+            this.tbxColor.ReadOnly = true;
+            this.tbxColor.Size = new System.Drawing.Size(100, 20);
+            this.tbxColor.TabIndex = 14;
+            // 
+            // tbxCat
+            // 
+            this.tbxCat.BackColor = System.Drawing.Color.Silver;
+            this.tbxCat.Location = new System.Drawing.Point(262, 70);
+            this.tbxCat.Name = "tbxCat";
+            this.tbxCat.ReadOnly = true;
+            this.tbxCat.Size = new System.Drawing.Size(100, 20);
+            this.tbxCat.TabIndex = 13;
+            // 
+            // tbxAño
+            // 
+            this.tbxAño.BackColor = System.Drawing.Color.Silver;
+            this.tbxAño.Location = new System.Drawing.Point(57, 144);
+            this.tbxAño.Name = "tbxAño";
+            this.tbxAño.ReadOnly = true;
+            this.tbxAño.Size = new System.Drawing.Size(48, 20);
+            this.tbxAño.TabIndex = 12;
+            // 
+            // tbxModelo
+            // 
+            this.tbxModelo.BackColor = System.Drawing.Color.Silver;
+            this.tbxModelo.Location = new System.Drawing.Point(57, 107);
+            this.tbxModelo.Name = "tbxModelo";
+            this.tbxModelo.ReadOnly = true;
+            this.tbxModelo.Size = new System.Drawing.Size(80, 20);
+            this.tbxModelo.TabIndex = 11;
+            // 
+            // tbxMarca
+            // 
+            this.tbxMarca.BackColor = System.Drawing.Color.Silver;
+            this.tbxMarca.Location = new System.Drawing.Point(57, 70);
+            this.tbxMarca.Name = "tbxMarca";
+            this.tbxMarca.ReadOnly = true;
+            this.tbxMarca.Size = new System.Drawing.Size(80, 20);
+            this.tbxMarca.TabIndex = 10;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(222, 34);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 9;
+            this.btnSearch.Text = "Buscar";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // tbxChasis
+            // 
+            this.tbxChasis.Location = new System.Drawing.Point(57, 37);
+            this.tbxChasis.Name = "tbxChasis";
+            this.tbxChasis.Size = new System.Drawing.Size(159, 20);
+            this.tbxChasis.TabIndex = 8;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(191, 144);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(43, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Precio";
+            // 
+            // lblColor
+            // 
+            this.lblColor.AutoSize = true;
+            this.lblColor.Location = new System.Drawing.Point(191, 110);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(36, 13);
+            this.lblColor.TabIndex = 5;
+            this.lblColor.Text = "Color";
+            // 
+            // lblCategoria
+            // 
+            this.lblCategoria.AutoSize = true;
+            this.lblCategoria.Location = new System.Drawing.Point(191, 73);
+            this.lblCategoria.Name = "lblCategoria";
+            this.lblCategoria.Size = new System.Drawing.Size(61, 13);
+            this.lblCategoria.TabIndex = 4;
+            this.lblCategoria.Text = "Categoria";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "Año";
+            // 
+            // lblModelo
+            // 
+            this.lblModelo.AutoSize = true;
+            this.lblModelo.Location = new System.Drawing.Point(7, 107);
+            this.lblModelo.Name = "lblModelo";
+            this.lblModelo.Size = new System.Drawing.Size(48, 13);
+            this.lblModelo.TabIndex = 2;
+            this.lblModelo.Text = "Modelo";
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Location = new System.Drawing.Point(7, 73);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(42, 13);
+            this.lblMarca.TabIndex = 1;
+            this.lblMarca.Text = "Marca";
+            // 
+            // lblChasis
+            // 
+            this.lblChasis.AutoSize = true;
+            this.lblChasis.Location = new System.Drawing.Point(7, 36);
+            this.lblChasis.Name = "lblChasis";
+            this.lblChasis.Size = new System.Drawing.Size(44, 13);
+            this.lblChasis.TabIndex = 0;
+            this.lblChasis.Text = "Chasis";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.CantDiscount);
+            this.groupBox3.Controls.Add(this.tbxDetalleVenta);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.CantidadCompra);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.FechaVencimiento);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.tbxRNC);
+            this.groupBox3.Controls.Add(this.tbxTotal);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(46, 309);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(625, 182);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Datos Factura";
+            // 
+            // tbxDetalleVenta
+            // 
+            this.tbxDetalleVenta.Location = new System.Drawing.Point(316, 49);
+            this.tbxDetalleVenta.Multiline = true;
+            this.tbxDetalleVenta.Name = "tbxDetalleVenta";
+            this.tbxDetalleVenta.Size = new System.Drawing.Size(293, 93);
+            this.tbxDetalleVenta.TabIndex = 11;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(321, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 13);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Observaciones";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 55);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(57, 13);
+            this.label7.TabIndex = 9;
+            this.label7.Text = "Cantidad";
+            // 
+            // CantidadCompra
+            // 
+            this.CantidadCompra.Location = new System.Drawing.Point(80, 53);
+            this.CantidadCompra.Name = "CantidadCompra";
+            this.CantidadCompra.Size = new System.Drawing.Size(53, 20);
+            this.CantidadCompra.TabIndex = 8;
+            this.CantidadCompra.ValueChanged += new System.EventHandler(this.CantidadCompra_ValueChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 78);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Descuento";
+            // 
+            // FechaVencimiento
+            // 
+            this.FechaVencimiento.CalendarMonthBackground = System.Drawing.Color.Silver;
+            this.FechaVencimiento.Enabled = false;
+            this.FechaVencimiento.Location = new System.Drawing.Point(6, 122);
+            this.FechaVencimiento.Name = "FechaVencimiento";
+            this.FechaVencimiento.Size = new System.Drawing.Size(211, 20);
+            this.FechaVencimiento.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(39, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Fecha Vencimiento";
+            // 
+            // tbxRNC
+            // 
+            this.tbxRNC.Location = new System.Drawing.Point(80, 28);
+            this.tbxRNC.Name = "tbxRNC";
+            this.tbxRNC.Size = new System.Drawing.Size(126, 20);
+            this.tbxRNC.TabIndex = 3;
+            // 
+            // tbxTotal
+            // 
+            this.tbxTotal.BackColor = System.Drawing.Color.Silver;
+            this.tbxTotal.Location = new System.Drawing.Point(48, 154);
+            this.tbxTotal.Name = "tbxTotal";
+            this.tbxTotal.ReadOnly = true;
+            this.tbxTotal.Size = new System.Drawing.Size(100, 20);
+            this.tbxTotal.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 157);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Total";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(33, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "RNC";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.button4);
+            this.groupBox4.Controls.Add(this.button3);
+            this.groupBox4.Controls.Add(this.button2);
+            this.groupBox4.Controls.Add(this.btnAgregar);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(688, 309);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(110, 170);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Opciones";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(17, 123);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Modificar";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(17, 94);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Cancelar";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(17, 65);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Eliminar";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(17, 36);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // CantDiscount
+            // 
+            this.CantDiscount.Location = new System.Drawing.Point(80, 76);
+            this.CantDiscount.Name = "CantDiscount";
+            this.CantDiscount.Size = new System.Drawing.Size(53, 20);
+            this.CantDiscount.TabIndex = 13;
+            this.CantDiscount.ValueChanged += new System.EventHandler(this.CantDiscount_ValueChanged);
+            // 
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(810, 348);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(810, 506);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panelHead);
             this.Name = "Factura";
@@ -192,6 +570,13 @@
             this.panelHead.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CantidadCompra)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CantDiscount)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -206,10 +591,44 @@
         private System.Windows.Forms.Label lblDirc;
         private System.Windows.Forms.Label lblTelf;
         private System.Windows.Forms.Button btnAñadir;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbClienteName;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbCedula;
         private System.Windows.Forms.Label lblCedula;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox tbxChasis;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblColor;
+        private System.Windows.Forms.Label lblCategoria;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblModelo;
+        private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.Label lblChasis;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox tbxAño;
+        private System.Windows.Forms.TextBox tbxModelo;
+        private System.Windows.Forms.TextBox tbxMarca;
+        private System.Windows.Forms.TextBox tbxColor;
+        private System.Windows.Forms.TextBox tbxCat;
+        private System.Windows.Forms.TextBox tbxPrecio;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DateTimePicker FechaVencimiento;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbxRNC;
+        private System.Windows.Forms.TextBox tbxTotal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tbxDetalleVenta;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown CantidadCompra;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.NumericUpDown CantDiscount;
     }
 }
