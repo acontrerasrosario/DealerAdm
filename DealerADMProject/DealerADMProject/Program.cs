@@ -15,6 +15,7 @@ namespace DealerADMProject
         static void Main()
         {
             Application.EnableVisualStyles();
+            // daniel was here
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Menu());
         }
