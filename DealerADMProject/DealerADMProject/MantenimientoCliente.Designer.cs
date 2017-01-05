@@ -110,6 +110,7 @@
             this.mtbxTelfono.Name = "mtbxTelfono";
             this.mtbxTelfono.Size = new System.Drawing.Size(100, 20);
             this.mtbxTelfono.TabIndex = 16;
+            this.mtbxTelfono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbxTelfono_KeyPress);
             // 
             // tbxCalle
             // 
@@ -159,6 +160,7 @@
             this.tbxCedula.Name = "tbxCedula";
             this.tbxCedula.Size = new System.Drawing.Size(127, 20);
             this.tbxCedula.TabIndex = 8;
+            this.tbxCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCedula_KeyPress);
             // 
             // lblDir
             // 
@@ -454,14 +456,14 @@
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "MANTENIMIENTO DE CLIENTES";
             // 
-            // ConsultaCliente
+            // MantenimientoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 462);
             this.Controls.Add(this.pnClientes);
             this.Controls.Add(this.tbcCliente);
-            this.Name = "ConsultaCliente";
+            this.Name = "MantenimientoCliente";
             this.Text = "Consulta de clientes";
             this.gbDatosCliente.ResumeLayout(false);
             this.gbDatosCliente.PerformLayout();
