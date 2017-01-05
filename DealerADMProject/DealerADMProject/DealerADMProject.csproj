@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ItemVehiculo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ItemVehiculo.Designer.cs">
-      <DependentUpon>ItemVehiculo.cs</DependentUpon>
-    </Compile>
     <Compile Include="MantenimientoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
