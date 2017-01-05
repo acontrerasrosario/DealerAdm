@@ -92,13 +92,10 @@
     <Compile Include="MantenimientoVehiculos.Designer.cs">
       <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <EmbeddedResource Include="ItemVehiculo.resx">
       <DependentUpon>ItemVehiculo.cs</DependentUpon>
     </EmbeddedResource>
-=======
     <Compile Include="ValidarVenta.cs" />
->>>>>>> 63e639540ad67a99432925340c09dff57ab31e85
     <EmbeddedResource Include="MantenimientoCliente.resx">
       <DependentUpon>MantenimientoCliente.cs</DependentUpon>
     </EmbeddedResource>
