@@ -522,7 +522,7 @@
             this.tbxChasis.Name = "tbxChasis";
             this.tbxChasis.Size = new System.Drawing.Size(100, 20);
             this.tbxChasis.TabIndex = 1;
-           // 
+            // 
             // lblChasis
             // 
             this.lblChasis.AutoSize = true;

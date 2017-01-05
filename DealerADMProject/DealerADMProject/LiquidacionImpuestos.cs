@@ -28,7 +28,7 @@ namespace DealerADMProject
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            Query = "SELECT ID FROM Vehiculos WHERE Chasis ="+tbxChasis.Text;
+            Query = "SELECT ID FROM Vehiculos WHERE Chasis ="+"'"+tbxChasis.Text+"'";
             if (Con.EXIST(Query))
             {
                 DataRow row = Con.SELECT(Query).Rows[0];
