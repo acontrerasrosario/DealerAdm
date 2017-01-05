@@ -46,17 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ItemVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ItemVehiculo.Designer.cs">
+      <DependentUpon>ItemVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MantenimientoCliente.Designer.cs">
       <DependentUpon>MantenimientoCliente.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cotizacion.cs">
+    <Compile Include="LiquidacionImpuestos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cotizacion.Designer.cs">
-      <DependentUpon>Cotizacion.cs</DependentUpon>
+    <Compile Include="LiquidacionImpuestos.Designer.cs">
+      <DependentUpon>LiquidacionImpuestos.cs</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnection.cs" />
     <Compile Include="Factura.cs">
@@ -86,11 +92,14 @@
     <Compile Include="MantenimientoVehiculos.Designer.cs">
       <DependentUpon>MantenimientoVehiculos.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ItemVehiculo.resx">
+      <DependentUpon>ItemVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoCliente.resx">
       <DependentUpon>MantenimientoCliente.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cotizacion.resx">
-      <DependentUpon>Cotizacion.cs</DependentUpon>
+    <EmbeddedResource Include="LiquidacionImpuestos.resx">
+      <DependentUpon>LiquidacionImpuestos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Factura.resx">
       <DependentUpon>Factura.cs</DependentUpon>

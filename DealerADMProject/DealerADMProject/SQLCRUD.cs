@@ -68,7 +68,7 @@ namespace DealerADMProject
 
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
-                   cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                     da.Fill(dt);
                     return dt;
                 }
@@ -95,5 +95,22 @@ namespace DealerADMProject
             }
             
         }
+
+        public bool EXIST(string Query)
+        {
+            SqlConnection conString = new SqlConnection(DatabaseConnection.conndb);
+            bool value;
+            using (conString)
+            {
+                conString.Open();
+                SqlCommand cmd = new SqlCommand(Query, conString);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    value = cmd.ExecuteReader().HasRows;
+                }
+            }
+            return value;
+        }
+
     }
 }

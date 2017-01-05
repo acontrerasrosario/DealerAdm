@@ -66,14 +66,14 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // vehiculosToolStripMenuItem
             // 
             this.vehiculosToolStripMenuItem.Name = "vehiculosToolStripMenuItem";
-            this.vehiculosToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.vehiculosToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.vehiculosToolStripMenuItem.Text = "Vehiculos";
             this.vehiculosToolStripMenuItem.Click += new System.EventHandler(this.vehiculosToolStripMenuItem_Click);
             // 
@@ -93,9 +93,9 @@
             // cotizacionesToolStripMenuItem
             // 
             this.cotizacionesToolStripMenuItem.Name = "cotizacionesToolStripMenuItem";
-            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(109, 25);
-            this.cotizacionesToolStripMenuItem.Text = "Cotizaciones";
-            this.cotizacionesToolStripMenuItem.Click += new System.EventHandler(this.cotizacionesToolStripMenuItem_Click);
+            this.cotizacionesToolStripMenuItem.Size = new System.Drawing.Size(117, 25);
+            this.cotizacionesToolStripMenuItem.Text = "Liquidaciones";
+            this.cotizacionesToolStripMenuItem.Click += new System.EventHandler(this.LiquidacuinesToolStripMenuItem_Click);
             // 
             // utilidadesToolStripMenuItem
             // 
