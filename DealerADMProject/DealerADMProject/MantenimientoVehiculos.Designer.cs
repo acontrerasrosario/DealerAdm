@@ -55,6 +55,8 @@
             this.tcVehiculos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbDatosVehiculo = new System.Windows.Forms.GroupBox();
+            this.cmbColor = new System.Windows.Forms.ComboBox();
+            this.cmbAños = new System.Windows.Forms.ComboBox();
             this.cmbCilindros = new System.Windows.Forms.ComboBox();
             this.cmbPuertas = new System.Windows.Forms.ComboBox();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
@@ -68,8 +70,6 @@
             this.rbModelo = new System.Windows.Forms.RadioButton();
             this.rbMarca = new System.Windows.Forms.RadioButton();
             this.rbChasis = new System.Windows.Forms.RadioButton();
-            this.cmbAños = new System.Windows.Forms.ComboBox();
-            this.cmbColor = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -356,6 +356,52 @@
             this.gbDatosVehiculo.TabStop = false;
             this.gbDatosVehiculo.Text = "Datos";
             // 
+            // cmbColor
+            // 
+            this.cmbColor.FormattingEnabled = true;
+            this.cmbColor.Items.AddRange(new object[] {
+            "Amarillo",
+            "Azul",
+            "Blanco",
+            "Bronce",
+            "Crema",
+            "Dorado",
+            "Gris",
+            "Gris metalico",
+            "Naranja",
+            "Marron",
+            "Morado",
+            "Negro",
+            "Plateada",
+            "Rojo",
+            "Rojo vino",
+            "Verde"});
+            this.cmbColor.Location = new System.Drawing.Point(219, 131);
+            this.cmbColor.Name = "cmbColor";
+            this.cmbColor.Size = new System.Drawing.Size(68, 21);
+            this.cmbColor.TabIndex = 32;
+            // 
+            // cmbAños
+            // 
+            this.cmbAños.FormattingEnabled = true;
+            this.cmbAños.Items.AddRange(new object[] {
+            "2007",
+            "2008",
+            "2009",
+            "2010",
+            "2011",
+            "2012",
+            "2013",
+            "2014",
+            "2015",
+            "2016",
+            "2017",
+            "2018"});
+            this.cmbAños.Location = new System.Drawing.Point(92, 131);
+            this.cmbAños.Name = "cmbAños";
+            this.cmbAños.Size = new System.Drawing.Size(69, 21);
+            this.cmbAños.TabIndex = 31;
+            // 
             // cmbCilindros
             // 
             this.cmbCilindros.FormattingEnabled = true;
@@ -490,52 +536,6 @@
             this.rbChasis.TabStop = true;
             this.rbChasis.Text = "Chasis";
             this.rbChasis.UseVisualStyleBackColor = true;
-            // 
-            // cmbAños
-            // 
-            this.cmbAños.FormattingEnabled = true;
-            this.cmbAños.Items.AddRange(new object[] {
-            "2007",
-            "2008",
-            "2009",
-            "2010",
-            "2011",
-            "2012",
-            "2013",
-            "2014",
-            "2015",
-            "2016",
-            "2017",
-            "2018"});
-            this.cmbAños.Location = new System.Drawing.Point(92, 131);
-            this.cmbAños.Name = "cmbAños";
-            this.cmbAños.Size = new System.Drawing.Size(69, 21);
-            this.cmbAños.TabIndex = 31;
-            // 
-            // cmbColor
-            // 
-            this.cmbColor.FormattingEnabled = true;
-            this.cmbColor.Items.AddRange(new object[] {
-            "Amarillo",
-            "Azul",
-            "Blanco",
-            "Bronce",
-            "Crema",
-            "Dorado",
-            "Gris",
-            "Gris metalico",
-            "Naranja",
-            "Marron",
-            "Morado",
-            "Negro",
-            "Plateada",
-            "Rojo",
-            "Rojo vino",
-            "Verde"});
-            this.cmbColor.Location = new System.Drawing.Point(219, 131);
-            this.cmbColor.Name = "cmbColor";
-            this.cmbColor.Size = new System.Drawing.Size(68, 21);
-            this.cmbColor.TabIndex = 32;
             // 
             // MantenimientoVehiculos
             // 

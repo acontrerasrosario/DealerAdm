@@ -11,7 +11,7 @@ We decided to make our application in a technology we didnt knew, or only had th
 
 <ul>
   <li><b>Lenguaje</b>: C# </li>
-  <li><b>FrameWork</b>:  Entity</li>
+  <li><b>FrameWork</b>: - </li>
 </ul>
 
 <h3> Our Application Functionality </h3>

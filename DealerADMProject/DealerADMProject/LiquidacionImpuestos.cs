@@ -13,7 +13,11 @@ namespace DealerADMProject
 {
     public partial class LiquidacionImpuestos : Form
     {
+<<<<<<< HEAD
 
+=======
+        //klk
+>>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
         private DataTable dt = new DataTable();
         public LiquidacionImpuestos()
         {
@@ -28,7 +32,11 @@ namespace DealerADMProject
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
             Query = "SELECT ID FROM Vehiculos WHERE Chasis ="+tbxChasis.Text;
+=======
+            Query = "SELECT ID FROM Vehiculos WHERE Chasis ="+"'"+tbxChasis.Text+"'";
+>>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             if (Con.EXIST(Query))
             {
                 DataRow row = Con.SELECT(Query).Rows[0];
@@ -189,6 +197,10 @@ namespace DealerADMProject
             lbltotal.Text = Total.ToString("0.00");
 
         }
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
     }
 }

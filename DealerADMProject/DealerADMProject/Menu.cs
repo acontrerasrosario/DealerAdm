@@ -31,9 +31,9 @@ namespace DealerADMProject
             v.ShowDialog();
         }
 
-        private void cotizacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void LiquidacuinesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Cotizacion c = new Cotizacion();
+            LiquidacionImpuestos c = new LiquidacionImpuestos();
             c.Show();
         }
 
