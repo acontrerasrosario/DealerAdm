@@ -112,13 +112,12 @@ namespace DealerADMProject
         {
             Clean_Fields();
         }
-
-        //*TODO Arreglar funcion 
+        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
                      
-            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido, Detalles,AñoRegistro,FechaAquisicion) 
-                     Values ('" + tbxChasis.Text + "','" + cmbCategoria.SelectedValue + "','" + cmbMarca.SelectedValue + "','" + cmbModelo.SelectedValue + "','" + cmbColor.Text + "','" + cmbPuertas.SelectedValue + "','" + cmbCilindros.SelectedValue + "','" + tbxKm.Text + "','" + tbxPrecioAdq.Text + "','" + rtbxDetalles.Text + "','" + cmbAños.Text + "','" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") + "')";
+            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido, Detalles,AñoRegistro,FechaAquisicion,Cantidad) 
+                     Values ('" + tbxChasis.Text + "','" + cmbCategoria.SelectedValue + "','" + cmbMarca.SelectedValue + "','" + cmbModelo.SelectedValue + "','" + cmbColor.Text + "','" + cmbPuertas.SelectedValue + "','" + cmbCilindros.SelectedValue + "','" + tbxKm.Text + "','" + tbxPrecioAdq.Text + "','" + rtbxDetalles.Text + "','" + cmbAños.Text + "','" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"+ cantInventario.Value +")";
 
             if (Con.INSERT(Query))
             {
@@ -133,13 +132,13 @@ namespace DealerADMProject
 
             try
             {
-                Con.DELETE("Vehiculos", "Chasis=" + this.tbxChasis.Text);
+                Con.DELETE("Vehiculos", "Chasis=" + "'"+this.tbxChasis.Text+"'");
                 MessageBox.Show("El cliente ha sido eliminado satisfactoriamente");
                 Clean_Fields();
             }
             catch
             {
-                MessageBox.Show("Error al eliminar usuario");
+                MessageBox.Show("Error al eliminar vehiculo");
             }
 
         }
@@ -151,28 +150,27 @@ namespace DealerADMProject
             this.cmbMarca.SelectedValue = this.cmbAños.SelectedValue = this.cmbColor.SelectedValue = this.cmbModelo.SelectedValue = this.cmbCategoria.SelectedValue = 0;
         }
   
-        /*
-         * TODO 
-         * VEHICULOS REGISTRADOS [Imcompleto]
-         * Completar cuando se busca por marca o modelo
-         */
+        
         private void tbxCampo_TextChanged(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
             string Query;
             if (rbChasis.Checked == true)
             {
-                Query = "SELECT * From Vehiculos WHERE Chasis= " +"'"+tbxCampo.Text + "'";
+                
+                Query = "SELECT * From Vehiculos WHERE Chasis LIKE '%" +tbxCampo.Text + "%'";
                 dgvVeh.DataSource = Con.SELECT(Query);
             }
             else if (rbMarca.Checked == true)
             {
-                Query = "SELECT * From Vehiculos ve join Marcas ma ON(ve.MarcaID=ma.MarcaID) WHERE ma.Nombre =" + "'" + tbxCampo.Text + "'";
+                
+                Query = "SELECT * From Vehiculos ve join Marcas ma ON(ve.MarcaID=ma.MarcaID) WHERE ma.Nombre LIKE" + "'%" + tbxCampo.Text + "%'";
                 dgvVeh.DataSource = Con.SELECT(Query);
             }
             else if (rbModelo.Checked == true)
             {
-                Query = "SELECT * From Vehiculos ve join Modelos mo ON(ve.ModeloID=mo.ModeloID) WHERE mo.Nombre =" + "'" + tbxCampo.Text + "'";
+                
+                Query = "SELECT * From Vehiculos ve join Modelos mo ON(ve.ModeloID=mo.ModeloID) WHERE mo.Nombre LIKE" + "'%" + tbxCampo.Text + "%'";
                 dgvVeh.DataSource = Con.SELECT(Query);
             }
             else
@@ -182,6 +180,5 @@ namespace DealerADMProject
 
         }
 
-      
     }
 }
