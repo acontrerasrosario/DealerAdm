@@ -116,8 +116,8 @@ namespace DealerADMProject
         private void btnGuardar_Click(object sender, EventArgs e)
         {
                      
-            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido, Detalles,AñoRegistro,FechaAquisicion,Cantidad) 
-                     Values ('" + tbxChasis.Text + "','" + cmbCategoria.SelectedValue + "','" + cmbMarca.SelectedValue + "','" + cmbModelo.SelectedValue + "','" + cmbColor.Text + "','" + cmbPuertas.SelectedValue + "','" + cmbCilindros.SelectedValue + "','" + tbxKm.Text + "','" + tbxPrecioAdq.Text + "','" + rtbxDetalles.Text + "','" + cmbAños.Text + "','" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"+ cantInventario.Value +")";
+            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido,PrecioVenta , Detalles,AñoRegistro,FechaAquisicion,Cantidad) 
+                     Values (" +"'"+ tbxChasis.Text+"'"+ "," + cmbCategoria.SelectedValue + "," +  cmbMarca.SelectedValue  + "," + cmbModelo.SelectedValue + "," + "'" + cmbColor.Text + "'" + "," + cmbPuertas.SelectedValue + "," + cmbCilindros.SelectedValue + "," +  tbxKm.Text  + "," + tbxPrecioAdq.Text + "," + tbxPrecio.Text + "," + "'" + rtbxDetalles.Text + "'" + "," + cmbAños.Text + "," + "'" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"+","+ cantInventario.Value +")";
 
             if (Con.INSERT(Query))
             {
@@ -178,6 +178,11 @@ namespace DealerADMProject
                 MessageBox.Show("Porfavor, seleccione un campo");
             }
 
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            // TODO: CREAR Y COMPLETAR EL BOTON UPDATE
         }
 
     }

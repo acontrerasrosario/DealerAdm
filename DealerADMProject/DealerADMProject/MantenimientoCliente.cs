@@ -80,7 +80,7 @@ namespace DealerADMProject
             string Query;
             if (rbCedula.Checked == true)
             {
-                Query = "SELECT * From Clientes WHERE Cedula=" + tbxCampo.Text;
+                Query = "SELECT * From Clientes WHERE Cedula=" +"'"+ tbxCampo.Text+"'";
                 dgvCliente.DataSource = Con.SELECT(Query);
             }
             else if (rbApellido.Checked == true)
