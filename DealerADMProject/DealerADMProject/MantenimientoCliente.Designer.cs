@@ -22,7 +22,7 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
+        /// <summary>.
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
@@ -174,7 +174,7 @@
             // lblProvincia
             // 
             this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Location = new System.Drawing.Point(325, 108);
+            this.lblProvincia.Location = new System.Drawing.Point(322, 108);
             this.lblProvincia.Name = "lblProvincia";
             this.lblProvincia.Size = new System.Drawing.Size(60, 13);
             this.lblProvincia.TabIndex = 6;
@@ -201,7 +201,7 @@
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(345, 38);
+            this.lblMail.Location = new System.Drawing.Point(325, 37);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(37, 13);
             this.lblMail.TabIndex = 3;
