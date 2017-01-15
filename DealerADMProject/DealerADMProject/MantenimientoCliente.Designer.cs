@@ -46,7 +46,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCedula = new System.Windows.Forms.Label();
             this.gbOpcion = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -105,7 +105,7 @@
             // 
             // mtbxTelfono
             // 
-            this.mtbxTelfono.Location = new System.Drawing.Point(395, 113);
+            this.mtbxTelfono.Location = new System.Drawing.Point(391, 73);
             this.mtbxTelfono.Mask = "000-000-0000";
             this.mtbxTelfono.Name = "mtbxTelfono";
             this.mtbxTelfono.Size = new System.Drawing.Size(100, 20);
@@ -114,21 +114,21 @@
             // 
             // tbxCalle
             // 
-            this.tbxCalle.Location = new System.Drawing.Point(395, 180);
+            this.tbxCalle.Location = new System.Drawing.Point(391, 140);
             this.tbxCalle.Name = "tbxCalle";
             this.tbxCalle.Size = new System.Drawing.Size(153, 20);
             this.tbxCalle.TabIndex = 14;
             // 
             // tbxProvincia
             // 
-            this.tbxProvincia.Location = new System.Drawing.Point(395, 148);
+            this.tbxProvincia.Location = new System.Drawing.Point(391, 108);
             this.tbxProvincia.Name = "tbxProvincia";
             this.tbxProvincia.Size = new System.Drawing.Size(153, 20);
             this.tbxProvincia.TabIndex = 13;
             // 
             // tbxEmail
             // 
-            this.tbxEmail.Location = new System.Drawing.Point(395, 74);
+            this.tbxEmail.Location = new System.Drawing.Point(391, 34);
             this.tbxEmail.Name = "tbxEmail";
             this.tbxEmail.Size = new System.Drawing.Size(227, 20);
             this.tbxEmail.TabIndex = 12;
@@ -174,7 +174,7 @@
             // lblProvincia
             // 
             this.lblProvincia.AutoSize = true;
-            this.lblProvincia.Location = new System.Drawing.Point(329, 148);
+            this.lblProvincia.Location = new System.Drawing.Point(325, 108);
             this.lblProvincia.Name = "lblProvincia";
             this.lblProvincia.Size = new System.Drawing.Size(60, 13);
             this.lblProvincia.TabIndex = 6;
@@ -183,7 +183,7 @@
             // lblCalle
             // 
             this.lblCalle.AutoSize = true;
-            this.lblCalle.Location = new System.Drawing.Point(329, 183);
+            this.lblCalle.Location = new System.Drawing.Point(325, 143);
             this.lblCalle.Name = "lblCalle";
             this.lblCalle.Size = new System.Drawing.Size(35, 13);
             this.lblCalle.TabIndex = 5;
@@ -192,7 +192,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(329, 113);
+            this.lblTelefono.Location = new System.Drawing.Point(325, 73);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(57, 13);
             this.lblTelefono.TabIndex = 4;
@@ -201,7 +201,7 @@
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(329, 78);
+            this.lblMail.Location = new System.Drawing.Point(345, 38);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(37, 13);
             this.lblMail.TabIndex = 3;
@@ -236,27 +236,28 @@
             // 
             // gbOpcion
             // 
-            this.gbOpcion.Controls.Add(this.btnEliminar);
+            this.gbOpcion.Controls.Add(this.btnModificar);
             this.gbOpcion.Controls.Add(this.btnNuevo);
             this.gbOpcion.Controls.Add(this.btnCancel);
             this.gbOpcion.Controls.Add(this.btnGuardar);
             this.gbOpcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpcion.Location = new System.Drawing.Point(645, 44);
             this.gbOpcion.Name = "gbOpcion";
-            this.gbOpcion.Size = new System.Drawing.Size(115, 170);
+            this.gbOpcion.Size = new System.Drawing.Size(115, 136);
             this.gbOpcion.TabIndex = 1;
             this.gbOpcion.TabStop = false;
             this.gbOpcion.Text = "Opciones";
             // 
-            // btnEliminar
+            // btnModificar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(6, 100);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 23);
-            this.btnEliminar.TabIndex = 18;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnModificar.Location = new System.Drawing.Point(6, 65);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(103, 23);
+            this.btnModificar.TabIndex = 17;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Visible = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
@@ -270,7 +271,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(6, 134);
+            this.btnCancel.Location = new System.Drawing.Point(6, 97);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 23);
             this.btnCancel.TabIndex = 1;
@@ -313,7 +314,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tbcCliente.Controls.Add(this.tabPage1);
             this.tbcCliente.Controls.Add(this.tabPage2);
-            this.tbcCliente.Location = new System.Drawing.Point(4, 60);
+            this.tbcCliente.Location = new System.Drawing.Point(4, 62);
             this.tbcCliente.Name = "tbcCliente";
             this.tbcCliente.SelectedIndex = 0;
             this.tbcCliente.Size = new System.Drawing.Size(843, 402);
@@ -364,6 +365,7 @@
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.Size = new System.Drawing.Size(811, 224);
             this.dgvCliente.TabIndex = 0;
+            this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellClick);
             // 
             // gbRegistro
             // 
@@ -506,7 +508,6 @@
         private System.Windows.Forms.GroupBox gbObservaciones;
         private System.Windows.Forms.RichTextBox rtbComentario;
         private System.Windows.Forms.MaskedTextBox mtbxTelfono;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.TabControl tbcCliente;
         private System.Windows.Forms.TabPage tabPage1;
@@ -521,5 +522,6 @@
         private System.Windows.Forms.TextBox tbxCampo;
         private System.Windows.Forms.RadioButton rbEmail;
         private System.Windows.Forms.RadioButton rbDireccion;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
