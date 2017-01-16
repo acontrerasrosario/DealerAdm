@@ -33,8 +33,8 @@ namespace DealerADMProject
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string Query = @"INSERT INTO Clientes(Cedula, Nombre, Apellido, Email, Telefono, Provincia, Calle, Direccion, Comentario) 
-                        Values ('" + tbxCedula.Text + "','" + tbxNombre.Text + "','" + tbxApellido.Text + "','" + tbxEmail.Text + "','" + mtbxTelfono.Text + "','" + tbxProvincia.Text + "','" + tbxCalle.Text + "','" + tbxDireccion.Text + "','" + rtbComentario.Text + "')";
+            string Query = @"INSERT INTO Clientes(Cedula, Nombre, Apellido, Email, Telefono, Provincia, Calle, Direccion, Comentario,Estado) 
+                        Values ('" + tbxCedula.Text + "','" + tbxNombre.Text + "','" + tbxApellido.Text + "','" + tbxEmail.Text + "','" + mtbxTelfono.Text + "','" + tbxProvincia.Text + "','" + tbxCalle.Text + "','" + tbxDireccion.Text + "','" + rtbComentario.Text +"','"+cmbEstado.Text+ "')";
             if (Con.INSERT(Query))
             {
                 MessageBox.Show("Cliente registrado correctamente");
@@ -57,12 +57,13 @@ namespace DealerADMProject
                 {
                     rtbComentario.Text = null;
                 }
-                String Query = "UPDATE Clientes SET[Nombre] =" +"'"+tbxNombre.Text+"'"+", [Apellido] ="+"'"+tbxApellido.Text+"'" +", [Email] ="+"'"+tbxEmail.Text+"'"+", [Cedula] ="+ "'"+tbxCedula.Text+"'"+", [Telefono] ="+ "'"+mtbxTelfono.Text+"'"+", [Calle] ="+ "'"+tbxCalle.Text+"'"+", [Provincia] ="+ "'"+tbxProvincia.Text+"'"+", [Direccion] ="+ "'"+tbxDireccion.Text+"'"+", [Comentario] ="+ "'"+rtbComentario.Text+"'"+" WHERE[ID] ="+idCliente;
+                String Query = "UPDATE Clientes SET[Nombre] =" +"'"+tbxNombre.Text+"'"+", [Apellido] ="+"'"+tbxApellido.Text+"'" +", [Email] ="+"'"+tbxEmail.Text+"'"+", [Cedula] ="+ "'"+tbxCedula.Text+"'"+", [Telefono] ="+ "'"+mtbxTelfono.Text+"'"+", [Calle] ="+ "'"+tbxCalle.Text+"'"+", [Provincia] ="+ "'"+tbxProvincia.Text+"'"+", [Direccion] ="+ "'"+tbxDireccion.Text+"'"+", [Comentario] ="+ "'"+rtbComentario.Text+"'"+", [Estado] = " + "'" + cmbEstado.Text + "'" + " WHERE[ID] ="+idCliente;
                 if (Con.UPDATE(Query))
                 {
                     MessageBox.Show("Cliente Modificado Correctamente");
                     Clean_Fields();
                     FillDataGRID();
+                    tbcCliente.SelectedIndex = 1;
                 }
                 
             }
@@ -154,9 +155,23 @@ namespace DealerADMProject
             tbxProvincia.Text = row.Cells[7].Value.ToString();
             tbxCalle.Text = row.Cells[6].Value.ToString();
             rtbComentario.Text = row.Cells[9].Value.ToString();
-
+            if (row.Cells[10].Value.Equals("ACTIVO"))
+            {
+                cmbEstado.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbEstado.SelectedIndex = 1;
+            }
         }
 
-        
+        private void tbxCampo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(rbCedula.Checked == true)
+            {
+                e.Handled = !(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            }
+           
+        }
     }
 }

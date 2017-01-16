@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
             this.mtbxTelfono = new System.Windows.Forms.MaskedTextBox();
             this.tbxCalle = new System.Windows.Forms.TextBox();
             this.tbxProvincia = new System.Windows.Forms.TextBox();
@@ -79,6 +81,8 @@
             // 
             // gbDatosCliente
             // 
+            this.gbDatosCliente.Controls.Add(this.cmbEstado);
+            this.gbDatosCliente.Controls.Add(this.lblEstado);
             this.gbDatosCliente.Controls.Add(this.mtbxTelfono);
             this.gbDatosCliente.Controls.Add(this.tbxCalle);
             this.gbDatosCliente.Controls.Add(this.tbxProvincia);
@@ -102,6 +106,26 @@
             this.gbDatosCliente.TabIndex = 0;
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Datos";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "INACTIVO"});
+            this.cmbEstado.Location = new System.Drawing.Point(80, 184);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(121, 21);
+            this.cmbEstado.TabIndex = 18;
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(20, 187);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(46, 13);
+            this.lblEstado.TabIndex = 17;
+            this.lblEstado.Text = "Estado";
             // 
             // mtbxTelfono
             // 
@@ -391,6 +415,7 @@
             this.tbxCampo.Size = new System.Drawing.Size(550, 20);
             this.tbxCampo.TabIndex = 4;
             this.tbxCampo.TextChanged += new System.EventHandler(this.tbxCampo_TextChanged);
+            this.tbxCampo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCampo_KeyPress);
             // 
             // rbEmail
             // 
@@ -523,5 +548,7 @@
         private System.Windows.Forms.RadioButton rbEmail;
         private System.Windows.Forms.RadioButton rbDireccion;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.ComboBox cmbEstado;
+        private System.Windows.Forms.Label lblEstado;
     }
 }
