@@ -33,6 +33,30 @@ namespace DealerADMProject
             }
         }
 
+        // modificar cualquier dato en tabla
+        public bool UPDATE(string Query)
+        {
+            SqlConnection conString = new SqlConnection(DatabaseConnection.conndb);
+            int i;
+            using (conString)
+            {
+                conString.Open();
+                SqlCommand cmd = new SqlCommand(Query, conString);
+                using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                {
+                    i = cmd.ExecuteNonQuery();
+                }
+            }
+            if (i > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public bool DELETE(string Tabla ,string Condicion)
         {
             SqlConnection conString = new SqlConnection(DatabaseConnection.conndb);
