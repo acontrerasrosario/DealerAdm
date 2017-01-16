@@ -182,6 +182,20 @@ namespace DealerADMProject
 
         }
 
+        private void dgvVeh_CellClick(object sender,DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow Row = this.dgvVeh.Rows[e.RowIndex];
+                string ChasisID = Row.Cells["Chasis"].Value.ToString();
+                string Km = Row.Cells["KmActual"].Value.ToString();
+                tbxChasis.Text = ChasisID;
+                cmbMarca.Text = Row.Cells["Marca"].Value.ToString();
+                cmbColor.Text = Row.Cells["color"].Value.ToString();
+                tbxKm.Text = Km;
+            }
+        }
+
       
     }
 }

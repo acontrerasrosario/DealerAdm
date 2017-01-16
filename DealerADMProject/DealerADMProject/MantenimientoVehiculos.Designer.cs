@@ -233,6 +233,7 @@
             this.dgvVeh.Name = "dgvVeh";
             this.dgvVeh.Size = new System.Drawing.Size(892, 221);
             this.dgvVeh.TabIndex = 19;
+            this.dgvVeh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
             // 
             // groupBox1
             // 

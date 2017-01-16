@@ -33,20 +33,14 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvInfoVeh = new System.Windows.Forms.DataGridView();
             this.gbOpcion = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-=======
             this.button1 = new System.Windows.Forms.Button();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.gbObervaciones = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.gbDatosTramite = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
             this.tbxOtros = new System.Windows.Forms.TextBox();
             this.lblSerAd = new System.Windows.Forms.Label();
-=======
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.lblConsignatario = new System.Windows.Forms.Label();
             this.tbxConsignatario = new System.Windows.Forms.TextBox();
             this.tbxDeclaracionID = new System.Windows.Forms.TextBox();
@@ -60,15 +54,12 @@
             this.dtpFechaDecl = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaLLega = new System.Windows.Forms.DateTimePicker();
             this.gbDatosVeh = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
             this.ckbDrCafta = new System.Windows.Forms.CheckBox();
-=======
             this.tbxMulta = new System.Windows.Forms.TextBox();
             this.lblMult = new System.Windows.Forms.Label();
             this.tbxOtros = new System.Windows.Forms.TextBox();
             this.ckbDrCafta = new System.Windows.Forms.CheckBox();
             this.lblSerAd = new System.Windows.Forms.Label();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.tbxFlete = new System.Windows.Forms.TextBox();
             this.lblFlete = new System.Windows.Forms.Label();
             this.tbxArancelID = new System.Windows.Forms.TextBox();
@@ -86,35 +77,26 @@
             this.gbRegLiq = new System.Windows.Forms.GroupBox();
             this.dgvResgistrosLiq = new System.Windows.Forms.DataGridView();
             this.gbCampos = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-=======
             this.dtpRangoFinal = new System.Windows.Forms.DateTimePicker();
             this.dtpRangoInicial = new System.Windows.Forms.DateTimePicker();
             this.rbFechallegada = new System.Windows.Forms.RadioButton();
             this.rbAgencia = new System.Windows.Forms.RadioButton();
             this.rbLiqID = new System.Windows.Forms.RadioButton();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.btnBuscarCampo = new System.Windows.Forms.Button();
             this.tbxCampo = new System.Windows.Forms.TextBox();
             this.gbImpuestos = new System.Windows.Forms.GroupBox();
             this.gbTcif = new System.Windows.Forms.GroupBox();
-<<<<<<< HEAD
-=======
             this.lblVTotros = new System.Windows.Forms.Label();
             this.lblOtros = new System.Windows.Forms.Label();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.lblVTFlete = new System.Windows.Forms.Label();
             this.lblTFlete = new System.Windows.Forms.Label();
             this.lblVTSeguro = new System.Windows.Forms.Label();
             this.lblTFOB = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lblSeguro = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-=======
             this.gbMulta = new System.Windows.Forms.GroupBox();
             this.lblMulta = new System.Windows.Forms.Label();
             this.lblDecTardia = new System.Windows.Forms.Label();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.gbxTotal = new System.Windows.Forms.GroupBox();
             this.lblVTMulta = new System.Windows.Forms.Label();
             this.lblMultas = new System.Windows.Forms.Label();
@@ -124,16 +106,12 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.gbMulta = new System.Windows.Forms.GroupBox();
             this.lblDecTardia = new System.Windows.Forms.Label();
-=======
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.gbDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
-<<<<<<< HEAD
             this.lblMulta = new System.Windows.Forms.Label();
             this.lblOtros = new System.Windows.Forms.Label();
             this.lblVTotros = new System.Windows.Forms.Label();
@@ -145,8 +123,6 @@
             this.lblMult = new System.Windows.Forms.Label();
             this.tbxMulta = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-=======
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.tcLiquidacion.SuspendLayout();
             this.tpDatosLiq.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -161,13 +137,10 @@
             this.gbCampos.SuspendLayout();
             this.gbImpuestos.SuspendLayout();
             this.gbTcif.SuspendLayout();
-<<<<<<< HEAD
             this.gbxTotal.SuspendLayout();
             this.gbMulta.SuspendLayout();
-=======
             this.gbMulta.SuspendLayout();
             this.gbxTotal.SuspendLayout();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.gbDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).BeginInit();
             this.panel1.SuspendLayout();
@@ -233,8 +206,6 @@
             this.gbOpcion.TabStop = false;
             this.gbOpcion.Text = "Opciones";
             // 
-<<<<<<< HEAD
-=======
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(6, 60);
@@ -244,7 +215,6 @@
             this.button1.Text = "Nuevo Liquidacion";
             this.button1.UseVisualStyleBackColor = true;
             // 
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // btnCancel
             // 
             this.btnCancel.Location = new System.Drawing.Point(6, 109);
@@ -306,7 +276,7 @@
             this.gbDatosTramite.TabStop = false;
             this.gbDatosTramite.Text = "Datos de Tramite";
             // 
-<<<<<<< HEAD
+
             // tbxOtros
             // 
             this.tbxOtros.Location = new System.Drawing.Point(101, 189);
@@ -323,8 +293,6 @@
             this.lblSerAd.TabIndex = 15;
             this.lblSerAd.Text = "Servicio aduanero:";
             // 
-=======
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // lblConsignatario
             // 
             this.lblConsignatario.AutoSize = true;
@@ -448,8 +416,6 @@
             this.gbDatosVeh.TabStop = false;
             this.gbDatosVeh.Text = "Informacion de Item";
             // 
-<<<<<<< HEAD
-=======
             // tbxMulta
             // 
             this.tbxMulta.Location = new System.Drawing.Point(232, 189);
@@ -473,7 +439,6 @@
             this.tbxOtros.Size = new System.Drawing.Size(59, 20);
             this.tbxOtros.TabIndex = 16;
             // 
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // ckbDrCafta
             // 
             this.ckbDrCafta.Location = new System.Drawing.Point(106, 153);
@@ -482,8 +447,6 @@
             this.ckbDrCafta.TabIndex = 26;
             this.ckbDrCafta.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
-=======
             // lblSerAd
             // 
             this.lblSerAd.AutoSize = true;
@@ -493,7 +456,6 @@
             this.lblSerAd.TabIndex = 15;
             this.lblSerAd.Text = "Servicio aduanero:";
             // 
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // tbxFlete
             // 
             this.tbxFlete.Location = new System.Drawing.Point(232, 122);
@@ -655,8 +617,6 @@
             this.gbCampos.TabStop = false;
             this.gbCampos.Text = "Campos";
             // 
-<<<<<<< HEAD
-=======
             // dtpRangoFinal
             // 
             this.dtpRangoFinal.Location = new System.Drawing.Point(701, 50);
@@ -704,7 +664,6 @@
             this.rbLiqID.Text = "No .Liquidacion";
             this.rbLiqID.UseVisualStyleBackColor = true;
             // 
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // btnBuscarCampo
             // 
             this.btnBuscarCampo.Location = new System.Drawing.Point(930, 51);
@@ -752,8 +711,6 @@
             this.gbTcif.TabStop = false;
             this.gbTcif.Text = " Total CIF";
             // 
-<<<<<<< HEAD
-=======
             // lblVTotros
             // 
             this.lblVTotros.AutoSize = true;
@@ -774,7 +731,6 @@
             this.lblOtros.TabIndex = 17;
             this.lblOtros.Text = "Otros";
             // 
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // lblVTFlete
             // 
             this.lblVTFlete.AutoSize = true;
@@ -835,8 +791,6 @@
             this.lblSeguro.TabIndex = 1;
             this.lblSeguro.Text = "Total Seguro";
             // 
-<<<<<<< HEAD
-=======
             // gbMulta
             // 
             this.gbMulta.Controls.Add(this.lblMulta);
@@ -867,7 +821,6 @@
             this.lblDecTardia.TabIndex = 13;
             this.lblDecTardia.Text = "Declaracion Tardia";
             // 
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // gbxTotal
             // 
             this.gbxTotal.Controls.Add(this.lblVTMulta);
@@ -970,7 +923,6 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Total CIF:";
             // 
-<<<<<<< HEAD
             // gbMulta
             // 
             this.gbMulta.Controls.Add(this.lblMulta);
@@ -992,8 +944,6 @@
             this.lblDecTardia.TabIndex = 13;
             this.lblDecTardia.Text = "Declaracion Tardia";
             // 
-=======
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // gbDetalles
             // 
             this.gbDetalles.Controls.Add(this.dgvDetalle);
@@ -1035,7 +985,6 @@
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "MANTENIMIENTO DE VEHICULOS";
             // 
-<<<<<<< HEAD
             // lblMulta
             // 
             this.lblMulta.AutoSize = true;
@@ -1137,8 +1086,6 @@
             this.button1.Text = "Nuevo Liquidacion";
             this.button1.UseVisualStyleBackColor = true;
             // 
-=======
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             // LiquidacionImpuestos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1165,17 +1112,14 @@
             this.gbImpuestos.ResumeLayout(false);
             this.gbTcif.ResumeLayout(false);
             this.gbTcif.PerformLayout();
-<<<<<<< HEAD
             this.gbxTotal.ResumeLayout(false);
             this.gbxTotal.PerformLayout();
             this.gbMulta.ResumeLayout(false);
             this.gbMulta.PerformLayout();
-=======
             this.gbMulta.ResumeLayout(false);
             this.gbMulta.PerformLayout();
             this.gbxTotal.ResumeLayout(false);
             this.gbxTotal.PerformLayout();
->>>>>>> 0794f43f15c25ab14e2f9c03d7e339d62fd9957e
             this.gbDetalles.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalle)).EndInit();
             this.panel1.ResumeLayout(false);
