@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -61,6 +62,16 @@ namespace DealerADMProject
             }
         }
 
+        void fillGridDetFactura(int id, string detalle, string chasis)
+        {
+            ArrayList row = new ArrayList();
+            row.Add(id);
+            row.Add(detalle);
+            row.Add(chasis);
+            dgvDetFactura.Rows.Add(row.ToArray());
+
+        }
+
         // aqui se busca el vehiculo por numero de chasis
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -81,6 +92,7 @@ namespace DealerADMProject
                     tbxPrecio.Text =  item["PRECIO"].ToString();
                     unitprice = double.Parse(item["PRECIO"].ToString());
                     vehiculoid = Convert.ToInt32(item["ID"]);
+                    fillGridDetFactura(vehiculoid, tbxMarca.Text + " " + tbxModelo.Text + " " + tbxAño.Text, tbxChasis.Text);
 
                 }
 
@@ -99,7 +111,7 @@ namespace DealerADMProject
             string QueryVenta = @"INSERT INTO Venta(ClienteID,VehiculoID,FechaVenta,PrecioVenta,PrecioFinal,DetalleVenta) 
                      Values ("+clienteid+","+vehiculoid+","+"'"+fecha+"'"+","+tbxPrecio.Text+","+tbxTotal.Text+","+"'"+tbxDetalleVenta.Text+"'"+")";
 
-            
+            bool proceder = false;
             
             if (Con.INSERT(QueryVenta))
             {
@@ -110,16 +122,9 @@ namespace DealerADMProject
                 if (Con.INSERT(QueryFactura))
                 {
                     string QueryDetFactura = @"INSERT INTO [Detalle Factura](FacturaID,VehiculoID,Cantidad,Descuento,Precio)
-                      Values (" + Validar.ValidarIDFactura(idVenta) + "," + vehiculoid + "," + CantidadCompra.Value + "," + CantDiscount.Value + "," + tbxTotal.Text + ")";
-
-                    if (Con.INSERT(QueryDetFactura))
-                    {
-                        MessageBox.Show("La informacion de la venta ha sido almacenada correctamente");
-                        cleanAll();
-                    }
-
-                    else
-                        MessageBox.Show("Ha habido un error en el detalle de factura");
+                     Values (" + Validar.ValidarIDFactura(idVenta) + "," + vehiculoid + "," + CantidadCompra.Value + "," + CantDiscount.Value + "," + tbxTotal.Text + ")";
+                    
+                    
                 }
 
                 else
@@ -156,6 +161,16 @@ namespace DealerADMProject
             }
 
             tbxTotal.Text = totalamount.ToString();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void Factura_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void CantidadCompra_ValueChanged(object sender, EventArgs e)
