@@ -484,7 +484,6 @@
             this.Controls.Add(this.tbcCliente);
             this.Name = "MantenimientoCliente";
             this.Text = "Consulta de clientes";
-            this.Load += new System.EventHandler(this.MantenimientoCliente_Load);
             this.gbDatosCliente.ResumeLayout(false);
             this.gbDatosCliente.PerformLayout();
             this.gbObservaciones.ResumeLayout(false);

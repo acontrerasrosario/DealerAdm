@@ -174,9 +174,6 @@ namespace DealerADMProject
            
         }
 
-        private void MantenimientoCliente_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
