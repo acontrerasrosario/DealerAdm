@@ -13,7 +13,7 @@ namespace DealerADMProject
 {
     public partial class LiquidacionImpuestos : Form
     {
-        //klk
+
         private DataTable dt = new DataTable();
         public LiquidacionImpuestos()
         {
@@ -28,7 +28,9 @@ namespace DealerADMProject
         private void btnBuscar_Click(object sender, EventArgs e)
         {
 
-            Query = "SELECT ID FROM Vehiculos WHERE Chasis ="+"'"+tbxChasis.Text+"'";
+           
+   Query = "SELECT ID FROM Vehiculos WHERE Chasis ="+"'"+tbxChasis.Text+"'";
+
             if (Con.EXIST(Query))
             {
                 DataRow row = Con.SELECT(Query).Rows[0];
@@ -189,6 +191,6 @@ namespace DealerADMProject
             lbltotal.Text = Total.ToString("0.00");
 
         }
-        
+
     }
 }

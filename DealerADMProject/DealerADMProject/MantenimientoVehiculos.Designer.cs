@@ -1,4 +1,7 @@
-﻿namespace DealerADMProject
+﻿using System;
+using System.Windows.Forms;
+
+namespace DealerADMProject
 {
     partial class MantenimientoVehiculos
     {
@@ -56,31 +59,27 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbDatosVehiculo = new System.Windows.Forms.GroupBox();
             this.tbxPrecio = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cantInventario = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.cmbAños = new System.Windows.Forms.ComboBox();
             this.cmbCilindros = new System.Windows.Forms.ComboBox();
             this.cmbPuertas = new System.Windows.Forms.ComboBox();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbRegistro = new System.Windows.Forms.GroupBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.tbxCampo = new System.Windows.Forms.TextBox();
             this.rbModelo = new System.Windows.Forms.RadioButton();
             this.rbMarca = new System.Windows.Forms.RadioButton();
             this.rbChasis = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tcVehiculos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDatosVehiculo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cantInventario)).BeginInit();
             this.gbOpciones.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gbRegistro.SuspendLayout();
@@ -236,8 +235,9 @@
             this.dgvVeh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVeh.Location = new System.Drawing.Point(14, 32);
             this.dgvVeh.Name = "dgvVeh";
-            this.dgvVeh.Size = new System.Drawing.Size(892, 170);
+            this.dgvVeh.Size = new System.Drawing.Size(892, 165);
             this.dgvVeh.TabIndex = 19;
+            this.dgvVeh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
             // 
             // groupBox1
             // 
@@ -247,7 +247,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 112);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(912, 276);
+            this.groupBox1.Size = new System.Drawing.Size(912, 224);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vehiculos Registrados";
@@ -313,8 +313,9 @@
             this.tcVehiculos.Location = new System.Drawing.Point(0, 62);
             this.tcVehiculos.Name = "tcVehiculos";
             this.tcVehiculos.SelectedIndex = 0;
-            this.tcVehiculos.Size = new System.Drawing.Size(929, 462);
+            this.tcVehiculos.Size = new System.Drawing.Size(929, 376);
             this.tcVehiculos.TabIndex = 29;
+            this.tcVehiculos.Click += new System.EventHandler(this.dgvVeh_Fill);
             // 
             // tabPage1
             // 
@@ -323,7 +324,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(921, 436);
+            this.tabPage1.Size = new System.Drawing.Size(921, 350);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos del Vehiculo";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -332,8 +333,6 @@
             // 
             this.gbDatosVehiculo.Controls.Add(this.tbxPrecio);
             this.gbDatosVehiculo.Controls.Add(this.label11);
-            this.gbDatosVehiculo.Controls.Add(this.cantInventario);
-            this.gbDatosVehiculo.Controls.Add(this.label10);
             this.gbDatosVehiculo.Controls.Add(this.cmbColor);
             this.gbDatosVehiculo.Controls.Add(this.cmbAños);
             this.gbDatosVehiculo.Controls.Add(this.cmbCilindros);
@@ -360,7 +359,7 @@
             this.gbDatosVehiculo.Controls.Add(this.labelCilindros);
             this.gbDatosVehiculo.Location = new System.Drawing.Point(8, 16);
             this.gbDatosVehiculo.Name = "gbDatosVehiculo";
-            this.gbDatosVehiculo.Size = new System.Drawing.Size(762, 275);
+            this.gbDatosVehiculo.Size = new System.Drawing.Size(762, 288);
             this.gbDatosVehiculo.TabIndex = 30;
             this.gbDatosVehiculo.TabStop = false;
             this.gbDatosVehiculo.Text = "Datos";
@@ -371,31 +370,6 @@
             this.tbxPrecio.Name = "tbxPrecio";
             this.tbxPrecio.Size = new System.Drawing.Size(74, 20);
             this.tbxPrecio.TabIndex = 36;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(412, 98);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 13);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Precio Venta";
-            // 
-            // cantInventario
-            // 
-            this.cantInventario.Location = new System.Drawing.Point(249, 238);
-            this.cantInventario.Name = "cantInventario";
-            this.cantInventario.Size = new System.Drawing.Size(37, 20);
-            this.cantInventario.TabIndex = 34;
-            // 
-            // label10
-            // 
-            this.label10.Location = new System.Drawing.Point(173, 238);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(70, 23);
-            this.label10.TabIndex = 33;
-            this.label10.Text = "Cantidad en inventario:";
-            this.label10.UseCompatibleTextRendering = true;
             // 
             // cmbColor
             // 
@@ -461,29 +435,29 @@
             // 
             // gbOpciones
             // 
-            this.gbOpciones.Controls.Add(this.btnEliminar);
+            this.gbOpciones.Controls.Add(this.btnMod);
             this.gbOpciones.Controls.Add(this.btnCancel);
             this.gbOpciones.Controls.Add(this.btnGuardar);
             this.gbOpciones.Location = new System.Drawing.Point(787, 21);
             this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(114, 172);
+            this.gbOpciones.Size = new System.Drawing.Size(114, 126);
             this.gbOpciones.TabIndex = 29;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Opciones";
             // 
-            // btnEliminar
+            // btnMod
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(6, 59);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 23);
-            this.btnEliminar.TabIndex = 22;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            this.btnMod.Location = new System.Drawing.Point(5, 93);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(103, 23);
+            this.btnMod.TabIndex = 23;
+            this.btnMod.Text = "Modificar";
+            this.btnMod.UseVisualStyleBackColor = true;
+            this.btnMod.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(6, 93);
+            this.btnCancel.Location = new System.Drawing.Point(6, 59);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(103, 23);
             this.btnCancel.TabIndex = 20;
@@ -507,7 +481,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(921, 436);
+            this.tabPage2.Size = new System.Drawing.Size(921, 350);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vehiculos Registrados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -516,7 +490,6 @@
             // 
             this.gbRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbRegistro.Controls.Add(this.btnUpdate);
             this.gbRegistro.Controls.Add(this.tbxCampo);
             this.gbRegistro.Controls.Add(this.rbModelo);
             this.gbRegistro.Controls.Add(this.rbMarca);
@@ -528,16 +501,6 @@
             this.gbRegistro.TabIndex = 21;
             this.gbRegistro.TabStop = false;
             this.gbRegistro.Text = "Bucar por :";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(616, 51);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(76, 20);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // tbxCampo
             // 
@@ -580,13 +543,24 @@
             this.rbChasis.Text = "Chasis";
             this.rbChasis.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(412, 98);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 13);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Precio Venta";
+            // 
             // MantenimientoVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 517);
+            this.ClientSize = new System.Drawing.Size(930, 431);
             this.Controls.Add(this.tcVehiculos);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MantenimientoVehiculos";
             this.Load += new System.EventHandler(this.Vehiculos_Load);
             this.panel1.ResumeLayout(false);
@@ -597,7 +571,6 @@
             this.tabPage1.ResumeLayout(false);
             this.gbDatosVehiculo.ResumeLayout(false);
             this.gbDatosVehiculo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cantInventario)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.gbRegistro.ResumeLayout(false);
@@ -605,6 +578,7 @@
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 
@@ -642,17 +616,14 @@
         private System.Windows.Forms.RadioButton rbModelo;
         private System.Windows.Forms.RadioButton rbMarca;
         private System.Windows.Forms.RadioButton rbChasis;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox cmbPuertas;
         private System.Windows.Forms.ComboBox cmbCilindros;
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.ComboBox cmbAños;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.NumericUpDown cantInventario;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbxPrecio;
-        private System.Windows.Forms.Label label11;
+        private Button btnMod;
+        private Label label11;
     }
 }
