@@ -18,16 +18,16 @@ namespace DealerADMProject
         public MantenimientoVehiculos()
         {
             InitializeComponent();
-            
+            btnMod.Hide();
         }
 
         //Variables globales
         SQLCRUD Con = new SQLCRUD();
         string Query;
         bool WasSelected=false;
-        bool WasClicked = false;
-        
-
+        bool WasClicked= false;
+        int IdVehiculo;
+        int modelo=0;
 
         //LLena todos los combo box cuando carga la ventana de vehiculos
         private void Vehiculos_Load(object sender, EventArgs e)
@@ -84,6 +84,7 @@ namespace DealerADMProject
         private void cmbMarca_Click(object sender, EventArgs e)
         {
             WasClicked = true;
+            cmbModelo.Text="";
         }
 
         //Llena el Combo Box de Modelos cada vez que cambia la Marca
@@ -93,12 +94,14 @@ namespace DealerADMProject
             {
                 try
                 {
+                    
                     string Query = "SELECT * FROM Modelos  WHERE MarcaID =" + cmbMarca.SelectedValue;
                     cmbModelo.DataSource = Con.SELECT(Query);
                     cmbModelo.DisplayMember = "Nombre";
                     cmbModelo.ValueMember = "ModeloID";
                     cmbModelo.Text = "";
                     cmbModelo.Refresh();
+                    
                 }
                 catch
                 {
@@ -116,15 +119,23 @@ namespace DealerADMProject
         private void btnGuardar_Click(object sender, EventArgs e)
         {
                      
-            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual, PrecioAdquirido,PrecioVenta , Detalles,AñoRegistro,FechaAquisicion,Cantidad) 
-                     Values (" +"'"+ tbxChasis.Text+"'"+ "," + cmbCategoria.SelectedValue + "," +  cmbMarca.SelectedValue  + "," + cmbModelo.SelectedValue + "," + "'" + cmbColor.Text + "'" + "," + cmbPuertas.SelectedValue + "," + cmbCilindros.SelectedValue + "," +  tbxKm.Text  + "," + tbxPrecioAdq.Text + "," + tbxPrecio.Text + "," + "'" + rtbxDetalles.Text + "'" + "," + cmbAños.Text + "," + "'" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"+","+ cantInventario.Value +")";
+            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual,PrecioAdquirido,PrecioVenta,Detalles,AñoRegistro,FechaAquisicion) 
+                     Values (" +"'"+ tbxChasis.Text+"'"+ "," + cmbCategoria.SelectedValue + "," +  cmbMarca.SelectedValue  + "," + cmbModelo.SelectedValue + "," + "'" + cmbColor.Text + "'" + "," + cmbPuertas.SelectedValue + "," + cmbCilindros.SelectedValue + "," +  tbxKm.Text  + "," + tbxPrecioAdq.Text + "," + tbxPrecio.Text + "," + "'" + rtbxDetalles.Text + "'" + "," + cmbAños.Text + "," + "'" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"+")";
 
-            if (Con.INSERT(Query))
+            try
             {
-                MessageBox.Show("La informacion del vehiculo ha sido almacenada correctamente");
-                Clean_Fields();
+                if (Con.INSERT(Query))
+                {
+                    MessageBox.Show("La informacion del vehiculo ha sido almacenada correctamente");
+                    Clean_Fields();
+                }
+                else MessageBox.Show("La informacion no ha podido ser almacenada");
             }
-            else MessageBox.Show("Ha habido un error ");
+            catch 
+            {
+
+                MessageBox.Show("Ha habido un error , revise los campos");
+            }
         }
         //Eliminar un registro de la base de datos 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -158,8 +169,15 @@ namespace DealerADMProject
             if (rbChasis.Checked == true)
             {
                 
-                Query = "SELECT * From Vehiculos WHERE Chasis LIKE '%" +tbxCampo.Text + "%'";
+                Query = @"SELECT vh.ID,vh.MarcaID,vh.ModeloID,vh.CategoriaID,Chasis,mc.Nombre as Marca,md.Nombre as Modelo,ctg.Nombre as Categoria,Color,CantPuertas,CantCilindros,KmActual as KM,AñoRegistro as Año, vh.Detalles
+                From Vehiculos vh 
+                Join Marcas mc On (vh.MarcaID=mc.MarcaID) 
+                Join Modelos md On (vh.ModeloID=md.ModeloID)
+                Join Categorias ctg On (vh.CategoriaID=ctg.Id)
+                WHERE Chasis LIKE '%" +tbxCampo.Text + "%'";
                 dgvVeh.DataSource = Con.SELECT(Query);
+                dgvVeh.Columns["ID"].Visible= dgvVeh.Columns["MarcaID"].Visible = dgvVeh.Columns["ModeloID"].Visible=dgvVeh.Columns["CategoriaID"].Visible=false;
+                
             }
             else if (rbMarca.Checked == true)
             {
@@ -182,7 +200,76 @@ namespace DealerADMProject
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            // TODO: CREAR Y COMPLETAR EL BOTON UPDATE
+
+            if (WasSelected)
+            {
+                try
+                {
+
+                    Query = "UPDATE Vehiculos SET [Chasis]=" + "'" + tbxChasis.Text + "'" + ",[MarcaID]=" + "'" + cmbMarca.SelectedValue + "'" + ",[ModeloID]=" + "'" + cmbModelo.SelectedValue + "'"
+                     + ",[Color]=" + "'" + cmbColor.Text + "'" + "WHERE [ID]=" + IdVehiculo;
+
+                }
+                catch
+                {
+                    MessageBox.Show("Error al cargar informacion de modelos");
+                }
+            }
+            else
+            {
+                Query = "UPDATE Vehiculos SET [Chasis]=" + "'" + tbxChasis.Text + "'" + ",[MarcaID]=" + "'" + cmbMarca.SelectedValue + "'" + ",[ModeloID]=" + "'" + modelo + "'"
+                     + ",[Color]=" + "'" + cmbColor.Text + "'" + "WHERE [ID]=" + IdVehiculo;
+            }
+    
+            try
+            {
+                if (Con.UPDATE(Query))
+                {
+                    MessageBox.Show("Vehiculo Modificado Correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error al modificar vehiculo");
+                }
+            }
+            catch 
+            {
+
+                MessageBox.Show("Error");
+            }
+        }
+        //se mueve hacia la otra pestaña cuando se selecciona un dato del datagridview
+        private void dgvVeh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tcVehiculos.SelectedIndex = 0;
+            DataGridViewRow row = this.dgvVeh.Rows[e.RowIndex];
+            IdVehiculo = Int32.Parse(row.Cells["ID"].Value.ToString());
+            tbxChasis.Text = row.Cells["Chasis"].Value.ToString();
+            cmbMarca.Text = row.Cells["Marca"].Value.ToString();
+            cmbModelo.Text = row.Cells["Modelo"].Value.ToString();
+            cmbCategoria.Text= row.Cells["Categoria"].Value.ToString();
+            cmbAños.Text = row.Cells["Año"].Value.ToString();
+            cmbColor.Text= row.Cells["Color"].Value.ToString();
+            cmbCilindros.Text= row.Cells["CantCilindros"].Value.ToString();
+            cmbPuertas.Text = row.Cells["CantPuertas"].Value.ToString();
+            tbxKm.Text= row.Cells["Km"].Value.ToString();
+            rtbxDetalles.Text = row.Cells["Detalles"].Value.ToString();
+            modelo = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
+            btnGuardar.Hide();
+            btnMod.Show();
+        }
+
+        //LLena el dgv cuando se carga la pagina
+        private void dgvVeh_Fill(object sender, EventArgs e)
+        {
+            btnGuardar.Show();
+            Query = @"SELECT vh.ID,vh.MarcaID,vh.ModeloID,vh.CategoriaID,Chasis,mc.Nombre as Marca,md.Nombre as Modelo,ctg.Nombre as Categoria,Color,CantPuertas,CantCilindros,KmActual as KM,AñoRegistro as Año, vh.Detalles
+                From Vehiculos vh 
+                Join Marcas mc On (vh.MarcaID=mc.MarcaID) 
+                Join Modelos md On (vh.ModeloID=md.ModeloID)
+                Join Categorias ctg On (vh.CategoriaID=ctg.Id)";
+            dgvVeh.DataSource=Con.SELECT(Query);
+            dgvVeh.Columns["ID"].Visible = dgvVeh.Columns["MarcaID"].Visible = dgvVeh.Columns["ModeloID"].Visible = dgvVeh.Columns["CategoriaID"].Visible = false;
         }
 
     }
