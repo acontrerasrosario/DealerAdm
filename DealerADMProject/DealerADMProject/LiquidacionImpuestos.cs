@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace DealerADMProject
 {
@@ -85,17 +86,45 @@ namespace DealerADMProject
 
             if (Con.INSERT(Query))
             {
-                MessageBox.Show("Registro guardado exitosamente");
+                //Agrega el precio de adquisicion
+                Query = @"SELECT VehiculoID,CASE WHEN TLC=1 THEN 'DR-CAFT' END As Acuerdo,
+                    (FOB*0.02) As Seguro,(FOB+Flete+(FOB*0.02)+Otros)As CIF,
+                    CASE WHEN TLC=1THEN (FOB+Flete+(FOB*0.02)+Otros)*0.1 ELSE 0 END AS ImpuestoAduanal,
+                    CASE WHEN TLC=1 THEN (FOB+Flete+(FOB*0.02)+Otros)*0.18 ELSE ((FOB+Flete+(FOB*0.02)+Otros)+(FOB+Flete+(FOB*0.02)+Otros)*0.1)*0.18 END AS ITEBIS,Multa
+                    FROM [detalle Liquidacion]
+	                WHERE VehiculoID=" + tbxVehiculo.Text;
+
+                dt = Con.SELECT(Query);
+                decimal CIF = (decimal)dt.Rows[0]["CIF"];
+                decimal seguro = (decimal)dt.Rows[0]["Seguro"];
+                decimal Multa = (decimal)dt.Rows[0]["Multa"];
+                decimal Itebis = (decimal)dt.Rows[0]["ITEBIS"];
+
+                decimal Sum = CIF + Itebis + Multa;
+                Sum.ToString("0.00");
+                string Q = "Update Vehiculos SET [PrecioAdquirido]=" + "'" + Sum + "'" + "WHERE [ID]=" + "'" + tbxVehiculo.Text + "'";
+                if (Con.UPDATE(Q))
+                {
+                    MessageBox.Show("Registro guardado exitosamente");
+
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido almacenar el registro");
+                }
             }
             else
             {
-                MessageBox.Show("No se ha podido almacenar el registro");
+                MessageBox.Show("Revise los datos");
             }
+            
+            
+
         }
 
         private void dgvItem_View()
         {
-            Query = @"SELECT Dl.ItemID,vh.Chasis,mc.Nombre AS Marca ,md.Nombre AS Modelo,vh.AñoRegistro,vh.Color FROM  [Detalle Liquidacion] Dl
+            Query = @"SELECT Dl.ItemID,vh.Chasis,mc.Nombre AS Marca ,md.Nombre AS Modelo,vh.AñoRegistro,vh.Color,vh.PrecioAdquirido FROM  [Detalle Liquidacion] Dl
                     JOIN Vehiculos vh ON (Dl.VehiculoID=vh.ID)
                     JOIN Marcas mc ON (vh.MarcaID = mc.MarcaID)
                     JOIN Modelos md ON(vh.ModeloID = md.ModeloID)
@@ -162,6 +191,8 @@ namespace DealerADMProject
                      JOIN Marcas mc ON (vh.MarcaID = mc.MarcaID)
                      JOIN Modelos md ON(vh.ModeloID = md.ModeloID)
                      WHERE LiquidacionID=" + ID;
+
+        
 
             dgvDetalle.DataSource = Con.SELECT(Query);
             dgvDetalle.ReadOnly = true;
