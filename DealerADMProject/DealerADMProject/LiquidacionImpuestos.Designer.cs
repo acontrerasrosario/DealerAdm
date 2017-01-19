@@ -105,8 +105,8 @@
             this.label23 = new System.Windows.Forms.Label();
             this.gbDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tcLiquidacion.SuspendLayout();
             this.tpDatosLiq.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -907,17 +907,6 @@
             this.dgvDetalle.Size = new System.Drawing.Size(494, 261);
             this.dgvDetalle.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel1.Controls.Add(this.labelTitle);
-            this.panel1.Location = new System.Drawing.Point(-5, -3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 61);
-            this.panel1.TabIndex = 12;
-            // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
@@ -928,6 +917,17 @@
             this.labelTitle.Size = new System.Drawing.Size(339, 24);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "MANTENIMIENTO DE VEHICULOS";
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.labelTitle);
+            this.panel1.Location = new System.Drawing.Point(-5, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1050, 61);
+            this.panel1.TabIndex = 12;
             // 
             // LiquidacionImpuestos
             // 
@@ -972,8 +972,6 @@
         private System.Windows.Forms.TabControl tcLiquidacion;
         private System.Windows.Forms.TabPage tpDatosLiq;
         private System.Windows.Forms.TabPage tpRegLiq;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.GroupBox gbDatosVeh;
         private System.Windows.Forms.TextBox tbxChasis;
         private System.Windows.Forms.Label lblChasis;
@@ -1048,5 +1046,7 @@
         private System.Windows.Forms.TextBox tbxMulta;
         private System.Windows.Forms.Label lblMult;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Panel panel1;
     }
 }

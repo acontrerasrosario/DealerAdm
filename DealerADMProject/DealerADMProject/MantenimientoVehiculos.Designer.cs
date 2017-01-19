@@ -1,4 +1,7 @@
-﻿namespace DealerADMProject
+﻿using System;
+using System.Windows.Forms;
+
+namespace DealerADMProject
 {
     partial class MantenimientoVehiculos
     {
@@ -55,28 +58,34 @@
             this.tcVehiculos = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbDatosVehiculo = new System.Windows.Forms.GroupBox();
+            this.tbxPrecio = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.cmbAños = new System.Windows.Forms.ComboBox();
             this.cmbCilindros = new System.Windows.Forms.ComboBox();
             this.cmbPuertas = new System.Windows.Forms.ComboBox();
-            this.gbOpciones = new System.Windows.Forms.GroupBox();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnMod = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gbRegistro = new System.Windows.Forms.GroupBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.tbxCampo = new System.Windows.Forms.TextBox();
             this.rbModelo = new System.Windows.Forms.RadioButton();
             this.rbMarca = new System.Windows.Forms.RadioButton();
             this.rbChasis = new System.Windows.Forms.RadioButton();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbxPlaca = new System.Windows.Forms.TextBox();
+            this.cmbCombustible = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tcVehiculos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDatosVehiculo.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gbRegistro.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +130,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(170, 131);
+            this.label3.Location = new System.Drawing.Point(170, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 5;
@@ -130,7 +139,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 132);
+            this.label4.Location = new System.Drawing.Point(29, 164);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(26, 13);
             this.label4.TabIndex = 7;
@@ -152,7 +161,7 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelTitle.Location = new System.Drawing.Point(21, 9);
+            this.labelTitle.Location = new System.Drawing.Point(8, 9);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(339, 24);
             this.labelTitle.TabIndex = 0;
@@ -161,7 +170,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 206);
+            this.label5.Location = new System.Drawing.Point(170, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 11;
@@ -169,7 +178,7 @@
             // 
             // tbxKm
             // 
-            this.tbxKm.Location = new System.Drawing.Point(93, 206);
+            this.tbxKm.Location = new System.Drawing.Point(229, 227);
             this.tbxKm.Name = "tbxKm";
             this.tbxKm.Size = new System.Drawing.Size(58, 20);
             this.tbxKm.TabIndex = 12;
@@ -202,7 +211,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(372, 127);
+            this.label8.Location = new System.Drawing.Point(435, 129);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(45, 13);
             this.label8.TabIndex = 16;
@@ -212,12 +221,12 @@
             // 
             this.tbxPrecioAdq.Location = new System.Drawing.Point(501, 64);
             this.tbxPrecioAdq.Name = "tbxPrecioAdq";
-            this.tbxPrecioAdq.Size = new System.Drawing.Size(150, 20);
+            this.tbxPrecioAdq.Size = new System.Drawing.Size(74, 20);
             this.tbxPrecioAdq.TabIndex = 17;
             // 
             // rtbxDetalles
             // 
-            this.rtbxDetalles.Location = new System.Drawing.Point(501, 134);
+            this.rtbxDetalles.Location = new System.Drawing.Point(501, 129);
             this.rtbxDetalles.Name = "rtbxDetalles";
             this.rtbxDetalles.Size = new System.Drawing.Size(236, 98);
             this.rtbxDetalles.TabIndex = 18;
@@ -225,14 +234,19 @@
             // 
             // dgvVeh
             // 
+            this.dgvVeh.AllowUserToAddRows = false;
+            this.dgvVeh.AllowUserToDeleteRows = false;
+            this.dgvVeh.AllowUserToOrderColumns = true;
+            this.dgvVeh.AllowUserToResizeRows = false;
             this.dgvVeh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVeh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVeh.Location = new System.Drawing.Point(14, 32);
             this.dgvVeh.Name = "dgvVeh";
-            this.dgvVeh.Size = new System.Drawing.Size(892, 221);
+            this.dgvVeh.Size = new System.Drawing.Size(892, 186);
             this.dgvVeh.TabIndex = 19;
+            this.dgvVeh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
             // 
             // groupBox1
             // 
@@ -242,7 +256,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(6, 112);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(912, 276);
+            this.groupBox1.Size = new System.Drawing.Size(912, 224);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Vehiculos Registrados";
@@ -260,13 +274,13 @@
             // 
             this.tbxChasis.Location = new System.Drawing.Point(93, 30);
             this.tbxChasis.Name = "tbxChasis";
-            this.tbxChasis.Size = new System.Drawing.Size(136, 20);
+            this.tbxChasis.Size = new System.Drawing.Size(134, 20);
             this.tbxChasis.TabIndex = 22;
             // 
             // labelCilindros
             // 
             this.labelCilindros.AutoSize = true;
-            this.labelCilindros.Location = new System.Drawing.Point(29, 164);
+            this.labelCilindros.Location = new System.Drawing.Point(29, 196);
             this.labelCilindros.Name = "labelCilindros";
             this.labelCilindros.Size = new System.Drawing.Size(46, 13);
             this.labelCilindros.TabIndex = 23;
@@ -275,7 +289,7 @@
             // labelPuertas
             // 
             this.labelPuertas.AutoSize = true;
-            this.labelPuertas.Location = new System.Drawing.Point(170, 165);
+            this.labelPuertas.Location = new System.Drawing.Point(170, 197);
             this.labelPuertas.Name = "labelPuertas";
             this.labelPuertas.Size = new System.Drawing.Size(43, 13);
             this.labelPuertas.TabIndex = 24;
@@ -284,7 +298,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(372, 95);
+            this.label9.Location = new System.Drawing.Point(29, 129);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 27;
@@ -293,9 +307,9 @@
             // cmbCategoria
             // 
             this.cmbCategoria.FormattingEnabled = true;
-            this.cmbCategoria.Location = new System.Drawing.Point(501, 97);
+            this.cmbCategoria.Location = new System.Drawing.Point(93, 126);
             this.cmbCategoria.Name = "cmbCategoria";
-            this.cmbCategoria.Size = new System.Drawing.Size(121, 21);
+            this.cmbCategoria.Size = new System.Drawing.Size(134, 21);
             this.cmbCategoria.TabIndex = 28;
             // 
             // tcVehiculos
@@ -305,26 +319,34 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcVehiculos.Controls.Add(this.tabPage1);
             this.tcVehiculos.Controls.Add(this.tabPage2);
-            this.tcVehiculos.Location = new System.Drawing.Point(0, 62);
+            this.tcVehiculos.Location = new System.Drawing.Point(0, 108);
             this.tcVehiculos.Name = "tcVehiculos";
             this.tcVehiculos.SelectedIndex = 0;
-            this.tcVehiculos.Size = new System.Drawing.Size(929, 399);
+            this.tcVehiculos.Size = new System.Drawing.Size(929, 375);
             this.tcVehiculos.TabIndex = 29;
+            this.tcVehiculos.Click += new System.EventHandler(this.dgvVeh_Fill);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gbDatosVehiculo);
-            this.tabPage1.Controls.Add(this.gbOpciones);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(921, 373);
+            this.tabPage1.Size = new System.Drawing.Size(921, 349);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos del Vehiculo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // gbDatosVehiculo
             // 
+            this.gbDatosVehiculo.Controls.Add(this.cmbCombustible);
+            this.gbDatosVehiculo.Controls.Add(this.tbxPlaca);
+            this.gbDatosVehiculo.Controls.Add(this.label13);
+            this.gbDatosVehiculo.Controls.Add(this.label12);
+            this.gbDatosVehiculo.Controls.Add(this.cmbEstado);
+            this.gbDatosVehiculo.Controls.Add(this.label10);
+            this.gbDatosVehiculo.Controls.Add(this.tbxPrecio);
+            this.gbDatosVehiculo.Controls.Add(this.label11);
             this.gbDatosVehiculo.Controls.Add(this.cmbColor);
             this.gbDatosVehiculo.Controls.Add(this.cmbAños);
             this.gbDatosVehiculo.Controls.Add(this.cmbCilindros);
@@ -351,10 +373,26 @@
             this.gbDatosVehiculo.Controls.Add(this.labelCilindros);
             this.gbDatosVehiculo.Location = new System.Drawing.Point(8, 16);
             this.gbDatosVehiculo.Name = "gbDatosVehiculo";
-            this.gbDatosVehiculo.Size = new System.Drawing.Size(762, 264);
+            this.gbDatosVehiculo.Size = new System.Drawing.Size(762, 326);
             this.gbDatosVehiculo.TabIndex = 30;
             this.gbDatosVehiculo.TabStop = false;
             this.gbDatosVehiculo.Text = "Datos";
+            // 
+            // tbxPrecio
+            // 
+            this.tbxPrecio.Location = new System.Drawing.Point(501, 97);
+            this.tbxPrecio.Name = "tbxPrecio";
+            this.tbxPrecio.Size = new System.Drawing.Size(74, 20);
+            this.tbxPrecio.TabIndex = 36;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(412, 98);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 13);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Precio Venta";
             // 
             // cmbColor
             // 
@@ -376,7 +414,7 @@
             "Rojo",
             "Rojo vino",
             "Verde"});
-            this.cmbColor.Location = new System.Drawing.Point(219, 131);
+            this.cmbColor.Location = new System.Drawing.Point(219, 163);
             this.cmbColor.Name = "cmbColor";
             this.cmbColor.Size = new System.Drawing.Size(68, 21);
             this.cmbColor.TabIndex = 32;
@@ -397,7 +435,7 @@
             "2016",
             "2017",
             "2018"});
-            this.cmbAños.Location = new System.Drawing.Point(92, 131);
+            this.cmbAños.Location = new System.Drawing.Point(92, 163);
             this.cmbAños.Name = "cmbAños";
             this.cmbAños.Size = new System.Drawing.Size(69, 21);
             this.cmbAños.TabIndex = 31;
@@ -405,54 +443,47 @@
             // cmbCilindros
             // 
             this.cmbCilindros.FormattingEnabled = true;
-            this.cmbCilindros.Location = new System.Drawing.Point(93, 161);
+            this.cmbCilindros.Location = new System.Drawing.Point(92, 193);
             this.cmbCilindros.Name = "cmbCilindros";
-            this.cmbCilindros.Size = new System.Drawing.Size(68, 21);
+            this.cmbCilindros.Size = new System.Drawing.Size(69, 21);
             this.cmbCilindros.TabIndex = 30;
             // 
             // cmbPuertas
             // 
             this.cmbPuertas.FormattingEnabled = true;
-            this.cmbPuertas.Location = new System.Drawing.Point(219, 161);
+            this.cmbPuertas.Location = new System.Drawing.Point(219, 193);
             this.cmbPuertas.Name = "cmbPuertas";
             this.cmbPuertas.Size = new System.Drawing.Size(68, 21);
             this.cmbPuertas.TabIndex = 29;
             // 
-            // gbOpciones
+            // btnMod
             // 
-            this.gbOpciones.Controls.Add(this.btnEliminar);
-            this.gbOpciones.Controls.Add(this.btnCancel);
-            this.gbOpciones.Controls.Add(this.btnGuardar);
-            this.gbOpciones.Location = new System.Drawing.Point(787, 21);
-            this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(114, 172);
-            this.gbOpciones.TabIndex = 29;
-            this.gbOpciones.TabStop = false;
-            this.gbOpciones.Text = "Opciones";
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(6, 59);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(103, 23);
-            this.btnEliminar.TabIndex = 22;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnMod.Location = new System.Drawing.Point(133, 62);
+            this.btnMod.Name = "btnMod";
+            this.btnMod.Size = new System.Drawing.Size(118, 40);
+            this.btnMod.TabIndex = 23;
+            this.btnMod.Text = "Modificar";
+            this.btnMod.UseVisualStyleBackColor = true;
+            this.btnMod.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(6, 93);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Location = new System.Drawing.Point(257, 62);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(103, 23);
+            this.btnCancel.Size = new System.Drawing.Size(115, 40);
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(6, 25);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar.Location = new System.Drawing.Point(133, 62);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(103, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(118, 40);
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -465,7 +496,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(921, 373);
+            this.tabPage2.Size = new System.Drawing.Size(921, 349);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vehiculos Registrados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -474,7 +505,6 @@
             // 
             this.gbRegistro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbRegistro.Controls.Add(this.btnUpdate);
             this.gbRegistro.Controls.Add(this.tbxCampo);
             this.gbRegistro.Controls.Add(this.rbModelo);
             this.gbRegistro.Controls.Add(this.rbMarca);
@@ -486,15 +516,6 @@
             this.gbRegistro.TabIndex = 21;
             this.gbRegistro.TabStop = false;
             this.gbRegistro.Text = "Bucar por :";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(616, 51);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(76, 20);
-            this.btnUpdate.TabIndex = 5;
-            this.btnUpdate.Text = "update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
             // 
             // tbxCampo
             // 
@@ -537,13 +558,89 @@
             this.rbChasis.Text = "Chasis";
             this.rbChasis.UseVisualStyleBackColor = true;
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 62);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(115, 40);
+            this.btnNuevo.TabIndex = 30;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(29, 230);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Estado";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "DISPONIBLE",
+            "VENDIDO",
+            "TALLER"});
+            this.cmbEstado.Location = new System.Drawing.Point(92, 227);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(69, 21);
+            this.cmbEstado.TabIndex = 38;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(29, 269);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Combustible";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(173, 265);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Placa";
+            // 
+            // tbxPlaca
+            // 
+            this.tbxPlaca.Location = new System.Drawing.Point(219, 262);
+            this.tbxPlaca.Name = "tbxPlaca";
+            this.tbxPlaca.Size = new System.Drawing.Size(68, 20);
+            this.tbxPlaca.TabIndex = 41;
+            // 
+            // cmbCombustible
+            // 
+            this.cmbCombustible.FormattingEnabled = true;
+            this.cmbCombustible.Items.AddRange(new object[] {
+            "Gasolina",
+            "Gasoil",
+            "Gas licuado de petroleo (GLP)",
+            "Gas Natural"});
+            this.cmbCombustible.Location = new System.Drawing.Point(93, 261);
+            this.cmbCombustible.Name = "cmbCombustible";
+            this.cmbCombustible.Size = new System.Drawing.Size(68, 21);
+            this.cmbCombustible.TabIndex = 42;
+            // 
             // MantenimientoVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 473);
+            this.ClientSize = new System.Drawing.Size(930, 484);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnMod);
             this.Controls.Add(this.tcVehiculos);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnGuardar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "MantenimientoVehiculos";
             this.Load += new System.EventHandler(this.Vehiculos_Load);
             this.panel1.ResumeLayout(false);
@@ -554,13 +651,13 @@
             this.tabPage1.ResumeLayout(false);
             this.gbDatosVehiculo.ResumeLayout(false);
             this.gbDatosVehiculo.PerformLayout();
-            this.gbOpciones.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.gbRegistro.ResumeLayout(false);
             this.gbRegistro.PerformLayout();
             this.ResumeLayout(false);
 
         }
+
 
         #endregion
 
@@ -591,20 +688,27 @@
         private System.Windows.Forms.TabControl tcVehiculos;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox gbDatosVehiculo;
-        private System.Windows.Forms.GroupBox gbOpciones;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox gbRegistro;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox tbxCampo;
         private System.Windows.Forms.RadioButton rbModelo;
         private System.Windows.Forms.RadioButton rbMarca;
         private System.Windows.Forms.RadioButton rbChasis;
-        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.ComboBox cmbPuertas;
         private System.Windows.Forms.ComboBox cmbCilindros;
         private System.Windows.Forms.ComboBox cmbColor;
         private System.Windows.Forms.ComboBox cmbAños;
+        private System.Windows.Forms.TextBox tbxPrecio;
+        private Button btnMod;
+        private Label label11;
+        private Button btnNuevo;
+        private ComboBox cmbCombustible;
+        private TextBox tbxPlaca;
+        private Label label13;
+        private Label label12;
+        private ComboBox cmbEstado;
+        private Label label10;
     }
 }
