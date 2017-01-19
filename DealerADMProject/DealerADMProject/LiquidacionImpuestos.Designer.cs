@@ -39,8 +39,6 @@
             this.gbObervaciones = new System.Windows.Forms.GroupBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.gbDatosTramite = new System.Windows.Forms.GroupBox();
-            this.tbxOtros = new System.Windows.Forms.TextBox();
-            this.lblSerAd = new System.Windows.Forms.Label();
             this.lblConsignatario = new System.Windows.Forms.Label();
             this.tbxConsignatario = new System.Windows.Forms.TextBox();
             this.tbxDeclaracionID = new System.Windows.Forms.TextBox();
@@ -54,7 +52,6 @@
             this.dtpFechaDecl = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaLLega = new System.Windows.Forms.DateTimePicker();
             this.gbDatosVeh = new System.Windows.Forms.GroupBox();
-            this.ckbDrCafta = new System.Windows.Forms.CheckBox();
             this.tbxMulta = new System.Windows.Forms.TextBox();
             this.lblMult = new System.Windows.Forms.Label();
             this.tbxOtros = new System.Windows.Forms.TextBox();
@@ -106,23 +103,10 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.gbMulta = new System.Windows.Forms.GroupBox();
-            this.lblDecTardia = new System.Windows.Forms.Label();
             this.gbDetalles = new System.Windows.Forms.GroupBox();
             this.dgvDetalle = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.labelTitle = new System.Windows.Forms.Label();
-            this.lblMulta = new System.Windows.Forms.Label();
-            this.lblOtros = new System.Windows.Forms.Label();
-            this.lblVTotros = new System.Windows.Forms.Label();
-            this.rbLiqID = new System.Windows.Forms.RadioButton();
-            this.rbAgencia = new System.Windows.Forms.RadioButton();
-            this.rbFechallegada = new System.Windows.Forms.RadioButton();
-            this.dtpRangoInicial = new System.Windows.Forms.DateTimePicker();
-            this.dtpRangoFinal = new System.Windows.Forms.DateTimePicker();
-            this.lblMult = new System.Windows.Forms.Label();
-            this.tbxMulta = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tcLiquidacion.SuspendLayout();
             this.tpDatosLiq.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -137,8 +121,6 @@
             this.gbCampos.SuspendLayout();
             this.gbImpuestos.SuspendLayout();
             this.gbTcif.SuspendLayout();
-            this.gbxTotal.SuspendLayout();
-            this.gbMulta.SuspendLayout();
             this.gbMulta.SuspendLayout();
             this.gbxTotal.SuspendLayout();
             this.gbDetalles.SuspendLayout();
@@ -275,23 +257,6 @@
             this.gbDatosTramite.TabIndex = 1;
             this.gbDatosTramite.TabStop = false;
             this.gbDatosTramite.Text = "Datos de Tramite";
-            // 
-
-            // tbxOtros
-            // 
-            this.tbxOtros.Location = new System.Drawing.Point(101, 189);
-            this.tbxOtros.Name = "tbxOtros";
-            this.tbxOtros.Size = new System.Drawing.Size(59, 20);
-            this.tbxOtros.TabIndex = 16;
-            // 
-            // lblSerAd
-            // 
-            this.lblSerAd.AutoSize = true;
-            this.lblSerAd.Location = new System.Drawing.Point(6, 189);
-            this.lblSerAd.Name = "lblSerAd";
-            this.lblSerAd.Size = new System.Drawing.Size(96, 13);
-            this.lblSerAd.TabIndex = 15;
-            this.lblSerAd.Text = "Servicio aduanero:";
             // 
             // lblConsignatario
             // 
@@ -923,27 +888,6 @@
             this.label23.TabIndex = 0;
             this.label23.Text = "Total CIF:";
             // 
-            // gbMulta
-            // 
-            this.gbMulta.Controls.Add(this.lblMulta);
-            this.gbMulta.Controls.Add(this.lblDecTardia);
-            this.gbMulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbMulta.Location = new System.Drawing.Point(6, 190);
-            this.gbMulta.Name = "gbMulta";
-            this.gbMulta.Size = new System.Drawing.Size(234, 55);
-            this.gbMulta.TabIndex = 15;
-            this.gbMulta.TabStop = false;
-            this.gbMulta.Text = "Multas";
-            // 
-            // lblDecTardia
-            // 
-            this.lblDecTardia.AutoSize = true;
-            this.lblDecTardia.Location = new System.Drawing.Point(15, 28);
-            this.lblDecTardia.Name = "lblDecTardia";
-            this.lblDecTardia.Size = new System.Drawing.Size(115, 13);
-            this.lblDecTardia.TabIndex = 13;
-            this.lblDecTardia.Text = "Declaracion Tardia";
-            // 
             // gbDetalles
             // 
             this.gbDetalles.Controls.Add(this.dgvDetalle);
@@ -963,17 +907,6 @@
             this.dgvDetalle.Size = new System.Drawing.Size(494, 261);
             this.dgvDetalle.TabIndex = 0;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.panel1.Controls.Add(this.labelTitle);
-            this.panel1.Location = new System.Drawing.Point(-5, -3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1050, 61);
-            this.panel1.TabIndex = 12;
-            // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
@@ -985,106 +918,16 @@
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "MANTENIMIENTO DE VEHICULOS";
             // 
-            // lblMulta
+            // panel1
             // 
-            this.lblMulta.AutoSize = true;
-            this.lblMulta.Location = new System.Drawing.Point(140, 28);
-            this.lblMulta.Name = "lblMulta";
-            this.lblMulta.Size = new System.Drawing.Size(32, 13);
-            this.lblMulta.TabIndex = 14;
-            this.lblMulta.Text = "0.00";
-            // 
-            // lblOtros
-            // 
-            this.lblOtros.AutoSize = true;
-            this.lblOtros.Location = new System.Drawing.Point(47, 118);
-            this.lblOtros.Name = "lblOtros";
-            this.lblOtros.Size = new System.Drawing.Size(37, 13);
-            this.lblOtros.TabIndex = 17;
-            this.lblOtros.Text = "Otros";
-            // 
-            // lblVTotros
-            // 
-            this.lblVTotros.AutoSize = true;
-            this.lblVTotros.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVTotros.Location = new System.Drawing.Point(140, 118);
-            this.lblVTotros.Name = "lblVTotros";
-            this.lblVTotros.Size = new System.Drawing.Size(32, 13);
-            this.lblVTotros.TabIndex = 18;
-            this.lblVTotros.Text = "0.00";
-            this.lblVTotros.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rbLiqID
-            // 
-            this.rbLiqID.AutoSize = true;
-            this.rbLiqID.Location = new System.Drawing.Point(27, 15);
-            this.rbLiqID.Name = "rbLiqID";
-            this.rbLiqID.Size = new System.Drawing.Size(99, 17);
-            this.rbLiqID.TabIndex = 3;
-            this.rbLiqID.TabStop = true;
-            this.rbLiqID.Text = "No .Liquidacion";
-            this.rbLiqID.UseVisualStyleBackColor = true;
-            // 
-            // rbAgencia
-            // 
-            this.rbAgencia.AutoSize = true;
-            this.rbAgencia.Location = new System.Drawing.Point(250, 15);
-            this.rbAgencia.Name = "rbAgencia";
-            this.rbAgencia.Size = new System.Drawing.Size(64, 17);
-            this.rbAgencia.TabIndex = 4;
-            this.rbAgencia.TabStop = true;
-            this.rbAgencia.Text = "Agencia";
-            this.rbAgencia.UseVisualStyleBackColor = true;
-            // 
-            // rbFechallegada
-            // 
-            this.rbFechallegada.AutoSize = true;
-            this.rbFechallegada.Location = new System.Drawing.Point(504, 15);
-            this.rbFechallegada.Name = "rbFechallegada";
-            this.rbFechallegada.Size = new System.Drawing.Size(92, 17);
-            this.rbFechallegada.TabIndex = 5;
-            this.rbFechallegada.TabStop = true;
-            this.rbFechallegada.Text = "Fecha llegada";
-            this.rbFechallegada.UseVisualStyleBackColor = true;
-            // 
-            // dtpRangoInicial
-            // 
-            this.dtpRangoInicial.Location = new System.Drawing.Point(484, 51);
-            this.dtpRangoInicial.Name = "dtpRangoInicial";
-            this.dtpRangoInicial.Size = new System.Drawing.Size(200, 20);
-            this.dtpRangoInicial.TabIndex = 6;
-            // 
-            // dtpRangoFinal
-            // 
-            this.dtpRangoFinal.Location = new System.Drawing.Point(701, 50);
-            this.dtpRangoFinal.Name = "dtpRangoFinal";
-            this.dtpRangoFinal.Size = new System.Drawing.Size(198, 20);
-            this.dtpRangoFinal.TabIndex = 7;
-            // 
-            // lblMult
-            // 
-            this.lblMult.AutoSize = true;
-            this.lblMult.Location = new System.Drawing.Point(181, 189);
-            this.lblMult.Name = "lblMult";
-            this.lblMult.Size = new System.Drawing.Size(36, 13);
-            this.lblMult.TabIndex = 27;
-            this.lblMult.Text = "Multa:";
-            // 
-            // tbxMulta
-            // 
-            this.tbxMulta.Location = new System.Drawing.Point(232, 189);
-            this.tbxMulta.Name = "tbxMulta";
-            this.tbxMulta.Size = new System.Drawing.Size(67, 20);
-            this.tbxMulta.TabIndex = 28;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(6, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Nuevo Liquidacion";
-            this.button1.UseVisualStyleBackColor = true;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.panel1.Controls.Add(this.labelTitle);
+            this.panel1.Location = new System.Drawing.Point(-5, -3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1050, 61);
+            this.panel1.TabIndex = 12;
             // 
             // LiquidacionImpuestos
             // 
@@ -1112,10 +955,6 @@
             this.gbImpuestos.ResumeLayout(false);
             this.gbTcif.ResumeLayout(false);
             this.gbTcif.PerformLayout();
-            this.gbxTotal.ResumeLayout(false);
-            this.gbxTotal.PerformLayout();
-            this.gbMulta.ResumeLayout(false);
-            this.gbMulta.PerformLayout();
             this.gbMulta.ResumeLayout(false);
             this.gbMulta.PerformLayout();
             this.gbxTotal.ResumeLayout(false);
@@ -1133,8 +972,6 @@
         private System.Windows.Forms.TabControl tcLiquidacion;
         private System.Windows.Forms.TabPage tpDatosLiq;
         private System.Windows.Forms.TabPage tpRegLiq;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.GroupBox gbDatosVeh;
         private System.Windows.Forms.TextBox tbxChasis;
         private System.Windows.Forms.Label lblChasis;
@@ -1209,5 +1046,7 @@
         private System.Windows.Forms.TextBox tbxMulta;
         private System.Windows.Forms.Label lblMult;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelTitle;
+        private System.Windows.Forms.Panel panel1;
     }
 }

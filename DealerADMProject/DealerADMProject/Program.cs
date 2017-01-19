@@ -18,7 +18,7 @@ namespace DealerADMProject
             
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Menu());
-            // valdez was here
+            
         }
     }
 }
