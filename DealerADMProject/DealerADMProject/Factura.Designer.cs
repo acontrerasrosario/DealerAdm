@@ -66,31 +66,40 @@
             this.tbxTotal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.CantDiscount = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CantidadCompra = new System.Windows.Forms.NumericUpDown();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.dgvDetFactura = new System.Windows.Forms.DataGridView();
+            this.IdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DetalleColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChasisColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabCrearFactura = new System.Windows.Forms.TabPage();
+            this.tabFacturasCreadas = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.tbxCampo = new System.Windows.Forms.TextBox();
+            this.rbCedula = new System.Windows.Forms.RadioButton();
+            this.rbApellido = new System.Windows.Forms.RadioButton();
+            this.rbMarca = new System.Windows.Forms.RadioButton();
+            this.rbModelo = new System.Windows.Forms.RadioButton();
+            this.rbChasis = new System.Windows.Forms.RadioButton();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dgvFacturasReg = new System.Windows.Forms.DataGridView();
             this.panelHead.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CantDiscount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadCompra)).BeginInit();
-            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetFactura)).BeginInit();
             this.groupBox5.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabCrearFactura.SuspendLayout();
+            this.tabFacturasCreadas.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturasReg)).BeginInit();
             this.SuspendLayout();
             // 
             // panelHead
@@ -102,7 +111,7 @@
             this.panelHead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panelHead.Location = new System.Drawing.Point(0, 0);
             this.panelHead.Name = "panelHead";
-            this.panelHead.Size = new System.Drawing.Size(793, 79);
+            this.panelHead.Size = new System.Drawing.Size(822, 79);
             this.panelHead.TabIndex = 0;
             // 
             // label1
@@ -129,7 +138,7 @@
             this.groupBox1.Controls.Add(this.tbCedula);
             this.groupBox1.Controls.Add(this.lblCedula);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 100);
+            this.groupBox1.Location = new System.Drawing.Point(8, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(338, 184);
             this.groupBox1.TabIndex = 1;
@@ -217,6 +226,7 @@
             this.tbCedula.Name = "tbCedula";
             this.tbCedula.Size = new System.Drawing.Size(100, 20);
             this.tbCedula.TabIndex = 1;
+            this.tbCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCedula_KeyPress);
             // 
             // lblCedula
             // 
@@ -245,7 +255,7 @@
             this.groupBox2.Controls.Add(this.lblMarca);
             this.groupBox2.Controls.Add(this.lblChasis);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(368, 100);
+            this.groupBox2.Location = new System.Drawing.Point(364, 15);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(372, 184);
             this.groupBox2.TabIndex = 2;
@@ -397,9 +407,9 @@
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(12, 290);
+            this.groupBox3.Location = new System.Drawing.Point(8, 205);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(528, 149);
+            this.groupBox3.Size = new System.Drawing.Size(621, 149);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Factura";
@@ -409,7 +419,7 @@
             this.tbxDetalleVenta.Location = new System.Drawing.Point(225, 32);
             this.tbxDetalleVenta.Multiline = true;
             this.tbxDetalleVenta.Name = "tbxDetalleVenta";
-            this.tbxDetalleVenta.Size = new System.Drawing.Size(293, 93);
+            this.tbxDetalleVenta.Size = new System.Drawing.Size(383, 93);
             this.tbxDetalleVenta.TabIndex = 11;
             // 
             // label9
@@ -445,6 +455,7 @@
             this.tbxRNC.Name = "tbxRNC";
             this.tbxRNC.Size = new System.Drawing.Size(126, 20);
             this.tbxRNC.TabIndex = 3;
+            this.tbxRNC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxRNC_KeyPress);
             // 
             // tbxTotal
             // 
@@ -473,86 +484,23 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "RNC";
             // 
-            // CantDiscount
-            // 
-            this.CantDiscount.Location = new System.Drawing.Point(435, 817);
-            this.CantDiscount.Name = "CantDiscount";
-            this.CantDiscount.Size = new System.Drawing.Size(53, 20);
-            this.CantDiscount.TabIndex = 13;
-            this.CantDiscount.ValueChanged += new System.EventHandler(this.CantDiscount_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(361, 796);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
-            this.label7.TabIndex = 9;
-            this.label7.Text = "Cantidad";
-            // 
-            // CantidadCompra
-            // 
-            this.CantidadCompra.Location = new System.Drawing.Point(435, 794);
-            this.CantidadCompra.Name = "CantidadCompra";
-            this.CantidadCompra.Size = new System.Drawing.Size(53, 20);
-            this.CantidadCompra.TabIndex = 8;
-            this.CantidadCompra.ValueChanged += new System.EventHandler(this.CantidadCompra_ValueChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(361, 819);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Descuento";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.button4);
-            this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Controls.Add(this.button2);
-            this.groupBox4.Controls.Add(this.btnAgregar);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(627, 290);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(110, 158);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Opciones";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(17, 123);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Modificar";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(17, 94);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(128, 85);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(115, 40);
             this.button3.TabIndex = 2;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(17, 65);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(17, 36);
+            this.btnAgregar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.Location = new System.Drawing.Point(7, 85);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(115, 40);
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -560,78 +508,217 @@
             // 
             // dgvDetFactura
             // 
+            this.dgvDetFactura.AllowUserToAddRows = false;
             this.dgvDetFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
+            this.IdColumn,
+            this.DetalleColumn,
+            this.ChasisColumn,
+            this.PrecioColumn,
+            this.DescColumn,
+            this.TotalColumn});
             this.dgvDetFactura.Location = new System.Drawing.Point(9, 19);
             this.dgvDetFactura.Name = "dgvDetFactura";
-            this.dgvDetFactura.Size = new System.Drawing.Size(728, 185);
+            this.dgvDetFactura.Size = new System.Drawing.Size(774, 185);
             this.dgvDetFactura.TabIndex = 5;
-            this.dgvDetFactura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dgvDetFactura.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDetFactura_CellValidating);
+            this.dgvDetFactura.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetFactura_CellValueChanged);
+            this.dgvDetFactura.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetFactura_RowsAdded);
+            // 
+            // IdColumn
+            // 
+            this.IdColumn.HeaderText = "ID ITEM";
+            this.IdColumn.Name = "IdColumn";
+            this.IdColumn.ReadOnly = true;
+            // 
+            // DetalleColumn
+            // 
+            this.DetalleColumn.HeaderText = "DETALLE";
+            this.DetalleColumn.Name = "DetalleColumn";
+            this.DetalleColumn.ReadOnly = true;
+            this.DetalleColumn.Width = 230;
+            // 
+            // ChasisColumn
+            // 
+            this.ChasisColumn.HeaderText = "CHASIS";
+            this.ChasisColumn.Name = "ChasisColumn";
+            this.ChasisColumn.ReadOnly = true;
+            // 
+            // PrecioColumn
+            // 
+            this.PrecioColumn.HeaderText = "PRECIO";
+            this.PrecioColumn.Name = "PrecioColumn";
+            // 
+            // DescColumn
+            // 
+            this.DescColumn.HeaderText = "DESCUENTO";
+            this.DescColumn.Name = "DescColumn";
+            // 
+            // TotalColumn
+            // 
+            this.TotalColumn.HeaderText = "TOTAL";
+            this.TotalColumn.Name = "TotalColumn";
+            this.TotalColumn.ReadOnly = true;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.dgvDetFactura);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(12, 453);
+            this.groupBox5.Location = new System.Drawing.Point(8, 368);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(749, 222);
+            this.groupBox5.Size = new System.Drawing.Size(793, 216);
             this.groupBox5.TabIndex = 0;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detalle de Factura";
             // 
-            // Column1
+            // tabControl1
             // 
-            this.Column1.HeaderText = "ID ITEM";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
+            this.tabControl1.Controls.Add(this.tabCrearFactura);
+            this.tabControl1.Controls.Add(this.tabFacturasCreadas);
+            this.tabControl1.Location = new System.Drawing.Point(1, 131);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(821, 615);
+            this.tabControl1.TabIndex = 4;
             // 
-            // Column2
+            // tabCrearFactura
             // 
-            this.Column2.HeaderText = "DETALLE";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Width = 280;
+            this.tabCrearFactura.Controls.Add(this.groupBox2);
+            this.tabCrearFactura.Controls.Add(this.groupBox1);
+            this.tabCrearFactura.Controls.Add(this.groupBox5);
+            this.tabCrearFactura.Controls.Add(this.groupBox3);
+            this.tabCrearFactura.Location = new System.Drawing.Point(4, 22);
+            this.tabCrearFactura.Name = "tabCrearFactura";
+            this.tabCrearFactura.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCrearFactura.Size = new System.Drawing.Size(813, 589);
+            this.tabCrearFactura.TabIndex = 0;
+            this.tabCrearFactura.Text = "Creacion de Facturas";
+            this.tabCrearFactura.UseVisualStyleBackColor = true;
             // 
-            // Column3
+            // tabFacturasCreadas
             // 
-            this.Column3.HeaderText = "CHASIS";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.tabFacturasCreadas.Controls.Add(this.groupBox6);
+            this.tabFacturasCreadas.Controls.Add(this.groupBox4);
+            this.tabFacturasCreadas.Location = new System.Drawing.Point(4, 22);
+            this.tabFacturasCreadas.Name = "tabFacturasCreadas";
+            this.tabFacturasCreadas.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFacturasCreadas.Size = new System.Drawing.Size(813, 589);
+            this.tabFacturasCreadas.TabIndex = 1;
+            this.tabFacturasCreadas.Text = "Facturas Registradas";
+            this.tabFacturasCreadas.UseVisualStyleBackColor = true;
             // 
-            // Column4
+            // groupBox4
             // 
-            this.Column4.HeaderText = "CANTIDAD";
-            this.Column4.Name = "Column4";
+            this.groupBox4.Controls.Add(this.rbChasis);
+            this.groupBox4.Controls.Add(this.rbModelo);
+            this.groupBox4.Controls.Add(this.rbMarca);
+            this.groupBox4.Controls.Add(this.rbApellido);
+            this.groupBox4.Controls.Add(this.rbCedula);
+            this.groupBox4.Controls.Add(this.tbxCampo);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(19, 16);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(732, 82);
+            this.groupBox4.TabIndex = 0;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Buscar por:";
             // 
-            // Column5
+            // tbxCampo
             // 
-            this.Column5.HeaderText = "DESCUENTO";
-            this.Column5.Name = "Column5";
+            this.tbxCampo.Location = new System.Drawing.Point(53, 49);
+            this.tbxCampo.Name = "tbxCampo";
+            this.tbxCampo.Size = new System.Drawing.Size(595, 20);
+            this.tbxCampo.TabIndex = 0;
+            this.tbxCampo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // rbCedula
+            // 
+            this.rbCedula.AutoSize = true;
+            this.rbCedula.Location = new System.Drawing.Point(77, 29);
+            this.rbCedula.Name = "rbCedula";
+            this.rbCedula.Size = new System.Drawing.Size(64, 17);
+            this.rbCedula.TabIndex = 1;
+            this.rbCedula.TabStop = true;
+            this.rbCedula.Text = "Cedula";
+            this.rbCedula.UseVisualStyleBackColor = true;
+            // 
+            // rbApellido
+            // 
+            this.rbApellido.AutoSize = true;
+            this.rbApellido.Location = new System.Drawing.Point(200, 29);
+            this.rbApellido.Name = "rbApellido";
+            this.rbApellido.Size = new System.Drawing.Size(70, 17);
+            this.rbApellido.TabIndex = 2;
+            this.rbApellido.TabStop = true;
+            this.rbApellido.Text = "Apellido";
+            this.rbApellido.UseVisualStyleBackColor = true;
+            // 
+            // rbMarca
+            // 
+            this.rbMarca.AutoSize = true;
+            this.rbMarca.Location = new System.Drawing.Point(330, 29);
+            this.rbMarca.Name = "rbMarca";
+            this.rbMarca.Size = new System.Drawing.Size(60, 17);
+            this.rbMarca.TabIndex = 3;
+            this.rbMarca.TabStop = true;
+            this.rbMarca.Text = "Marca";
+            this.rbMarca.UseVisualStyleBackColor = true;
+            // 
+            // rbModelo
+            // 
+            this.rbModelo.AutoSize = true;
+            this.rbModelo.Location = new System.Drawing.Point(452, 29);
+            this.rbModelo.Name = "rbModelo";
+            this.rbModelo.Size = new System.Drawing.Size(66, 17);
+            this.rbModelo.TabIndex = 4;
+            this.rbModelo.TabStop = true;
+            this.rbModelo.Text = "Modelo";
+            this.rbModelo.UseVisualStyleBackColor = true;
+            // 
+            // rbChasis
+            // 
+            this.rbChasis.AutoSize = true;
+            this.rbChasis.Location = new System.Drawing.Point(568, 29);
+            this.rbChasis.Name = "rbChasis";
+            this.rbChasis.Size = new System.Drawing.Size(62, 17);
+            this.rbChasis.TabIndex = 5;
+            this.rbChasis.TabStop = true;
+            this.rbChasis.Text = "Chasis";
+            this.rbChasis.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dgvFacturasReg);
+            this.groupBox6.Location = new System.Drawing.Point(19, 146);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(767, 412);
+            this.groupBox6.TabIndex = 1;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Datos Clientes";
+            // 
+            // dgvFacturasReg
+            // 
+            this.dgvFacturasReg.AllowUserToAddRows = false;
+            this.dgvFacturasReg.AllowUserToDeleteRows = false;
+            this.dgvFacturasReg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFacturasReg.Location = new System.Drawing.Point(17, 20);
+            this.dgvFacturasReg.Name = "dgvFacturasReg";
+            this.dgvFacturasReg.ReadOnly = true;
+            this.dgvFacturasReg.Size = new System.Drawing.Size(729, 368);
+            this.dgvFacturasReg.TabIndex = 0;
             // 
             // Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(794, 695);
-            this.Controls.Add(this.CantDiscount);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.CantidadCompra);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(823, 745);
+            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.panelHead);
             this.Name = "Factura";
             this.Text = "Facturacion de vehiculos";
-            this.Load += new System.EventHandler(this.Factura_Load);
             this.panelHead.ResumeLayout(false);
             this.panelHead.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -640,13 +727,16 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CantDiscount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadCompra)).EndInit();
-            this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetFactura)).EndInit();
             this.groupBox5.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabCrearFactura.ResumeLayout(false);
+            this.tabFacturasCreadas.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFacturasReg)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -688,23 +778,29 @@
         private System.Windows.Forms.TextBox tbxTotal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbxDetalleVenta;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.NumericUpDown CantidadCompra;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.NumericUpDown CantDiscount;
         private System.Windows.Forms.DataGridView dgvDetFactura;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DetalleColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ChasisColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalColumn;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabCrearFactura;
+        private System.Windows.Forms.TabPage tabFacturasCreadas;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.TextBox tbxCampo;
+        private System.Windows.Forms.RadioButton rbCedula;
+        private System.Windows.Forms.RadioButton rbApellido;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.DataGridView dgvFacturasReg;
+        private System.Windows.Forms.RadioButton rbChasis;
+        private System.Windows.Forms.RadioButton rbModelo;
+        private System.Windows.Forms.RadioButton rbMarca;
     }
 }

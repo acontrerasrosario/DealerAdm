@@ -42,5 +42,7 @@ namespace DealerADMProject
             Factura f = new Factura();
             f.Show();
         }
+
+        
     }
 }
