@@ -16,6 +16,7 @@ namespace DealerADMProject
         public Factura()
         {
             InitializeComponent();
+            FillFacturas();
             SETFechaVencimiento();
         }
 
@@ -81,6 +82,19 @@ namespace DealerADMProject
             }
             
 
+        }
+
+
+        void FillFacturas()
+        {
+            Query = "SELECT c.ID, c.Nombre+' '+c.Apellido AS Nombre, f.ID AS FACTURAID, f.RNC , f.Total, df.VehiculoID, ma.Nombre+' '+mo.Nombre  AS DESCRIPCION,df.Precio, df.Descuento  FROM Facturas f join Clientes c ON(f.ClienteID=c.ID) " +
+                      "join[Detalle Factura] df ON(df.FacturaID = f.ID) " +
+                      "join Vehiculos v ON(df.VehiculoID = v.ID) " +
+                      "join Marcas ma ON(v.MarcaID = ma.MarcaID) " +
+                      "JOIN Modelos mo ON(v.ModeloID = mo.ModeloID) " +
+                      "WHERE c.Apellido LIKE" + "'%" + tbxCampo.Text + "%' AND DATEDIFF(day, GETDATE(), f.FechaVencimiento) > 5";
+
+            dgvFacturasReg.DataSource = Con.SELECT(Query);
         }
 
         bool CheckExist(int id)
@@ -251,6 +265,71 @@ namespace DealerADMProject
                 {
                     // the input is numeric 
                 }
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            string Query;
+            if (rbCedula.Checked == true)
+            {
+                Query = "SELECT c.ID, c.Nombre+' '+c.Apellido AS Nombre, f.ID AS FACTURAID, f.RNC , f.Total, df.VehiculoID, ma.Nombre+' '+mo.Nombre  AS DESCRIPCION,df.Precio, df.Descuento  FROM Facturas f join Clientes c ON(f.ClienteID=c.ID) " +
+                        "join[Detalle Factura] df ON(df.FacturaID = f.ID) "+
+                        "join Vehiculos v ON(df.VehiculoID = v.ID) "+
+                        "join Marcas ma ON(v.MarcaID = ma.MarcaID) "+
+                        "JOIN Modelos mo ON(v.ModeloID = mo.ModeloID) "+
+                        "WHERE c.Cedula LIKE" + "'%" + tbxCampo.Text + "%' AND DATEDIFF(day, GETDATE(), f.FechaVencimiento) > 5";
+
+                dgvFacturasReg.DataSource = Con.SELECT(Query);
+            }
+            else if (rbApellido.Checked == true)
+            {
+                Query = "SELECT c.ID, c.Nombre+' '+c.Apellido AS Nombre, f.ID AS FACTURAID, f.RNC , f.Total, df.VehiculoID, ma.Nombre+' '+mo.Nombre  AS DESCRIPCION,df.Precio, df.Descuento  FROM Facturas f join Clientes c ON(f.ClienteID=c.ID) " +
+                       "join[Detalle Factura] df ON(df.FacturaID = f.ID) " +
+                       "join Vehiculos v ON(df.VehiculoID = v.ID) " +
+                       "join Marcas ma ON(v.MarcaID = ma.MarcaID) " +
+                       "JOIN Modelos mo ON(v.ModeloID = mo.ModeloID) " +
+                       "WHERE c.Apellido LIKE" + "'%" + tbxCampo.Text + "%' AND DATEDIFF(day, GETDATE(), f.FechaVencimiento) > 5";
+
+                dgvFacturasReg.DataSource = Con.SELECT(Query);
+            }
+            else if (rbMarca.Checked == true)
+            {
+                Query = "SELECT c.ID, c.Nombre+' '+c.Apellido AS Nombre, f.ID AS FACTURAID, f.RNC , f.Total, df.VehiculoID, ma.Nombre+' '+mo.Nombre  AS DESCRIPCION,df.Precio, df.Descuento  FROM Facturas f join Clientes c ON(f.ClienteID=c.ID) " +
+                       "join[Detalle Factura] df ON(df.FacturaID = f.ID) " +
+                       "join Vehiculos v ON(df.VehiculoID = v.ID) " +
+                       "join Marcas ma ON(v.MarcaID = ma.MarcaID) " +
+                       "JOIN Modelos mo ON(v.ModeloID = mo.ModeloID) " +
+                       "WHERE ma.Nombre LIKE" + "'%" + tbxCampo.Text + "%' AND DATEDIFF(day, GETDATE(), f.FechaVencimiento) > 5";
+
+                dgvFacturasReg.DataSource = Con.SELECT(Query);
+            }
+            else if (rbModelo.Checked == true)
+            {
+                Query = "SELECT c.ID, c.Nombre+' '+c.Apellido AS Nombre, f.ID AS FACTURAID, f.RNC , f.Total, df.VehiculoID, ma.Nombre+' '+mo.Nombre  AS DESCRIPCION,df.Precio, df.Descuento  FROM Facturas f join Clientes c ON(f.ClienteID=c.ID) " +
+                       "join[Detalle Factura] df ON(df.FacturaID = f.ID) " +
+                       "join Vehiculos v ON(df.VehiculoID = v.ID) " +
+                       "join Marcas ma ON(v.MarcaID = ma.MarcaID) " +
+                       "JOIN Modelos mo ON(v.ModeloID = mo.ModeloID) " +
+                       "WHERE mo.Nombre LIKE" + "'%" + tbxCampo.Text + "%' AND DATEDIFF(day, GETDATE(), f.FechaVencimiento) > 5";
+
+                dgvFacturasReg.DataSource = Con.SELECT(Query);
+            }
+            else if (rbChasis.Checked == true)
+            {
+                Query = "SELECT c.ID, c.Nombre+' '+c.Apellido AS Nombre, f.ID AS FACTURAID, f.RNC , f.Total, df.VehiculoID, ma.Nombre+' '+mo.Nombre AS DESCRIPCION ,df.Precio, df.Descuento  FROM Facturas f join Clientes c ON(f.ClienteID=c.ID) " +
+                       "join[Detalle Factura] df ON(df.FacturaID = f.ID) " +
+                       "join Vehiculos v ON(df.VehiculoID = v.ID) " +
+                       "join Marcas ma ON(v.MarcaID = ma.MarcaID) " +
+                       "JOIN Modelos mo ON(v.ModeloID = mo.ModeloID) " +
+                       "WHERE v.Chasis LIKE" + "'%" + tbxCampo.Text + "%' AND DATEDIFF(day, GETDATE(), f.FechaVencimiento) > 5";
+
+                dgvFacturasReg.DataSource = Con.SELECT(Query);
+            }
+            else
+            {
+                MessageBox.Show("Porfavor, seleccione un campo");
             }
         }
 

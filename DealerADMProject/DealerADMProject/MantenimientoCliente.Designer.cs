@@ -408,6 +408,7 @@
             this.tbxCampo.Name = "tbxCampo";
             this.tbxCampo.Size = new System.Drawing.Size(550, 20);
             this.tbxCampo.TabIndex = 4;
+            this.tbxCampo.Text = "`";
             this.tbxCampo.TextChanged += new System.EventHandler(this.tbxCampo_TextChanged);
             this.tbxCampo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxCampo_KeyPress);
             // 
