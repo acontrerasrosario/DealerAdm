@@ -37,6 +37,23 @@ namespace DealerADMProject
             dgvVeh.DataSource = Con.SELECT(Query);
         }
 
+        bool emptydata()
+        {
+
+            if (string.IsNullOrEmpty(tbxChasis.Text) || string.IsNullOrEmpty(cmbCilindros.Text) ||
+                string.IsNullOrEmpty(cmbMarca.Text) || string.IsNullOrEmpty(cmbPuertas.Text) ||
+                string.IsNullOrEmpty(cmbCategoria.Text) || string.IsNullOrEmpty(cmbEstado.Text) ||
+                string.IsNullOrEmpty(cmbAños.Text) || string.IsNullOrEmpty(tbxKm.Text) ||
+                string.IsNullOrEmpty(cmbCombustible.Text) || string.IsNullOrEmpty(tbxPrecioAdq.Text))
+            {
+                return true;
+
+            }
+
+            return false;
+
+        }
+
         //LLena todos los combo box cuando carga la ventana de vehiculos
         private void Vehiculos_Load(object sender, EventArgs e)
         {
@@ -127,8 +144,10 @@ namespace DealerADMProject
         private void btnGuardar_Click(object sender, EventArgs e)
         {
                      
-            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual,PrecioAdquirido,PrecioVenta,Detalles,AñoRegistro,FechaAquisicion) 
-                     Values (" +"'"+ tbxChasis.Text+"'"+ "," + cmbCategoria.SelectedValue + "," +  cmbMarca.SelectedValue  + "," + cmbModelo.SelectedValue + "," + "'" + cmbColor.Text + "'" + "," + cmbPuertas.SelectedValue + "," + cmbCilindros.SelectedValue + "," +  tbxKm.Text  + "," + tbxPrecioAdq.Text + "," + tbxPrecio.Text + "," + "'" + rtbxDetalles.Text + "'" + "," + cmbAños.Text + "," + "'" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"+")";
+            Query = @"INSERT INTO Vehiculos(Chasis,CategoriaID,MarcaID,ModeloID,Color,CantPuertas,CantCilindros,KmActual,PrecioAdquirido,PrecioVenta,Detalles,AñoRegistro,FechaAquisicion,Estado,Combustible,Placa) 
+                     Values (" +"'"+ tbxChasis.Text+"'"+ "," + cmbCategoria.SelectedValue + "," +  cmbMarca.SelectedValue  + "," + cmbModelo.SelectedValue + "," + "'" + cmbColor.Text + "'" + "," + cmbPuertas.SelectedValue + 
+                     "," + cmbCilindros.SelectedValue + "," +  tbxKm.Text  + "," + tbxPrecioAdq.Text + "," + tbxPrecio.Text + "," + "'" + rtbxDetalles.Text + "'" + "," + cmbAños.Text + "," + "'" + dtpAdqusicion.Value.ToString("MM-dd-yyyy") +"'"
+                     +","+"'"+cmbEstado.Text+"'"+","+"'"+cmbCombustible.Text+"'"+","+"'"+tbxPlaca.Text+"'"+")";
 
             try
             {
@@ -146,28 +165,15 @@ namespace DealerADMProject
                 MessageBox.Show("Ha habido un error , revise los campos");
             }
         }
-        //Eliminar un registro de la base de datos 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-                Con.DELETE("Vehiculos", "Chasis=" + "'"+this.tbxChasis.Text+"'");
-                MessageBox.Show("El cliente ha sido eliminado satisfactoriamente");
-                Clean_Fields();
-            }
-            catch
-            {
-                MessageBox.Show("Error al eliminar vehiculo");
-            }
-
-        }
-
+       
         // Limpia los valores del formulario de Vehiculos
         public void Clean_Fields()
         {
-            this.tbxChasis.Text = this.tbxKm.Text = this.tbxPrecioAdq.Text =this.rtbxDetalles.Text= "";
+            this.tbxChasis.Text = this.tbxKm.Text = this.tbxPrecioAdq.Text =this.rtbxDetalles.Text = this.cmbModelo.Text = this.cmbAños.Text = this.cmbColor.Text = this.cmbCilindros.Text = this.cmbPuertas.Text = "";
             this.cmbMarca.SelectedValue = this.cmbAños.SelectedValue = this.cmbColor.SelectedValue = this.cmbModelo.SelectedValue = this.cmbCategoria.SelectedValue = 0;
+            
+            
+
         }
   
         
@@ -209,43 +215,50 @@ namespace DealerADMProject
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
-            if (WasSelected)
+            if (!emptydata())
             {
+                if (WasSelected)
+                {
+                    try
+                    {
+
+                        Query = "UPDATE Vehiculos SET [Chasis]=" + "'" + tbxChasis.Text + "'" + ",[MarcaID]=" + "'" + cmbMarca.SelectedValue + "'" + ",[ModeloID]=" + "'" + cmbModelo.SelectedValue + "'"
+                         + ",[Color]=" + "'" + cmbColor.Text + "'" +",[Estado]="+"'"+cmbEstado.Text+"'"+",[Combustible]="+"'"+cmbCombustible.Text+"'"+",[Placa]="+"'"+tbxPlaca.Text+"'"+ "WHERE [ID]=" + IdVehiculo;
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al cargar informacion de modelos");
+                    }
+                }
+                else
+                {
+                    Query = "UPDATE Vehiculos SET [Chasis]=" + "'" + tbxChasis.Text + "'" + ",[MarcaID]=" + "'" + cmbMarca.SelectedValue + "'" + ",[ModeloID]=" + "'" + modelo + "'"
+                         + ",[Color]=" + "'" + cmbColor.Text + "'" + ",[Estado]=" + "'" + cmbEstado.Text + "'" + ",[Combustible]=" + "'" + cmbCombustible.Text + "'" + ",[Placa]=" + "'" + tbxPlaca.Text + "'"+  "WHERE [ID]=" + IdVehiculo;
+                }
+
                 try
                 {
-
-                    Query = "UPDATE Vehiculos SET [Chasis]=" + "'" + tbxChasis.Text + "'" + ",[MarcaID]=" + "'" + cmbMarca.SelectedValue + "'" + ",[ModeloID]=" + "'" + cmbModelo.SelectedValue + "'"
-                     + ",[Color]=" + "'" + cmbColor.Text + "'" + "WHERE [ID]=" + IdVehiculo;
-
+                    if (Con.UPDATE(Query))
+                    {
+                        MessageBox.Show("Vehiculo Modificado Correctamente");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al modificar vehiculo");
+                    }
                 }
                 catch
                 {
-                    MessageBox.Show("Error al cargar informacion de modelos");
+
+                    MessageBox.Show("Error");
                 }
             }
             else
             {
-                Query = "UPDATE Vehiculos SET [Chasis]=" + "'" + tbxChasis.Text + "'" + ",[MarcaID]=" + "'" + cmbMarca.SelectedValue + "'" + ",[ModeloID]=" + "'" + modelo + "'"
-                     + ",[Color]=" + "'" + cmbColor.Text + "'" + "WHERE [ID]=" + IdVehiculo;
+                MessageBox.Show("Llenar los campos necesarios");
             }
-    
-            try
-            {
-                if (Con.UPDATE(Query))
-                {
-                    MessageBox.Show("Vehiculo Modificado Correctamente");
-                }
-                else
-                {
-                    MessageBox.Show("Error al modificar vehiculo");
-                }
-            }
-            catch 
-            {
-
-                MessageBox.Show("Error");
-            }
+           
         }
         //se mueve hacia la otra pestaña cuando se selecciona un dato del datagridview
        
@@ -278,11 +291,23 @@ namespace DealerADMProject
             cmbPuertas.Text = row.Cells["CantPuertas"].Value.ToString();
             tbxKm.Text = row.Cells["Km"].Value.ToString();
             rtbxDetalles.Text = row.Cells["Detalles"].Value.ToString();
-            cmbModelo.SelectedValue = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
-            cmbMarca.SelectedValue = Int32.Parse(row.Cells["MarcaID"].Value.ToString());
+            //cmbModelo.SelectedValue = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
+            //cmbMarca.SelectedValue = Int32.Parse(row.Cells["MarcaID"].Value.ToString());
             tcVehiculos.SelectedIndex = 0;
             btnGuardar.Hide();
             btnMod.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnNuevo_Click_1(object sender, EventArgs e)
+        {
+            Clean_Fields();
+            btnMod.Visible = false;
+            btnGuardar.Visible = true;
         }
     }
 }

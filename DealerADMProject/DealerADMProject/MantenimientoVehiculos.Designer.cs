@@ -64,7 +64,6 @@ namespace DealerADMProject
             this.cmbAños = new System.Windows.Forms.ComboBox();
             this.cmbCilindros = new System.Windows.Forms.ComboBox();
             this.cmbPuertas = new System.Windows.Forms.ComboBox();
-            this.gbOpciones = new System.Windows.Forms.GroupBox();
             this.btnMod = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -74,13 +73,19 @@ namespace DealerADMProject
             this.rbModelo = new System.Windows.Forms.RadioButton();
             this.rbMarca = new System.Windows.Forms.RadioButton();
             this.rbChasis = new System.Windows.Forms.RadioButton();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbEstado = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbxPlaca = new System.Windows.Forms.TextBox();
+            this.cmbCombustible = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.tcVehiculos.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gbDatosVehiculo.SuspendLayout();
-            this.gbOpciones.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.gbRegistro.SuspendLayout();
             this.SuspendLayout();
@@ -156,7 +161,7 @@ namespace DealerADMProject
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.labelTitle.Location = new System.Drawing.Point(21, 9);
+            this.labelTitle.Location = new System.Drawing.Point(8, 9);
             this.labelTitle.Name = "labelTitle";
             this.labelTitle.Size = new System.Drawing.Size(339, 24);
             this.labelTitle.TabIndex = 0;
@@ -165,7 +170,7 @@ namespace DealerADMProject
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 238);
+            this.label5.Location = new System.Drawing.Point(170, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 11;
@@ -173,7 +178,7 @@ namespace DealerADMProject
             // 
             // tbxKm
             // 
-            this.tbxKm.Location = new System.Drawing.Point(93, 238);
+            this.tbxKm.Location = new System.Drawing.Point(229, 227);
             this.tbxKm.Name = "tbxKm";
             this.tbxKm.Size = new System.Drawing.Size(58, 20);
             this.tbxKm.TabIndex = 12;
@@ -229,13 +234,17 @@ namespace DealerADMProject
             // 
             // dgvVeh
             // 
+            this.dgvVeh.AllowUserToAddRows = false;
+            this.dgvVeh.AllowUserToDeleteRows = false;
+            this.dgvVeh.AllowUserToOrderColumns = true;
+            this.dgvVeh.AllowUserToResizeRows = false;
             this.dgvVeh.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvVeh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVeh.Location = new System.Drawing.Point(14, 32);
             this.dgvVeh.Name = "dgvVeh";
-            this.dgvVeh.Size = new System.Drawing.Size(892, 165);
+            this.dgvVeh.Size = new System.Drawing.Size(892, 186);
             this.dgvVeh.TabIndex = 19;
             this.dgvVeh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
             // 
@@ -310,27 +319,32 @@ namespace DealerADMProject
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tcVehiculos.Controls.Add(this.tabPage1);
             this.tcVehiculos.Controls.Add(this.tabPage2);
-            this.tcVehiculos.Location = new System.Drawing.Point(0, 62);
+            this.tcVehiculos.Location = new System.Drawing.Point(0, 108);
             this.tcVehiculos.Name = "tcVehiculos";
             this.tcVehiculos.SelectedIndex = 0;
-            this.tcVehiculos.Size = new System.Drawing.Size(929, 376);
+            this.tcVehiculos.Size = new System.Drawing.Size(929, 375);
             this.tcVehiculos.TabIndex = 29;
             this.tcVehiculos.Click += new System.EventHandler(this.dgvVeh_Fill);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.gbDatosVehiculo);
-            this.tabPage1.Controls.Add(this.gbOpciones);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(921, 350);
+            this.tabPage1.Size = new System.Drawing.Size(921, 349);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Datos del Vehiculo";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // gbDatosVehiculo
             // 
+            this.gbDatosVehiculo.Controls.Add(this.cmbCombustible);
+            this.gbDatosVehiculo.Controls.Add(this.tbxPlaca);
+            this.gbDatosVehiculo.Controls.Add(this.label13);
+            this.gbDatosVehiculo.Controls.Add(this.label12);
+            this.gbDatosVehiculo.Controls.Add(this.cmbEstado);
+            this.gbDatosVehiculo.Controls.Add(this.label10);
             this.gbDatosVehiculo.Controls.Add(this.tbxPrecio);
             this.gbDatosVehiculo.Controls.Add(this.label11);
             this.gbDatosVehiculo.Controls.Add(this.cmbColor);
@@ -359,7 +373,7 @@ namespace DealerADMProject
             this.gbDatosVehiculo.Controls.Add(this.labelCilindros);
             this.gbDatosVehiculo.Location = new System.Drawing.Point(8, 16);
             this.gbDatosVehiculo.Name = "gbDatosVehiculo";
-            this.gbDatosVehiculo.Size = new System.Drawing.Size(762, 288);
+            this.gbDatosVehiculo.Size = new System.Drawing.Size(762, 326);
             this.gbDatosVehiculo.TabIndex = 30;
             this.gbDatosVehiculo.TabStop = false;
             this.gbDatosVehiculo.Text = "Datos";
@@ -429,9 +443,9 @@ namespace DealerADMProject
             // cmbCilindros
             // 
             this.cmbCilindros.FormattingEnabled = true;
-            this.cmbCilindros.Location = new System.Drawing.Point(93, 193);
+            this.cmbCilindros.Location = new System.Drawing.Point(92, 193);
             this.cmbCilindros.Name = "cmbCilindros";
-            this.cmbCilindros.Size = new System.Drawing.Size(68, 21);
+            this.cmbCilindros.Size = new System.Drawing.Size(69, 21);
             this.cmbCilindros.TabIndex = 30;
             // 
             // cmbPuertas
@@ -442,23 +456,12 @@ namespace DealerADMProject
             this.cmbPuertas.Size = new System.Drawing.Size(68, 21);
             this.cmbPuertas.TabIndex = 29;
             // 
-            // gbOpciones
-            // 
-            this.gbOpciones.Controls.Add(this.btnMod);
-            this.gbOpciones.Controls.Add(this.btnCancel);
-            this.gbOpciones.Controls.Add(this.btnGuardar);
-            this.gbOpciones.Location = new System.Drawing.Point(787, 21);
-            this.gbOpciones.Name = "gbOpciones";
-            this.gbOpciones.Size = new System.Drawing.Size(114, 126);
-            this.gbOpciones.TabIndex = 29;
-            this.gbOpciones.TabStop = false;
-            this.gbOpciones.Text = "Opciones";
-            // 
             // btnMod
             // 
-            this.btnMod.Location = new System.Drawing.Point(5, 90);
+            this.btnMod.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnMod.Location = new System.Drawing.Point(133, 62);
             this.btnMod.Name = "btnMod";
-            this.btnMod.Size = new System.Drawing.Size(103, 23);
+            this.btnMod.Size = new System.Drawing.Size(118, 40);
             this.btnMod.TabIndex = 23;
             this.btnMod.Text = "Modificar";
             this.btnMod.UseVisualStyleBackColor = true;
@@ -466,18 +469,21 @@ namespace DealerADMProject
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(6, 59);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Location = new System.Drawing.Point(257, 62);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(103, 23);
+            this.btnCancel.Size = new System.Drawing.Size(115, 40);
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(6, 25);
+            this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnGuardar.Location = new System.Drawing.Point(133, 62);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(103, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(118, 40);
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -490,7 +496,7 @@ namespace DealerADMProject
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(921, 350);
+            this.tabPage2.Size = new System.Drawing.Size(921, 349);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Vehiculos Registrados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -552,13 +558,87 @@ namespace DealerADMProject
             this.rbChasis.Text = "Chasis";
             this.rbChasis.UseVisualStyleBackColor = true;
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnNuevo.Location = new System.Drawing.Point(12, 62);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(115, 40);
+            this.btnNuevo.TabIndex = 30;
+            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click_1);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(29, 230);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 13);
+            this.label10.TabIndex = 37;
+            this.label10.Text = "Estado";
+            // 
+            // cmbEstado
+            // 
+            this.cmbEstado.FormattingEnabled = true;
+            this.cmbEstado.Items.AddRange(new object[] {
+            "DISPONIBLE",
+            "VENDIDO",
+            "TALLER"});
+            this.cmbEstado.Location = new System.Drawing.Point(92, 227);
+            this.cmbEstado.Name = "cmbEstado";
+            this.cmbEstado.Size = new System.Drawing.Size(69, 21);
+            this.cmbEstado.TabIndex = 38;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(29, 269);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Combustible";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(173, 265);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(34, 13);
+            this.label13.TabIndex = 40;
+            this.label13.Text = "Placa";
+            // 
+            // tbxPlaca
+            // 
+            this.tbxPlaca.Location = new System.Drawing.Point(219, 262);
+            this.tbxPlaca.Name = "tbxPlaca";
+            this.tbxPlaca.Size = new System.Drawing.Size(68, 20);
+            this.tbxPlaca.TabIndex = 41;
+            // 
+            // cmbCombustible
+            // 
+            this.cmbCombustible.FormattingEnabled = true;
+            this.cmbCombustible.Items.AddRange(new object[] {
+            "Gasolina",
+            "Gasoil",
+            "Gas licuado de petroleo (GLP)",
+            "Gas Natural"});
+            this.cmbCombustible.Location = new System.Drawing.Point(93, 261);
+            this.cmbCombustible.Name = "cmbCombustible";
+            this.cmbCombustible.Size = new System.Drawing.Size(68, 21);
+            this.cmbCombustible.TabIndex = 42;
+            // 
             // MantenimientoVehiculos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 431);
+            this.ClientSize = new System.Drawing.Size(930, 484);
+            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnMod);
             this.Controls.Add(this.tcVehiculos);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnGuardar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "MantenimientoVehiculos";
@@ -571,7 +651,6 @@ namespace DealerADMProject
             this.tabPage1.ResumeLayout(false);
             this.gbDatosVehiculo.ResumeLayout(false);
             this.gbDatosVehiculo.PerformLayout();
-            this.gbOpciones.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.gbRegistro.ResumeLayout(false);
             this.gbRegistro.PerformLayout();
@@ -609,7 +688,6 @@ namespace DealerADMProject
         private System.Windows.Forms.TabControl tcVehiculos;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.GroupBox gbDatosVehiculo;
-        private System.Windows.Forms.GroupBox gbOpciones;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox gbRegistro;
         private System.Windows.Forms.TextBox tbxCampo;
@@ -625,5 +703,12 @@ namespace DealerADMProject
         private System.Windows.Forms.TextBox tbxPrecio;
         private Button btnMod;
         private Label label11;
+        private Button btnNuevo;
+        private ComboBox cmbCombustible;
+        private TextBox tbxPlaca;
+        private Label label13;
+        private Label label12;
+        private ComboBox cmbEstado;
+        private Label label10;
     }
 }

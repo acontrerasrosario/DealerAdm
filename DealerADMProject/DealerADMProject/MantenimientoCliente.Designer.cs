@@ -147,6 +147,7 @@
             this.tbxProvincia.Name = "tbxProvincia";
             this.tbxProvincia.Size = new System.Drawing.Size(153, 20);
             this.tbxProvincia.TabIndex = 13;
+            this.tbxProvincia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxProvincia_KeyPress);
             // 
             // tbxEmail
             // 
@@ -168,6 +169,7 @@
             this.tbxApellido.Name = "tbxApellido";
             this.tbxApellido.Size = new System.Drawing.Size(153, 20);
             this.tbxApellido.TabIndex = 10;
+            this.tbxApellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxApellido_KeyPress);
             // 
             // tbxNombre
             // 
@@ -175,6 +177,7 @@
             this.tbxNombre.Name = "tbxNombre";
             this.tbxNombre.Size = new System.Drawing.Size(153, 20);
             this.tbxNombre.TabIndex = 9;
+            this.tbxNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxNombre_KeyPress);
             // 
             // tbxCedula
             // 
@@ -370,6 +373,9 @@
             // 
             // dgvCliente
             // 
+            this.dgvCliente.AllowUserToAddRows = false;
+            this.dgvCliente.AllowUserToDeleteRows = false;
+            this.dgvCliente.AllowUserToResizeRows = false;
             this.dgvCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

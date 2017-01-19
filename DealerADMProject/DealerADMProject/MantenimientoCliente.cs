@@ -31,46 +31,79 @@ namespace DealerADMProject
             btnGuardar.Visible = true;
         }
 
+        bool emptydata()
+        {
+            
+            if (string.IsNullOrEmpty(tbxCedula.Text) || string.IsNullOrEmpty(tbxApellido.Text) || 
+                string.IsNullOrEmpty(tbxNombre.Text) || string.IsNullOrEmpty(tbxDireccion.Text) || 
+                string.IsNullOrEmpty(cmbEstado.Text) || string.IsNullOrEmpty(tbxEmail.Text) || 
+                string.IsNullOrEmpty(mtbxTelfono.Text) || string.IsNullOrEmpty(tbxProvincia.Text) ||
+                string.IsNullOrEmpty(tbxCalle.Text))
+            {
+                return true;
+
+            }
+
+            return false;
+           
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            string Query = @"INSERT INTO Clientes(Cedula, Nombre, Apellido, Email, Telefono, Provincia, Calle, Direccion, Comentario,Estado) 
-                        Values ('" + tbxCedula.Text + "','" + tbxNombre.Text + "','" + tbxApellido.Text + "','" + tbxEmail.Text + "','" + mtbxTelfono.Text + "','" + tbxProvincia.Text + "','" + tbxCalle.Text + "','" + tbxDireccion.Text + "','" + rtbComentario.Text +"','"+cmbEstado.Text+ "')";
-            if (Con.INSERT(Query))
+            if (!emptydata())
             {
-                MessageBox.Show("Cliente registrado correctamente");
-                Clean_Fields();
-                FillDataGRID();
+                string Query = @"INSERT INTO Clientes(Cedula, Nombre, Apellido, Email, Telefono, Provincia, Calle, Direccion, Comentario,Estado) 
+                        Values ('" + tbxCedula.Text + "','" + tbxNombre.Text + "','" + tbxApellido.Text + "','" + tbxEmail.Text + "','" + mtbxTelfono.Text + "','" + tbxProvincia.Text + "','" + tbxCalle.Text + "','" + tbxDireccion.Text + "','" + rtbComentario.Text + "','" + cmbEstado.Text + "')";
+                if (Con.INSERT(Query))
+                {
+                    MessageBox.Show("Cliente registrado correctamente");
+                    Clean_Fields();
+                    FillDataGRID();
+                }
+                else
+                {
+                    MessageBox.Show("Error No se pudo alcemanar el usuario");
+                }
             }
             else
             {
-                MessageBox.Show("Error No se pudo alcemanar el usuario");
+                MessageBox.Show("llenar todos los campos.");
             }
+
+            
         }
 
         //Elimina un registro con la cedula
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (!emptydata())
+            {
+                try
+                {
+                    if (rtbComentario.Equals("") || rtbComentario.Equals(" ") || rtbComentario.Equals(null))
+                    {
+                        rtbComentario.Text = null;
+                    }
+                    String Query = "UPDATE Clientes SET[Nombre] =" + "'" + tbxNombre.Text + "'" + ", [Apellido] =" + "'" + tbxApellido.Text + "'" + ", [Email] =" + "'" + tbxEmail.Text + "'" + ", [Cedula] =" + "'" + tbxCedula.Text + "'" + ", [Telefono] =" + "'" + mtbxTelfono.Text + "'" + ", [Calle] =" + "'" + tbxCalle.Text + "'" + ", [Provincia] =" + "'" + tbxProvincia.Text + "'" + ", [Direccion] =" + "'" + tbxDireccion.Text + "'" + ", [Comentario] =" + "'" + rtbComentario.Text + "'" + ", [Estado] = " + "'" + cmbEstado.Text + "'" + " WHERE[ID] =" + idCliente;
+                    if (Con.UPDATE(Query))
+                    {
+                        MessageBox.Show("Cliente Modificado Correctamente");
+                        Clean_Fields();
+                        FillDataGRID();
+                        tbcCliente.SelectedIndex = 1;
+                    }
 
-            try 
-            {
-                if(rtbComentario.Equals("") || rtbComentario.Equals(" ") || rtbComentario.Equals(null))
-                {
-                    rtbComentario.Text = null;
                 }
-                String Query = "UPDATE Clientes SET[Nombre] =" +"'"+tbxNombre.Text+"'"+", [Apellido] ="+"'"+tbxApellido.Text+"'" +", [Email] ="+"'"+tbxEmail.Text+"'"+", [Cedula] ="+ "'"+tbxCedula.Text+"'"+", [Telefono] ="+ "'"+mtbxTelfono.Text+"'"+", [Calle] ="+ "'"+tbxCalle.Text+"'"+", [Provincia] ="+ "'"+tbxProvincia.Text+"'"+", [Direccion] ="+ "'"+tbxDireccion.Text+"'"+", [Comentario] ="+ "'"+rtbComentario.Text+"'"+", [Estado] = " + "'" + cmbEstado.Text + "'" + " WHERE[ID] ="+idCliente;
-                if (Con.UPDATE(Query))
+                catch
                 {
-                    MessageBox.Show("Cliente Modificado Correctamente");
-                    Clean_Fields();
-                    FillDataGRID();
-                    tbcCliente.SelectedIndex = 1;
+                    MessageBox.Show("Error al modificar usuario");
                 }
-                
             }
-            catch
+            else
             {
-                MessageBox.Show("Error al eliminar usuario");
+                MessageBox.Show("Llenar campos ");
             }
+           
 
         }
 
@@ -123,7 +156,6 @@ namespace DealerADMProject
         private void tbxCedula_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8; // el 8 es el backspace
-
         }
 
         private void mtbxTelfono_KeyPress(object sender, KeyPressEventArgs e)
@@ -174,6 +206,19 @@ namespace DealerADMProject
            
         }
 
-       
+        private void tbxNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void tbxApellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
+
+        private void tbxProvincia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+        }
     }
 }
