@@ -208,6 +208,7 @@
             this.tbCedula.Name = "tbCedula";
             this.tbCedula.Size = new System.Drawing.Size(100, 20);
             this.tbCedula.TabIndex = 1;
+            this.tbCedula.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCedula_KeyPress);
             // 
             // lblCedula
             // 
@@ -436,6 +437,7 @@
             this.tbxRNC.Name = "tbxRNC";
             this.tbxRNC.Size = new System.Drawing.Size(126, 20);
             this.tbxRNC.TabIndex = 3;
+            this.tbxRNC.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbxRNC_KeyPress);
             // 
             // tbxTotal
             // 
@@ -473,6 +475,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Cancelar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnAgregar
             // 
@@ -500,6 +503,7 @@
             this.dgvDetFactura.Name = "dgvDetFactura";
             this.dgvDetFactura.Size = new System.Drawing.Size(774, 185);
             this.dgvDetFactura.TabIndex = 5;
+            this.dgvDetFactura.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgvDetFactura_CellValidating);
             this.dgvDetFactura.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetFactura_CellValueChanged);
             this.dgvDetFactura.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvDetFactura_RowsAdded);
             // 

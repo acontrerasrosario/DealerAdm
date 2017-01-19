@@ -221,6 +221,39 @@ namespace DealerADMProject
 
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void tbCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8; // el 8 es el backspace
+        }
+
+        private void tbxRNC_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8; // el 8 es el backspace
+        }
+
+        private void dgvDetFactura_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 3 || e.ColumnIndex == 4) // 1 should be your column index
+            {
+                int i;
+
+                if (!int.TryParse(Convert.ToString(e.FormattedValue), out i))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("please enter numeric");
+                }
+                else
+                {
+                    // the input is numeric 
+                }
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
 
