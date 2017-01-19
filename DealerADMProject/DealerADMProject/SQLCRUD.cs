@@ -21,6 +21,7 @@ namespace DealerADMProject
                 using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                 {
                      i=cmd.ExecuteNonQuery();
+                     
                 }
             }
             if (i > 0)

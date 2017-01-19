@@ -59,6 +59,7 @@ namespace DealerADMProject
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.gbDatosVehiculo = new System.Windows.Forms.GroupBox();
             this.tbxPrecio = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.cmbColor = new System.Windows.Forms.ComboBox();
             this.cmbAños = new System.Windows.Forms.ComboBox();
             this.cmbCilindros = new System.Windows.Forms.ComboBox();
@@ -73,7 +74,6 @@ namespace DealerADMProject
             this.rbModelo = new System.Windows.Forms.RadioButton();
             this.rbMarca = new System.Windows.Forms.RadioButton();
             this.rbChasis = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVeh)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -237,7 +237,7 @@ namespace DealerADMProject
             this.dgvVeh.Name = "dgvVeh";
             this.dgvVeh.Size = new System.Drawing.Size(892, 165);
             this.dgvVeh.TabIndex = 19;
-            this.dgvVeh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
+            this.dgvVeh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
             // 
             // groupBox1
             // 
@@ -371,6 +371,15 @@ namespace DealerADMProject
             this.tbxPrecio.Size = new System.Drawing.Size(74, 20);
             this.tbxPrecio.TabIndex = 36;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(412, 98);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(68, 13);
+            this.label11.TabIndex = 35;
+            this.label11.Text = "Precio Venta";
+            // 
             // cmbColor
             // 
             this.cmbColor.FormattingEnabled = true;
@@ -447,7 +456,7 @@ namespace DealerADMProject
             // 
             // btnMod
             // 
-            this.btnMod.Location = new System.Drawing.Point(5, 93);
+            this.btnMod.Location = new System.Drawing.Point(5, 90);
             this.btnMod.Name = "btnMod";
             this.btnMod.Size = new System.Drawing.Size(103, 23);
             this.btnMod.TabIndex = 23;
@@ -542,15 +551,6 @@ namespace DealerADMProject
             this.rbChasis.TabStop = true;
             this.rbChasis.Text = "Chasis";
             this.rbChasis.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(412, 98);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 13);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Precio Venta";
             // 
             // MantenimientoVehiculos
             // 

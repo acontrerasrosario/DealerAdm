@@ -21,11 +21,11 @@ namespace DealerADMProject
 
         SQLCRUD Con = new SQLCRUD();
         DataTable dt = new DataTable();
-        int clienteid;
+        string Query;
+        int clienteid, facturaid;
         int vehiculoid;
-        double quantity, unitprice, totalamount;
+        double unitprice, totalamount;
         double discount;
-        double d;
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
@@ -62,14 +62,37 @@ namespace DealerADMProject
             }
         }
 
-        void fillGridDetFactura(int id, string detalle, string chasis)
+        void fillGridDetFactura(int id, string detalle, string chasis, double precio)
         {
             ArrayList row = new ArrayList();
             row.Add(id);
             row.Add(detalle);
             row.Add(chasis);
-            dgvDetFactura.Rows.Add(row.ToArray());
+            row.Add(precio);
+            row.Add(0);
+            row.Add(precio);
+            if (!CheckExist(id))
+            {
+                dgvDetFactura.Rows.Add(row.ToArray());
+            }
+            else
+            {
+                MessageBox.Show("Vehiculo ya existe en factura");
+            }
+            
 
+        }
+
+        bool CheckExist(int id)
+        {
+            for (int i = 0; i < dgvDetFactura.Rows.Count; i++)
+            {
+                if (dgvDetFactura.Rows[i].Cells[0].Value != null && id == int.Parse(dgvDetFactura.Rows[i].Cells[0].Value.ToString()))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // aqui se busca el vehiculo por numero de chasis
@@ -80,22 +103,39 @@ namespace DealerADMProject
                 string Query = "SELECT ve.ID ,Ma.Nombre AS MARCA, mo.Nombre AS MODELO, ve.AñoRegistro AS AÑO, ca.Nombre AS CATEGORIA, ve.Color AS COLOR, ve.PrecioVenta AS PRECIO " +
                                 "FROM Vehiculos ve join Modelos mo ON (ve.ModeloID = mo.ModeloID) " +
                                 "JOIN Marcas ma ON(mo.MarcaID = ma.MarcaID) JOIN Categorias ca ON(ca.Id = ve.CategoriaID) " +
-                                "WHERE ve.Chasis = " + "'" + tbxChasis.Text + "'";
+                                "WHERE ve.Chasis = " + "'" + tbxChasis.Text + "'" + "AND ve.Estado !=" + "'VENDIDO'";
+
                 dt = Con.SELECT(Query);
-                foreach (DataRow item in dt.Rows)
+                if (dt != null)
                 {
-                    tbxMarca.Text = item["MARCA"].ToString();
-                    tbxModelo.Text = item["MODELO"].ToString();
-                    tbxAño.Text = item["AÑO"].ToString();
-                    tbxCat.Text = item["CATEGORIA"].ToString();
-                    tbxColor.Text = item["COLOR"].ToString();
-                    tbxPrecio.Text =  item["PRECIO"].ToString();
-                    unitprice = double.Parse(item["PRECIO"].ToString());
-                    vehiculoid = Convert.ToInt32(item["ID"]);
-                    fillGridDetFactura(vehiculoid, tbxMarca.Text + " " + tbxModelo.Text + " " + tbxAño.Text, tbxChasis.Text);
+                    if(dt.Rows.Count > 0)
+                    {
+                        foreach (DataRow item in dt.Rows)
+                        {
+                            tbxMarca.Text = item["MARCA"].ToString();
+                            tbxModelo.Text = item["MODELO"].ToString();
+                            tbxAño.Text = item["AÑO"].ToString();
+                            tbxCat.Text = item["CATEGORIA"].ToString();
+                            tbxColor.Text = item["COLOR"].ToString();
+                            tbxPrecio.Text = item["PRECIO"].ToString();
+                            unitprice = double.Parse(item["PRECIO"].ToString());
+                            vehiculoid = Convert.ToInt32(item["ID"]);
 
+                            fillGridDetFactura(vehiculoid, tbxMarca.Text + " " + tbxModelo.Text + " " + tbxAño.Text, tbxChasis.Text, unitprice);
+
+                        }
+                       
+                    }
+                    else
+                    {
+                        MessageBox.Show("Este carro no esta disponible para venta");
+                    }
                 }
-
+                else
+                {
+                    MessageBox.Show("Este carro no esta disponible para venta");
+                }
+               
             }
             catch
             {
@@ -103,107 +143,138 @@ namespace DealerADMProject
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void dgvDetFactura_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            
-            string fecha = System.DateTime.Now.ToString();
-                       
-            string QueryVenta = @"INSERT INTO Venta(ClienteID,VehiculoID,FechaVenta,PrecioVenta,PrecioFinal,DetalleVenta) 
-                     Values ("+clienteid+","+vehiculoid+","+"'"+fecha+"'"+","+tbxPrecio.Text+","+tbxTotal.Text+","+"'"+tbxDetalleVenta.Text+"'"+")";
-
-            bool proceder = false;
-            
-            if (Con.INSERT(QueryVenta))
+            double TotalSum = 0;
+            if(dgvDetFactura.Rows.Count > 0)
             {
-
-                int idVenta = Validar.ValidarIDVENTA((fecha));
-                string QueryFactura = @"INSERT INTO Facturas(VentaID,ClienteID,EmpleadoID,RNC,FechaVencimiento,Total)
-                     Values (" + idVenta + "," + clienteid + "," + 1 + "," + "'" + tbxRNC.Text + "'" + "," + "'" + Convert.ToDateTime(FechaVencimiento.Text) + "'" + "," + tbxTotal.Text + ")";
-                if (Con.INSERT(QueryFactura))
+                unitprice = double.Parse(dgvDetFactura.Rows[e.RowIndex].Cells["PrecioColumn"].Value.ToString());
+                discount = double.Parse(dgvDetFactura.Rows[e.RowIndex].Cells["DescColumn"].Value.ToString());
+                if (discount == 0)
                 {
-                    string QueryDetFactura = @"INSERT INTO [Detalle Factura](FacturaID,VehiculoID,Cantidad,Descuento,Precio)
-                     Values (" + Validar.ValidarIDFactura(idVenta) + "," + vehiculoid + "," + CantidadCompra.Value + "," + CantDiscount.Value + "," + tbxTotal.Text + ")";
-                    
-                    
+
+                    dgvDetFactura.Rows[e.RowIndex].Cells["TotalColumn"].Value = (unitprice).ToString();
+                }
+                else
+                {
+                    totalamount = (unitprice - ((unitprice * discount) / 100));
+                    dgvDetFactura.Rows[e.RowIndex].Cells["TotalColumn"].Value = (totalamount).ToString();
                 }
 
-                else
-                    MessageBox.Show("Ha habido un error en la factura");
+               
 
-
-
+                for (int i = 0; i < dgvDetFactura.Rows.Count; i++)
+                {
+                    TotalSum += Convert.ToDouble(dgvDetFactura.Rows[i].Cells["TotalColumn"].Value);
+                }
+                
+                 
+    
             }
-            else
-                MessageBox.Show("Ha habido un error en la venta");
+
+            tbxTotal.Text = TotalSum.ToString();
+
+
+
+
         }
 
         void cleanAll()
         {
             this.tbxTotal.Text = this.tbxRNC.Text = this.tbxPrecio.Text = this.tbxModelo.Text = this.tbxMarca.Text = this.tbxDetalleVenta.Text = this.tbxColor.Text = this.tbxChasis.Text = this.tbxCat.Text = this.tbxAño.Text = "";
-            this.CantidadCompra.Value = this.CantDiscount.Value = 0;
             SETFechaVencimiento();
         }
 
-        private void CantDiscount_ValueChanged(object sender, EventArgs e)
+        private void dgvDetFactura_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            discount = Convert.ToDouble(CantDiscount.Value);
-            quantity = Convert.ToDouble(CantidadCompra.Value);
-
-            d = quantity * unitprice;
-            if (discount == 0)
+            double TotalSum = 0;
+            if (dgvDetFactura.Rows.Count > 0)
             {
-                totalamount = d;
-            }
-            else
-            {
-                totalamount = (d) - ((d *(discount)) / 100);
+
+
+                unitprice = double.Parse(dgvDetFactura.Rows[e.RowIndex].Cells["PrecioColumn"].Value.ToString());
+                discount = double.Parse(dgvDetFactura.Rows[e.RowIndex].Cells["DescColumn"].Value.ToString());
+                if (discount == 0)
+                {
+
+                    dgvDetFactura.Rows[e.RowIndex].Cells["TotalColumn"].Value = (unitprice).ToString();
+                }
+                else
+                {
+                    totalamount = (unitprice - ((unitprice * discount) / 100));
+                    dgvDetFactura.Rows[e.RowIndex].Cells["TotalColumn"].Value = (totalamount).ToString();
+                }
+
+
+
+                for (int i = 0; i < dgvDetFactura.Rows.Count; i++)
+                {
+                    TotalSum += Convert.ToDouble(dgvDetFactura.Rows[i].Cells["TotalColumn"].Value);
+                }
+
+
 
             }
 
-            tbxTotal.Text = totalamount.ToString();
+            tbxTotal.Text = TotalSum.ToString();
+
+
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void Factura_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CantidadCompra_ValueChanged(object sender, EventArgs e)
-        {
-            discount = Convert.ToDouble(CantDiscount.Value);
-            quantity = Convert.ToDouble(CantidadCompra.Value);
-
-            d = quantity * unitprice;
-            if (discount == 0)
+            try
             {
-                totalamount = d;
+
+
+                string QueryFactura = "INSERT INTO Facturas(ClienteID,EmpleadoID,RNC,FechaVencimiento,Total)" +
+                    "Values(" + clienteid + "," + 1 + "," + "'" + tbxRNC.Text + "'" + "," + "'" + Convert.ToDateTime(FechaVencimiento.Text) + "'" + "," + Convert.ToDouble(tbxTotal.Text) + ")";
+
+                
+
+                if (Con.INSERT(QueryFactura))
+                {
+                    dt = Con.SELECT("SELECT TOP 1 ID FROM Facturas ORDER BY ID desc");
+
+                    foreach (DataRow item in dt.Rows)
+                    {
+                        facturaid = Int32.Parse(item["ID"].ToString());
+                    }
+                    // CREANDO DETALLE FACTURA
+                    for (int i = 0; i < dgvDetFactura.Rows.Count; i++)
+                    {
+                        string QueryDetFactura = "INSERT INTO [Detalle Factura](FacturaID,VehiculoID,Descuento,Precio)" +
+                        "Values(" + facturaid + "," + (Convert.ToInt32(dgvDetFactura.Rows[i].Cells["IdColumn"].Value.ToString())) + "," + (Convert.ToInt32(dgvDetFactura.Rows[i].Cells["DescColumn"].Value.ToString())) + "," + (Convert.ToInt32(dgvDetFactura.Rows[i].Cells["PrecioColumn"].Value.ToString())) + ")";
+
+                        if (Con.INSERT(QueryDetFactura))
+                        {
+                            if(i == dgvDetFactura.Rows.Count-1)
+                            {
+                                MessageBox.Show("La compra fue hecha con exito");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error en el detalle de factura");
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error creando factura");
+                }
             }
-            else
+            catch
             {
-                totalamount = ((d * discount) / 100);
+                MessageBox.Show("Error agregando factura");
             }
-
-            tbxTotal.Text = totalamount.ToString();
-
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && e.KeyChar != (char)8; // el 8 es el backspace
-            
-               
-            
-        
         }
-        /*
-* TODO 
-* ARREGLAR BOTONES
-* DE ELIMINAR, CANCELAR Y MODIFICAR
-*/
     }
 }

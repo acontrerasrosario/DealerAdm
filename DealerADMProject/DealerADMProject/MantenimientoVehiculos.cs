@@ -18,6 +18,7 @@ namespace DealerADMProject
         public MantenimientoVehiculos()
         {
             InitializeComponent();
+            showAllAvaibleVehicule();
             btnMod.Hide();
         }
 
@@ -27,7 +28,14 @@ namespace DealerADMProject
         bool WasSelected=false;
         bool WasClicked= false;
         int IdVehiculo;
-        int modelo=0;
+        int modelo;
+        int indexRow;
+
+        void showAllAvaibleVehicule()
+        {
+            Query = "SELECT * FROM VEHICULOS";
+            dgvVeh.DataSource = Con.SELECT(Query);
+        }
 
         //LLena todos los combo box cuando carga la ventana de vehiculos
         private void Vehiculos_Load(object sender, EventArgs e)
@@ -128,6 +136,7 @@ namespace DealerADMProject
                 {
                     MessageBox.Show("La informacion del vehiculo ha sido almacenada correctamente");
                     Clean_Fields();
+                    tcVehiculos.SelectedIndex = 1;
                 }
                 else MessageBox.Show("La informacion no ha podido ser almacenada");
             }
@@ -239,25 +248,7 @@ namespace DealerADMProject
             }
         }
         //se mueve hacia la otra pestaña cuando se selecciona un dato del datagridview
-        private void dgvVeh_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            tcVehiculos.SelectedIndex = 0;
-            DataGridViewRow row = this.dgvVeh.Rows[e.RowIndex];
-            IdVehiculo = Int32.Parse(row.Cells["ID"].Value.ToString());
-            tbxChasis.Text = row.Cells["Chasis"].Value.ToString();
-            cmbMarca.Text = row.Cells["Marca"].Value.ToString();
-            cmbModelo.Text = row.Cells["Modelo"].Value.ToString();
-            cmbCategoria.Text= row.Cells["Categoria"].Value.ToString();
-            cmbAños.Text = row.Cells["Año"].Value.ToString();
-            cmbColor.Text= row.Cells["Color"].Value.ToString();
-            cmbCilindros.Text= row.Cells["CantCilindros"].Value.ToString();
-            cmbPuertas.Text = row.Cells["CantPuertas"].Value.ToString();
-            tbxKm.Text= row.Cells["Km"].Value.ToString();
-            rtbxDetalles.Text = row.Cells["Detalles"].Value.ToString();
-            modelo = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
-            btnGuardar.Hide();
-            btnMod.Show();
-        }
+       
 
         //LLena el dgv cuando se carga la pagina
         private void dgvVeh_Fill(object sender, EventArgs e)
@@ -272,5 +263,26 @@ namespace DealerADMProject
             dgvVeh.Columns["ID"].Visible = dgvVeh.Columns["MarcaID"].Visible = dgvVeh.Columns["ModeloID"].Visible = dgvVeh.Columns["CategoriaID"].Visible = false;
         }
 
+        private void dgvVeh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            indexRow = e.RowIndex;
+            DataGridViewRow row = this.dgvVeh.Rows[e.RowIndex];
+            IdVehiculo = Int32.Parse(row.Cells["ID"].Value.ToString());
+            tbxChasis.Text = row.Cells["Chasis"].Value.ToString();
+            cmbMarca.Text = row.Cells["Marca"].Value.ToString();
+            cmbModelo.Text = row.Cells["Modelo"].Value.ToString();
+            cmbCategoria.Text = row.Cells["Categoria"].Value.ToString();
+            cmbAños.Text = row.Cells["Año"].Value.ToString();
+            cmbColor.Text = row.Cells["Color"].Value.ToString();
+            cmbCilindros.Text = row.Cells["CantCilindros"].Value.ToString();
+            cmbPuertas.Text = row.Cells["CantPuertas"].Value.ToString();
+            tbxKm.Text = row.Cells["Km"].Value.ToString();
+            rtbxDetalles.Text = row.Cells["Detalles"].Value.ToString();
+            cmbModelo.SelectedValue = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
+            cmbMarca.SelectedValue = Int32.Parse(row.Cells["MarcaID"].Value.ToString());
+            tcVehiculos.SelectedIndex = 0;
+            btnGuardar.Hide();
+            btnMod.Show();
+        }
     }
 }
