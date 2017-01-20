@@ -28,7 +28,7 @@ namespace DealerADMProject
         bool WasSelected=false;
         bool WasClicked= false;
         int IdVehiculo;
-        int modelo;
+        int modelo = 0;
         int indexRow;
 
         void showAllAvaibleVehicule()
@@ -267,7 +267,7 @@ namespace DealerADMProject
         private void dgvVeh_Fill(object sender, EventArgs e)
         {
             btnGuardar.Show();
-            Query = @"SELECT vh.ID,vh.MarcaID,vh.ModeloID,vh.CategoriaID,Chasis,mc.Nombre as Marca,md.Nombre as Modelo,ctg.Nombre as Categoria,Color,CantPuertas,CantCilindros,KmActual as KM,AñoRegistro as Año, vh.Detalles
+            Query = @"SELECT vh.ID,vh.MarcaID,vh.ModeloID,vh.CategoriaID,Chasis,mc.Nombre as Marca,md.Nombre as Modelo,ctg.Nombre as Categoria,Color,CantPuertas,CantCilindros,KmActual as KM,AñoRegistro as Año, vh.Detalles, vh.Placa, vh.Combustible, vh.Estado, vh.PrecioVenta, vh.PrecioAdquirido
                 From Vehiculos vh 
                 Join Marcas mc On (vh.MarcaID=mc.MarcaID) 
                 Join Modelos md On (vh.ModeloID=md.ModeloID)
@@ -291,8 +291,13 @@ namespace DealerADMProject
             cmbPuertas.Text = row.Cells["CantPuertas"].Value.ToString();
             tbxKm.Text = row.Cells["Km"].Value.ToString();
             rtbxDetalles.Text = row.Cells["Detalles"].Value.ToString();
-            //cmbModelo.SelectedValue = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
-            //cmbMarca.SelectedValue = Int32.Parse(row.Cells["MarcaID"].Value.ToString());
+            cmbModelo.SelectedValue = Int32.Parse(row.Cells["ModeloID"].Value.ToString());
+            cmbMarca.SelectedValue = Int32.Parse(row.Cells["MarcaID"].Value.ToString());
+            cmbEstado.Text = row.Cells["Estado"].Value.ToString();
+            cmbCombustible.Text = row.Cells["Combustible"].Value.ToString();
+            tbxPlaca.Text = row.Cells["Placa"].Value.ToString();
+            tbxPrecio.Text = row.Cells["PrecioVenta"].Value.ToString();
+            tbxPrecioAdq.Text = row.Cells["PrecioAdquirido"].Value.ToString();
             tcVehiculos.SelectedIndex = 0;
             btnGuardar.Hide();
             btnMod.Show();
